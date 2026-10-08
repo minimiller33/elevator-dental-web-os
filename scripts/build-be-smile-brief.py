@@ -28,7 +28,7 @@ styles={
  'title':ParagraphStyle('title',fontName='Bold',fontSize=12.4,leading=16,textColor=INK),
  'note':ParagraphStyle('note',fontName='Body',fontSize=10.2,leading=14.4,textColor=INK),
 }
-# These 30 retained points follow the reviewed checklist. The two removed points
+# These 29 retained points follow the reviewed checklist. The two removed points
 # (original 06.02 and 08.01) are intentionally omitted and retained points renumbered; Hector's additions are integrated.
 def item(id,title,questions,deliver):return dict(id=id,title=title,q=questions,deliver=deliver)
 PAGES=[
@@ -44,10 +44,6 @@ PAGES=[
  '¿Cuál es el correo de contacto que debe mostrarse al público?',
  '¿Qué ciudades o barrios atienden y en qué idiomas pueden atender realmente a un paciente?'
  ],'Correo público, zonas de atención y listado de idiomas disponibles. Precisar si algún idioma depende de la disponibilidad de un profesional.'),
- item('01.04','Responsable de información y aprobación',[
- '¿Quién reunirá y entregará el material de BE SMILE?',
- '¿Quién aprobará los textos, precios e información clínica antes de publicar? Indiquen nombre, cargo y contacto.'
- ],'Responsable principal y aprobadores. Si son personas distintas, indicar qué revisa cada una.'),
  ]),
  dict(section='02',title='Presentación de la clínica',intro='Pueden responder en texto o con un audio claro. Elevator redactará el contenido a partir de información real y aprobada.',items=[
  item('02.01','Historia y pacientes',[
@@ -168,7 +164,7 @@ PAGES=[
 
 c=canvas.Canvas(str(OUT),pagesize=(W,H),pageCompression=1)
 c.setTitle('BE SMILE | Preguntas y requerimientos para crear su web')
-c.setAuthor('Elevator Dental Web');c.setSubject('Brief de 30 puntos adaptado a la revisión de Héctor. Identidad, tratamientos, materiales, agenda y documentación.')
+c.setAuthor('Elevator Dental Web');c.setSubject('Brief de 29 puntos adaptado a la revisión de Héctor. Identidad, tratamientos, materiales, agenda y documentación.')
 
 images={}
 def img(name):
@@ -227,7 +223,7 @@ para('La información, los archivos y las aprobaciones que necesitamos para cons
 # Colored topographic lines based on the brand's angular isotype, no altered logo.
 drawimg('Isotipo/ISOTIPO_COLOR.png',W-160,211,111)
 c.setFillColor(BLUE);c.rect(M,316,83,4,fill=1,stroke=0)
-c.setFillColor(white);c.setFont('Bold',20);c.drawString(M,279,'30 puntos. 7 áreas de trabajo.')
+c.setFillColor(white);c.setFont('Bold',20);c.drawString(M,279,'29 puntos. 7 áreas de trabajo.')
 c.setFillColor(HexColor('#AEBACE'));c.setFont('Body',10)
 c.drawString(M,252,'Marca · Clínica · Equipo · Tratamientos')
 c.drawString(M,232,'Tecnología · Material visual · Agenda y legales')
@@ -248,7 +244,7 @@ for n,p in enumerate(PAGES,2):
 # Delivery page / operational checklist.
 y=header(10,'ENTREGA','Cómo reunir la información','Entreguen un documento con las respuestas numeradas y una carpeta compartida con acceso para el equipo de Elevator.')
 c.setFillColor(LIGHT);c.roundRect(M,y-69,CW,69,7,fill=1,stroke=0)
-para('<b>En el documento de respuestas</b><br/>Identificar BE SMILE, responsable, fecha y versión. Responder los 30 puntos; marcar lo pendiente con responsable y fecha. Añadir el enlace de cada archivo o subcarpeta.',M+15,y-13,CW-30)
+para('<b>En el documento de respuestas</b><br/>Identificar BE SMILE, fecha y versión. Responder los 29 puntos; marcar lo pendiente con responsable y fecha. Añadir el enlace de cada archivo o subcarpeta.',M+15,y-13,CW-30)
 y-=90
 c.setFillColor(BLUE);c.setFont('Bold',10);c.drawString(M,y,'CARPETA COMPARTIDA: BE-SMILE / WEB');y-=25
 folders=[
@@ -276,4 +272,4 @@ h=para('Fuentes oficiales consultadas el 8 de octubre de 2026. La modalidad depe
 if y<62:raise ValueError(f'Delivery page overflow {y}')
 c.showPage();c.save()
 print(OUT)
-print('30 retained points:',sum(len(p['items']) for p in PAGES))
+print('29 retained points:',sum(len(p['items']) for p in PAGES))
