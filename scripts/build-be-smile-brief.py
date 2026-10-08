@@ -28,7 +28,7 @@ styles={
  'title':ParagraphStyle('title',fontName='Bold',fontSize=12.4,leading=16,textColor=INK),
  'note':ParagraphStyle('note',fontName='Body',fontSize=10.2,leading=14.4,textColor=INK),
 }
-# These 29 retained points follow the reviewed checklist. The two removed points
+# These 28 retained points follow the reviewed checklist. The two removed points
 # (original 06.02 and 08.01) are intentionally omitted and retained points renumbered; Hector's additions are integrated.
 def item(id,title,questions,deliver):return dict(id=id,title=title,q=questions,deliver=deliver)
 PAGES=[
@@ -144,20 +144,16 @@ PAGES=[
  '¿Cuentan con autorización firmada para publicar cada foto, caso o testimonio de paciente y con derechos de uso del material?'
  ],'Confirmación y documentos de autorización correspondientes. Elevator Dental Web no publicará material de pacientes sin autorización firmada para el uso público de su imagen.'),
  ]),
- dict(section='07',title='Agenda, dominio y legales',intro='Definir el destino de cada solicitud y reunir los documentos propios de BE SMILE. Los accesos se comparten mediante invitaciones.',items=[
+ dict(section='07',title='Agenda y legales',intro='Definir cómo reciben y confirman las citas y reunir los documentos propios de BE SMILE. Dominio de la web: besmile.mx.',items=[
  item('07.01','Solicitudes y reservas',[
  '¿Quién recibe y responde las solicitudes? ¿A qué WhatsApp o correo deben llegar?',
- '¿Qué agenda o CRM utilizan? ¿Tienen un enlace de reserva? ¿El formulario solicita una cita o confirma un horario real?'
- ],'Contacto de destino, responsable y enlace de agenda si existe.'),
- item('07.02','Dominio y acceso técnico',[
- '¿Quién administra besmile.mx y puede conceder el acceso necesario para publicar la web?',
- '¿A qué herramientas deben invitarnos para publicar la web y conectar la agenda?'
- ],'Dominio definido: besmile.mx. Facilitar el contacto del administrador y compartir permisos por invitación, por el canal acordado con Elevator; no escribir contraseñas en las respuestas.'),
- item('07.03','Privacidad y condiciones',[
+ '¿Cómo agendan actualmente las citas y qué información necesitan del paciente para confirmarlas?'
+ ],'Contacto de destino, responsable y descripción del proceso actual de confirmación de citas.'),
+ item('07.02','Privacidad y condiciones',[
  '¿Cuáles son los datos legales de BE SMILE y quién es responsable de privacidad?',
  '¿Qué aviso de privacidad y condiciones de citas, cancelaciones y pagos deben publicarse?'
  ],'Documentos vigentes aprobados por la clínica, razón social, domicilio y correo de privacidad. Indicar fecha o versión de cada documento.'),
- item('07.04','Publicidad y COFEPRIS',[
+ item('07.03','Publicidad y COFEPRIS',[
  'Si BE SMILE opera en México: ¿cuentan con el permiso o aviso de publicidad que corresponde a su actividad y con su número o folio?',
  '¿Pueden entregar copia del documento? Si está pendiente, ¿quién gestionará el trámite y cuál es su estado?'
  ],'Folio y copia del permiso o aviso aplicable. Si falta, revisar las rutas oficiales indicadas al final del documento con el responsable de la clínica.'),
@@ -166,7 +162,7 @@ PAGES=[
 
 c=canvas.Canvas(str(OUT),pagesize=(W,H),pageCompression=1)
 c.setTitle('BE SMILE | Preguntas y requerimientos para crear su web')
-c.setAuthor('Elevator Dental Web');c.setSubject('Brief de 29 puntos adaptado a la revisión de Héctor. Identidad, tratamientos, materiales, agenda y documentación.')
+c.setAuthor('Elevator Dental Web');c.setSubject('Brief de 28 puntos adaptado a la revisión de Héctor. Identidad, tratamientos, materiales, agenda y documentación.')
 
 images={}
 def img(name):
@@ -225,7 +221,7 @@ para('La información, los archivos y las aprobaciones que necesitamos para cons
 # Colored topographic lines based on the brand's angular isotype, no altered logo.
 drawimg('Isotipo/ISOTIPO_COLOR.png',W-160,211,111)
 c.setFillColor(BLUE);c.rect(M,316,83,4,fill=1,stroke=0)
-c.setFillColor(white);c.setFont('Bold',20);c.drawString(M,279,'29 puntos. 7 áreas de trabajo.')
+c.setFillColor(white);c.setFont('Bold',20);c.drawString(M,279,'28 puntos. 7 áreas de trabajo.')
 c.setFillColor(HexColor('#AEBACE'));c.setFont('Body',10)
 c.drawString(M,252,'Marca · Clínica · Equipo · Tratamientos')
 c.drawString(M,232,'Tecnología · Material visual · Agenda y legales')
@@ -246,7 +242,7 @@ for n,p in enumerate(PAGES,2):
 # Delivery page / operational checklist.
 y=header(10,'ENTREGA','Cómo reunir la información','Entreguen un documento con las respuestas numeradas y una carpeta compartida con acceso para el equipo de Elevator.')
 c.setFillColor(LIGHT);c.roundRect(M,y-69,CW,69,7,fill=1,stroke=0)
-para('<b>En el documento de respuestas</b><br/>Identificar BE SMILE, fecha y versión. Responder los 29 puntos; marcar lo pendiente con responsable y fecha. Añadir el enlace de cada archivo o subcarpeta.',M+15,y-13,CW-30)
+para('<b>En el documento de respuestas</b><br/>Identificar BE SMILE, fecha y versión. Responder los 28 puntos; marcar lo pendiente con responsable y fecha. Añadir el enlace de cada archivo o subcarpeta.',M+15,y-13,CW-30)
 y-=90
 c.setFillColor(BLUE);c.setFont('Bold',10);c.drawString(M,y,'CARPETA COMPARTIDA: BE-SMILE / WEB');y-=25
 folders=[
@@ -256,14 +252,14 @@ folders=[
  ('04 Tecnología','Inventario, marcas y fotos de equipos reales.'),
  ('05 Fotos y casos','Instalaciones, material por tratamiento y casos antes/después.'),
  ('06 Testimonios y autorizaciones','Reseñas, videos existentes y autorizaciones firmadas vinculadas.'),
- ('07 Agenda y legales','Datos de agenda, acceso a besmile.mx, privacidad y documentos de publicidad.'),
+ ('07 Agenda y legales','Datos para recibir y confirmar citas, privacidad y documentos de publicidad.'),
 ]
 for name,desc in folders:
  c.setFillColor(INK);c.setFont('Bold',9.5);c.drawString(M,y,name)
  h=para(escape(desc),M+182,y+9,CW-182,'small');y-=max(h,18)+12
 c.setStrokeColor(LINE);c.line(M,y+3,W-M,y+3);y-=17
 h=para('<b>Formatos y nombres de archivo</b><br/>Fotos originales JPG o PNG; videos existentes MP4 o MOV; documentos PDF; logos vectoriales cuando estén disponibles. Eviten archivos comprimidos por WhatsApp. Usen nombres que identifiquen espacio de la clínica, persona, tratamiento y caso. Elevator adaptará tamaños y formatos.',M,y,CW,'small');y-=h+18
-h=para('<b>Antes de publicar</b><br/>BE SMILE valida textos, precios, tiempos clínicos, contactos y documentos. Cada caso o testimonio de paciente debe contar con autorización firmada. Los accesos técnicos se conceden por invitación, sin incluir contraseñas en este brief.',M,y,CW,'small');y-=h+18
+h=para('<b>Antes de publicar</b><br/>BE SMILE valida textos, precios, tiempos clínicos, contactos y documentos. Cada caso o testimonio de paciente debe contar con autorización firmada.',M,y,CW,'small');y-=h+18
 h=para('<b>COFEPRIS: rutas oficiales si el documento está pendiente</b><br/>Confirmar con el responsable de la clínica si corresponde permiso o aviso de publicidad. Estas son las páginas oficiales para consultar la modalidad y el proceso:',M,y,CW,'small');y-=h+8
 for label,url in [
  ('Permiso de publicidad','https://www.gob.mx/cofepris/acciones-y-programas/permiso-publicitario'),
@@ -274,4 +270,4 @@ h=para('Fuentes oficiales consultadas el 8 de octubre de 2026. La modalidad depe
 if y<62:raise ValueError(f'Delivery page overflow {y}')
 c.showPage();c.save()
 print(OUT)
-print('29 retained points:',sum(len(p['items']) for p in PAGES))
+print('28 retained points:',sum(len(p['items']) for p in PAGES))
