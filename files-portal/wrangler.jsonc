@@ -1,0 +1,15 @@
+{
+ "name":"elevator-files",
+ "account_id":"22f27790057121d9d05044d4ea0c2fe7",
+ "main":"worker.mjs",
+ "compatibility_date":"2026-10-08",
+ "workers_dev":true,
+ "keep_vars":true,
+ "assets":{"binding":"ASSETS","directory":"./public","run_worker_first":true,"not_found_handling":"single-page-application"},
+ "routes":[{"pattern":"files.elevatordental.com","custom_domain":true}],
+ "d1_databases":[{"binding":"DB","database_name":"elevator-files","database_id":"387f9ccd-6a1d-4b2c-8fe3-f0385353b4a0"}],
+ "r2_buckets":[{"binding":"FILES","bucket_name":"elevator-files"}],
+ "ratelimits":[{"name":"LOGIN_LIMIT","namespace_id":"1041","simple":{"limit":10,"period":60}}],
+ "triggers":{"crons":["19 3 * * *"]},
+ "observability":{"enabled":true}
+}

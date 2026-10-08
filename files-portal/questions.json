@@ -1,0 +1,300 @@
+[
+  {
+    "id": "01",
+    "title": "Marca y contacto",
+    "intro": "Una identidad coherente y datos correctos en cada página. La información corresponde a la única sede de BE SMILE.",
+    "items": [
+      {
+        "id": "01.01",
+        "title": "Nombre, identidad y redes",
+        "questions": [
+          "¿Cuál es el nombre comercial exacto que debe aparecer en la web de BE SMILE?",
+          "¿Qué logo, colores y redes sociales oficiales debemos utilizar? Incluyan los enlaces completos."
+        ],
+        "deliver": "Logo original en SVG, AI o PDF y versión PNG; códigos de color y enlaces de redes. Si existe manual de marca, adjuntarlo."
+      },
+      {
+        "id": "01.02",
+        "title": "Datos de la clínica",
+        "questions": [
+          "¿Cuál es la dirección completa de BE SMILE, enlace de Google Maps, horario, teléfono y WhatsApp con código de país?"
+        ],
+        "deliver": "Una ficha de contacto de BE SMILE, con calle, número, colonia o barrio, ciudad, estado, país y código postal. Indicar diferencias entre horario de atención y respuesta."
+      },
+      {
+        "id": "01.03",
+        "title": "Correo, cobertura e idiomas",
+        "questions": [
+          "¿Cuál es el correo de contacto que debe mostrarse al público?",
+          "¿Qué ciudades o barrios atienden y en qué idiomas pueden atender realmente a un paciente?"
+        ],
+        "deliver": "Correo público, zonas de atención y listado de idiomas disponibles. Precisar si algún idioma depende de la disponibilidad de un profesional."
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "title": "Presentación de la clínica",
+    "intro": "Pueden responder en texto o con un audio claro. Elevator redactará el contenido a partir de información real y aprobada.",
+    "items": [
+      {
+        "id": "02.01",
+        "title": "Historia y pacientes",
+        "questions": [
+          "¿Cómo nació BE SMILE, en qué año abrió y cuál es su historia breve?",
+          "¿Qué tipo de pacientes atiende principalmente y qué necesidades suelen traer a consulta?"
+        ],
+        "deliver": "Relato breve de la clínica y perfil de sus pacientes. Indicar el año de apertura de BE SMILE."
+      },
+      {
+        "id": "02.02",
+        "title": "Diferenciadores y enfoque",
+        "questions": [
+          "¿Cuáles son los tres motivos principales por los que un paciente debería elegir BE SMILE?",
+          "¿Qué tratamientos quieren destacar y en qué orden de prioridad?"
+        ],
+        "deliver": "Tres diferenciadores concretos y lista priorizada de tratamientos. Explicar qué respalda cada diferenciador: equipo, experiencia, proceso o servicio."
+      },
+      {
+        "id": "02.03",
+        "title": "Cifras que desean mostrar",
+        "questions": [
+          "¿Cuántos años de experiencia tiene la clínica y qué cantidad aproximada de pacientes desean comunicar?",
+          "¿A qué período corresponde cada cifra y cómo fue calculada?"
+        ],
+        "deliver": "Cifras verificables con fecha de corte y período. Distinguir pacientes únicos, consultas y tratamientos, según el dato disponible."
+      },
+      {
+        "id": "02.04",
+        "title": "Primera valoración",
+        "questions": [
+          "¿Qué incluye la primera valoración y cuánto cuesta en pesos mexicanos (MXN)?",
+          "¿Se descuenta ese importe del tratamiento? ¿Bajo qué condiciones?"
+        ],
+        "deliver": "Descripción de la valoración, estudios incluidos o aparte, precio vigente y condiciones del descuento si aplica."
+      }
+    ]
+  },
+  {
+    "id": "03",
+    "title": "Profesionales y equipo",
+    "intro": "Repetir los puntos 03.01 a 03.03 por cada profesional que aparecerá en la web. Cada ficha debe corresponder a la persona presentada.",
+    "items": [
+      {
+        "id": "03.01",
+        "title": "Identificación y fotografía",
+        "questions": [
+          "¿Cuál es el nombre completo, cargo y especialidad de cada integrante?",
+          "¿Qué tratamientos realiza en BE SMILE?"
+        ],
+        "deliver": "Ficha por integrante y foto profesional original, preferentemente vertical y en buena resolución. Identificar el archivo con el nombre del profesional."
+      },
+      {
+        "id": "03.02",
+        "title": "Formación y registro",
+        "questions": [
+          "¿En qué universidad estudió y qué título obtuvo?",
+          "¿Qué especialidades tiene y cuál es su cédula o registro profesional correspondiente?"
+        ],
+        "deliver": "Universidad, títulos, especialidades y números de registro. Adjuntar documentación o enlaces oficiales para validar los datos que se publicarán."
+      },
+      {
+        "id": "03.03",
+        "title": "Experiencia y trayectoria",
+        "questions": [
+          "¿Cuántos años de experiencia tiene y cuáles son los hitos principales de su trayectoria?",
+          "¿Qué cantidad aproximada de pacientes atendidos desea mostrar y a qué período corresponde?"
+        ],
+        "deliver": "Biografía breve y cifras con período y fecha de corte. No duplicar cifras de la clínica como si fueran propias de cada profesional."
+      },
+      {
+        "id": "03.04",
+        "title": "Presentación del equipo",
+        "questions": [
+          "¿Tienen una fotografía actual del equipo completo?",
+          "¿Existe un video de presentación del fundador que podamos utilizar? Si existe, ¿quién aparece y qué comunica?"
+        ],
+        "deliver": "Foto original del equipo; video del fundador, si ya existe, y nombre/cargo de las personas que aparecen. Indicar si hay material pendiente."
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "title": "Tratamientos y precios",
+    "intro": "La información de los puntos 04.02 a 04.05 debe repetirse por todos los tratamientos que ofrece BE SMILE, incluyendo cada variante o modalidad.",
+    "items": [
+      {
+        "id": "04.01",
+        "title": "Oferta real y prioridades",
+        "questions": [
+          "¿Cuál es la lista completa de todos los tratamientos que ofrece BE SMILE actualmente, con sus variantes y modalidades?",
+          "¿Cuáles son los prioritarios para atraer pacientes y cuáles tienen mayor enfoque y rentabilidad para la clínica?"
+        ],
+        "deliver": "Catálogo completo de servicios, variantes y modalidades; indicar con qué profesional se ofrece cada uno y su orden de prioridad."
+      },
+      {
+        "id": "04.02",
+        "title": "Objetivo, paciente y beneficios",
+        "questions": [
+          "Por tratamiento: ¿qué problema resuelve, para quién está indicado y cuáles son sus beneficios principales?",
+          "¿Qué expectativas deben aclararse al paciente y en qué casos requiere valoración para definir su opción?"
+        ],
+        "deliver": "Explicación en lenguaje claro, validada por el responsable clínico. Evitar resultados garantizados o beneficios que BE SMILE no pueda respaldar."
+      },
+      {
+        "id": "04.03",
+        "title": "Proceso, citas, tiempos y cuidados",
+        "questions": [
+          "¿Cuáles son las etapas, cuántas citas requiere aproximadamente, cuánto dura y qué cuidados principales necesita?",
+          "Para implantes: ¿qué tiempos aproximados manejan para el procedimiento y recuperación, la cicatrización, el destape y la colocación de la corona?",
+          "¿Qué materiales utilizan y recomiendan para las coronas sobre implantes? ¿Qué factores pueden modificar los tiempos?"
+        ],
+        "deliver": "Pasos y rangos de tiempo aprobados por el profesional. Incluir materiales, cuidados y variaciones según valoración; no usar una duración única para todos los pacientes."
+      },
+      {
+        "id": "04.04",
+        "title": "Tarifario completo de todos los tratamientos",
+        "questions": [
+          "Por cada tratamiento y variante: ¿cuál es el precio vigente en pesos mexicanos (MXN) y la unidad de cobro: pieza, arcada, sesión o tratamiento?",
+          "Si el importe depende de la valoración: ¿cuál es el precio desde o rango aproximado y qué factores modifican el costo?",
+          "¿Qué incluye cada precio? ¿Qué etapas, materiales, estudios o componentes se cobran por separado y cuánto cuesta cada uno?",
+          "¿Desde qué fecha están vigentes? ¿Qué precios autorizan publicar como precio fijo, “desde” o “según valoración”?"
+        ],
+        "deliver": "Tarifario completo en Excel o tabla editable, con una fila por tratamiento y variante: nombre, precio MXN o rango, unidad, inclusiones, extras con sus precios, vigencia y forma de publicación. Incluir todos los servicios disponibles y mantener coherencia con la valoración y las promociones."
+      },
+      {
+        "id": "04.05",
+        "title": "Tres dudas frecuentes",
+        "questions": [
+          "¿Cuáles son las tres dudas más frecuentes que hacen los pacientes sobre cada tratamiento?",
+          "¿Cuál es la respuesta aprobada para cada una? Utilizar dudas y ejemplos provenientes de casos reales."
+        ],
+        "deliver": "Tres preguntas y tres respuestas por tratamiento. Los ejemplos clínicos deben ser reales y presentarse sin datos que identifiquen al paciente."
+      },
+      {
+        "id": "04.06",
+        "title": "Pagos y dos paquetes de promociones",
+        "questions": [
+          "¿Qué métodos de pago y opciones de financiamiento ofrecen? Indiquen proveedor y condiciones, si aplica.",
+          "Por cada uno de al menos dos paquetes: ¿cuál es el nombre, tratamiento, beneficio, precio en pesos mexicanos (MXN), inclusiones, vigencia y condiciones?"
+        ],
+        "deliver": "Ficha de cada paquete, restricciones, precio regular/promocional cuando corresponda y vigencia. Entregar al menos dos paquetes para preparar su activación o desactivación desde el Dashboard y su popup predeterminado."
+      }
+    ]
+  },
+  {
+    "id": "05",
+    "title": "Equipos y tecnología",
+    "intro": "Solicitamos información de tecnología que BE SMILE utiliza realmente. Diferenciar lo disponible en la clínica de lo contratado a un proveedor.",
+    "items": [
+      {
+        "id": "05.01",
+        "title": "Inventario interno",
+        "questions": [
+          "¿Qué equipos y tecnologías tienen: escáner, tomógrafo, láser, CAD/CAM, software u otros?",
+          "¿Cuál es la marca y el modelo de cada equipo disponible en BE SMILE?"
+        ],
+        "deliver": "Inventario con nombre del equipo, marca y modelo. Incluir software relevante si participa en diagnóstico, planificación o tratamiento."
+      },
+      {
+        "id": "05.02",
+        "title": "Uso y beneficio para el paciente",
+        "questions": [
+          "¿Para qué tratamientos utilizan cada equipo o tecnología y qué beneficio concreto aporta al paciente?",
+          "¿Es propio de BE SMILE o de un laboratorio/proveedor externo?"
+        ],
+        "deliver": "Relación equipo-tratamiento-beneficio, validada por el profesional. Indicar claramente cuando el servicio se realiza fuera de la clínica."
+      },
+      {
+        "id": "05.03",
+        "title": "Marcas y fotografías reales",
+        "questions": [
+          "¿Qué marcas de implantes, alineadores y materiales principales utilizan?",
+          "¿Qué fotografías reales de esos equipos y materiales pueden compartir para la web?"
+        ],
+        "deliver": "Listado de marcas y fotos originales de los equipos. Facilitar material autorizado de fabricantes únicamente cuando se tenga derecho de uso."
+      }
+    ]
+  },
+  {
+    "id": "06",
+    "title": "Fotos, videos y resultados",
+    "intro": "Entregar archivos originales en una carpeta compartida. Los casos reales se organizan por tratamiento y las autorizaciones acompañan al material.",
+    "items": [
+      {
+        "id": "06.01",
+        "title": "Fotografías de la clínica",
+        "questions": [
+          "¿Pueden enviar entre 6 y 10 fotos de BE SMILE: fachada, recepción, consultorios e instalaciones?"
+        ],
+        "deliver": "Fotos originales, identificadas por espacio de la clínica. Incluir tomas horizontales y suficiente espacio para adaptar el recorte a móvil."
+      },
+      {
+        "id": "06.02",
+        "title": "Material por tratamiento",
+        "questions": [
+          "¿Qué imagen representativa tienen para cada tratamiento y qué videos explicativos ya existen?"
+        ],
+        "deliver": "Una imagen por tratamiento y los videos existentes, con nombre del servicio y confirmación del derecho de uso."
+      },
+      {
+        "id": "06.03",
+        "title": "Antes y después por tratamiento",
+        "questions": [
+          "¿Qué casos reales pueden enviar por cada tratamiento: fotos, procedimiento realizado y breve explicación del resultado?"
+        ],
+        "deliver": "Recomendación: 6 casos por tratamiento; mínimo solicitado: 3. Pueden enviar más. Vincular antes/después del mismo caso y adjuntar su autorización firmada."
+      },
+      {
+        "id": "06.04",
+        "title": "Reseñas y testimonios",
+        "questions": [
+          "¿Cuál es el enlace de las reseñas de Google y qué 3 a 5 testimonios propios quieren incluir? ¿Tienen testimonios en video?"
+        ],
+        "deliver": "Enlace original y testimonios con fuente; videos si existen. Precisar qué nombre o identificación está autorizado para mostrarse."
+      },
+      {
+        "id": "06.05",
+        "title": "Autorizaciones y derechos de uso",
+        "questions": [
+          "¿Cuentan con autorización firmada para publicar cada foto, caso o testimonio de paciente y con derechos de uso del material?"
+        ],
+        "deliver": "Confirmación y documentos de autorización correspondientes. Elevator Dental Web no publicará material de pacientes sin autorización firmada para el uso público de su imagen."
+      }
+    ]
+  },
+  {
+    "id": "07",
+    "title": "Agenda y legales",
+    "intro": "Definir cómo reciben y confirman las citas y reunir los documentos propios de BE SMILE. Dominio de la web: besmile.mx.",
+    "items": [
+      {
+        "id": "07.01",
+        "title": "Solicitudes y reservas",
+        "questions": [
+          "¿Quién recibe y responde las solicitudes? ¿A qué WhatsApp o correo deben llegar?",
+          "¿Cómo agendan actualmente las citas y qué información necesitan del paciente para confirmarlas?"
+        ],
+        "deliver": "Contacto de destino, responsable y descripción del proceso actual de confirmación de citas."
+      },
+      {
+        "id": "07.02",
+        "title": "Privacidad y condiciones",
+        "questions": [
+          "¿Cuáles son los datos legales de BE SMILE y quién es responsable de privacidad?",
+          "¿Qué aviso de privacidad y condiciones de citas, cancelaciones y pagos deben publicarse?"
+        ],
+        "deliver": "Documentos vigentes aprobados por la clínica, razón social, domicilio y correo de privacidad. Indicar fecha o versión de cada documento."
+      },
+      {
+        "id": "07.03",
+        "title": "Publicidad y COFEPRIS",
+        "questions": [
+          "Si BE SMILE opera en México: ¿cuentan con el permiso o aviso de publicidad que corresponde a su actividad y con su número o folio?",
+          "¿Pueden entregar copia del documento? Si está pendiente, ¿quién gestionará el trámite y cuál es su estado?"
+        ],
+        "deliver": "Folio y copia del permiso o aviso aplicable. Si falta, revisar las rutas oficiales indicadas al final del documento con el responsable de la clínica."
+      }
+    ]
+  }
+]
