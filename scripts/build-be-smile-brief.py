@@ -110,8 +110,7 @@ PAGES=[
  item('04.06','Pagos y dos paquetes de promociones',[
  '¿Qué métodos de pago y opciones de financiamiento ofrecen? Indiquen proveedor y condiciones, si aplica.',
  'Por cada uno de al menos dos paquetes: ¿cuál es el nombre, tratamiento, beneficio, precio en pesos mexicanos (MXN), inclusiones, vigencia y condiciones?',
- '¿Quién autoriza su activación o desactivación desde el Dashboard y qué mensaje y llamada a la acción tendrá su popup predeterminado?'
- ],'Ficha de cada paquete, restricciones, precio regular/promocional cuando corresponda y contenido del popup. Definir responsable y fechas para preparar el flujo de activación solicitado.'),
+ ],'Ficha de cada paquete, restricciones, precio regular/promocional cuando corresponda y vigencia. Entregar al menos dos paquetes para preparar su activación o desactivación desde el Dashboard y su popup predeterminado.'),
  ]),
  dict(section='05',title='Equipos y tecnología',intro='Solicitamos información de tecnología que BE SMILE utiliza realmente. Diferenciar lo disponible en la clínica de lo contratado a un proveedor.',items=[
  item('05.01','Inventario interno',[
