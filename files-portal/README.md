@@ -25,6 +25,10 @@ npx wrangler deploy
 
 Browser QA (`test/browser.mjs`) needs Playwright and a local Chrome executable; current paths target the development workstation. Integration and browser mutations are restricted to localhost.
 
+## Delivery experience
+
+Progress and completion feedback use server-confirmed saved statuses. Clients can jump to the next pending requirement; finishing a section shows a dismissible brief confirmation. Chosen suggestion drafts are highlighted. Files and cloud links use visual cards. Authenticated PNG/JPEG/WebP/GIF previews require recognized raster signatures and a maximum file size of 12 MiB; other files remain downloadable. Reduced-motion preferences disable the feedback animations.
+
 ## Design
 
 Elevator logo and blue/cyan identity are retained. Typography and surface styling follow the supplied Pencil export, including its embedded Super Sans VF font, self-hosted under `public/`. The published portal uses responsive layouts from 320 px upward.

@@ -18,7 +18,7 @@ test('answers allow cloud links and reject script URLs and unexplained not-appli
 });
 test('unauthenticated project and PDF requests are rejected',async()=>{
  const env={SESSION_SECRET:'test'};
- for(const path of ['/api/project','/brief.pdf','/api/files/fake']){const res=await worker.fetch(new Request('https://files.example.test'+path),env);assert.equal(res.status,401)}
+ for(const path of ['/api/project','/brief.pdf','/api/files/fake','/api/files/fake/preview']){const res=await worker.fetch(new Request('https://files.example.test'+path),env);assert.equal(res.status,401)}
 });
 test('cross-origin mutations are rejected before authorization',async()=>{
  const res=await worker.fetch(new Request('https://files.example.test/api/session',{method:'POST',headers:{Origin:'https://other.example'},body:'{}'}),{});assert.equal(res.status,403);

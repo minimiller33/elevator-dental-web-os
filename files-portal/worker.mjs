@@ -76,6 +76,13 @@ async function api(request,env,url){
  if(uploadRoute&&request.method==='DELETE'){
   if(session.role!=='client')fail('No permitido.',403);const file=await uploadRecord(env,uploadRoute[1]);await env.FILES.resumeMultipartUpload(file.object_key,file.upload_id).abort();await env.DB.batch([env.DB.prepare("UPDATE files SET state='failed',updated_at=? WHERE id=?").bind(now(),file.id),env.DB.prepare('DELETE FROM parts WHERE file_id=?').bind(file.id)]);return response({ok:true});
  }
+ const preview=route.match(/^\/api\/files\/([\w-]+)\/preview$/);
+ if(preview&&request.method==='GET'){
+  const file=await env.DB.prepare("SELECT * FROM files WHERE id=? AND state='ready'").bind(preview[1]).first();if(!file)fail('Archivo no encontrado.',404);if(file.size>12*1024**2)fail('Vista previa no disponible para este tamaño.',413);
+  const head=await env.FILES.get(file.object_key,{range:{offset:0,length:16}});if(!head)fail('Archivo no disponible.',404);const bytes=new Uint8Array(await head.arrayBuffer());const ascii=(a,b)=>String.fromCharCode(...bytes.slice(a,b));
+  const type=bytes[0]===137&&ascii(1,4)==='PNG'&&bytes[4]===13&&bytes[5]===10&&bytes[6]===26&&bytes[7]===10?'image/png':bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'image/jpeg':['GIF87a','GIF89a'].includes(ascii(0,6))?'image/gif':ascii(0,4)==='RIFF'&&ascii(8,12)==='WEBP'?'image/webp':null;
+  if(!type)fail('Formato de vista previa no permitido.',415);const object=await env.FILES.get(file.object_key);if(!object)fail('Archivo no disponible.',404);return new Response(object.body,{headers:{...headers,'Content-Type':type,'Content-Length':String(object.size),'Content-Disposition':'inline','Cross-Origin-Resource-Policy':'same-origin'}});
+ }
  const download=route.match(/^\/api\/files\/([\w-]+)$/);
  if(download&&request.method==='GET'){
   const file=await env.DB.prepare("SELECT * FROM files WHERE id=? AND state='ready'").bind(download[1]).first();if(!file)fail('Archivo no encontrado.',404);const object=await env.FILES.get(file.object_key);if(!object)fail('Archivo no disponible.',404);
