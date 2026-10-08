@@ -32,19 +32,18 @@ styles={
 # (original 06.02 and 08.01) are intentionally omitted and retained points renumbered; Hector's additions are integrated.
 def item(id,title,questions,deliver):return dict(id=id,title=title,q=questions,deliver=deliver)
 PAGES=[
- dict(section='01',title='Marca y contacto',intro='Una identidad coherente y datos correctos en cada página. Completen la información por sede cuando corresponda.',items=[
+ dict(section='01',title='Marca y contacto',intro='Una identidad coherente y datos correctos en cada página. La información corresponde a la única sede de BE SMILE.',items=[
  item('01.01','Nombre, identidad y redes',[
  '¿Cuál es el nombre comercial exacto que debe aparecer en la web de BE SMILE?',
  '¿Qué logo, colores y redes sociales oficiales debemos utilizar? Incluyan los enlaces completos.'
  ],'Logo original en SVG, AI o PDF y versión PNG; códigos de color y enlaces de redes. Si existe manual de marca, adjuntarlo.'),
- item('01.02','Datos de cada sede',[
- '¿Cuántas sedes tiene BE SMILE y cómo se llama cada una?',
- 'Por sede: ¿cuál es la dirección completa, enlace de Google Maps, horario, teléfono y WhatsApp con código de país?'
- ],'Una ficha por sede, con calle, número, colonia o barrio, ciudad, estado, país y código postal. Indicar diferencias entre horario de atención y respuesta.'),
+ item('01.02','Datos de la clínica',[
+ '¿Cuál es la dirección completa de BE SMILE, enlace de Google Maps, horario, teléfono y WhatsApp con código de país?'
+ ],'Una ficha de contacto de BE SMILE, con calle, número, colonia o barrio, ciudad, estado, país y código postal. Indicar diferencias entre horario de atención y respuesta.'),
  item('01.03','Correo, cobertura e idiomas',[
  '¿Cuál es el correo de contacto que debe mostrarse al público?',
  '¿Qué ciudades o barrios atienden y en qué idiomas pueden atender realmente a un paciente?'
- ],'Correo público, zonas de atención y listado de idiomas disponibles. Precisar si algún idioma depende de una sede o profesional.'),
+ ],'Correo público, zonas de atención y listado de idiomas disponibles. Precisar si algún idioma depende de la disponibilidad de un profesional.'),
  item('01.04','Responsable de información y aprobación',[
  '¿Quién reunirá y entregará el material de BE SMILE?',
  '¿Quién aprobará los textos, precios e información clínica antes de publicar? Indiquen nombre, cargo y contacto.'
@@ -54,7 +53,7 @@ PAGES=[
  item('02.01','Historia y pacientes',[
  '¿Cómo nació BE SMILE, en qué año abrió y cuál es su historia breve?',
  '¿Qué tipo de pacientes atiende principalmente y qué necesidades suelen traer a consulta?'
- ],'Relato breve de la clínica y perfil de sus pacientes. Distinguir historia de la marca e historia de cada sede si difieren.'),
+ ],'Relato breve de la clínica y perfil de sus pacientes. Indicar el año de apertura de BE SMILE.'),
  item('02.02','Diferenciadores y enfoque',[
  '¿Cuáles son los tres motivos principales por los que un paciente debería elegir BE SMILE?',
  '¿Qué tratamientos quieren destacar y en qué orden de prioridad?'
@@ -71,7 +70,7 @@ PAGES=[
  dict(section='03',title='Profesionales y equipo',intro='Repetir los puntos 03.01 a 03.03 por cada profesional que aparecerá en la web. Cada ficha debe corresponder a la persona presentada.',items=[
  item('03.01','Identificación y fotografía',[
  '¿Cuál es el nombre completo, cargo y especialidad de cada integrante?',
- '¿En qué sede atiende y qué tratamientos realiza?'
+ '¿Qué tratamientos realiza en BE SMILE?'
  ],'Ficha por integrante y foto profesional original, preferentemente vertical y en buena resolución. Identificar el archivo con el nombre del profesional.'),
  item('03.02','Formación y registro',[
  '¿En qué universidad estudió y qué título obtuvo?',
@@ -90,7 +89,7 @@ PAGES=[
  item('04.01','Oferta real y prioridades',[
  '¿Qué tratamientos ofrece BE SMILE actualmente?',
  '¿Cuáles son los prioritarios para atraer pacientes y cuáles tienen mayor enfoque y rentabilidad para la clínica?'
- ],'Lista de servicios disponibles y orden de prioridad. Indicar en qué sede y con qué profesional se ofrece cada uno.'),
+ ],'Lista de servicios disponibles y orden de prioridad. Indicar con qué profesional se ofrece cada uno.'),
  item('04.02','Objetivo, paciente y beneficios',[
  'Por tratamiento: ¿qué problema resuelve, para quién está indicado y cuáles son sus beneficios principales?',
  '¿Qué expectativas deben aclararse al paciente y en qué casos requiere valoración para definir su opción?'
@@ -113,17 +112,17 @@ PAGES=[
  item('04.06','Pagos y dos paquetes de promociones',[
  '¿Qué métodos de pago y opciones de financiamiento ofrecen? Indiquen proveedor y condiciones, si aplica.',
  'Por cada uno de al menos dos paquetes: ¿cuál es el nombre, tratamiento, beneficio, precio, moneda, inclusiones, vigencia y condiciones?',
- '¿En qué sedes aplica, quién autoriza su activación o desactivación desde el Dashboard y qué mensaje y llamada a la acción tendrá su popup predeterminado?'
+ '¿Quién autoriza su activación o desactivación desde el Dashboard y qué mensaje y llamada a la acción tendrá su popup predeterminado?'
  ],'Ficha de cada paquete, restricciones, precio regular/promocional cuando corresponda y contenido del popup. Definir responsable y fechas para preparar el flujo de activación solicitado.'),
  ]),
  dict(section='05',title='Equipos y tecnología',intro='Solicitamos información de tecnología que BE SMILE utiliza realmente. Diferenciar lo disponible en la clínica de lo contratado a un proveedor.',items=[
  item('05.01','Inventario interno',[
  '¿Qué equipos y tecnologías tienen: escáner, tomógrafo, láser, CAD/CAM, software u otros?',
- '¿Cuál es la marca y el modelo de cada uno y en qué sede está disponible?'
- ],'Inventario con nombre del equipo, marca, modelo y sede. Incluir software relevante si participa en diagnóstico, planificación o tratamiento.'),
+ '¿Cuál es la marca y el modelo de cada equipo disponible en BE SMILE?'
+ ],'Inventario con nombre del equipo, marca y modelo. Incluir software relevante si participa en diagnóstico, planificación o tratamiento.'),
  item('05.02','Uso y beneficio para el paciente',[
  '¿Para qué tratamientos utilizan cada equipo o tecnología y qué beneficio concreto aporta al paciente?',
- '¿Es propio, compartido entre sedes o de un laboratorio/proveedor externo?'
+ '¿Es propio de BE SMILE o de un laboratorio/proveedor externo?'
  ],'Relación equipo-tratamiento-beneficio, validada por el profesional. Indicar claramente cuando el servicio se realiza fuera de la clínica.'),
  item('05.03','Marcas y fotografías reales',[
  '¿Qué marcas de implantes, alineadores y materiales principales utilizan?',
@@ -131,9 +130,9 @@ PAGES=[
  ],'Listado de marcas y fotos originales de los equipos. Facilitar material autorizado de fabricantes únicamente cuando se tenga derecho de uso.'),
  ],note='Para fotografiar tecnología: usar buena luz, mostrar el equipo completo y añadir el nombre o modelo al archivo. Elevator adapta los formatos para la web.'),
  dict(section='06',title='Fotos, videos y resultados',intro='Entregar archivos originales en una carpeta compartida. Los casos reales se organizan por tratamiento y las autorizaciones acompañan al material.',items=[
- item('06.01','Fotografías de cada sede',[
- '¿Pueden enviar entre 6 y 10 fotos de cada sede: fachada, recepción, consultorios e instalaciones?'
- ],'Fotos originales, identificadas por sede y espacio. Incluir tomas horizontales y suficiente espacio para adaptar el recorte a móvil.'),
+ item('06.01','Fotografías de la clínica',[
+ '¿Pueden enviar entre 6 y 10 fotos de BE SMILE: fachada, recepción, consultorios e instalaciones?'
+ ],'Fotos originales, identificadas por espacio de la clínica. Incluir tomas horizontales y suficiente espacio para adaptar el recorte a móvil.'),
  item('06.02','Material por tratamiento',[
  '¿Qué imagen representativa tienen para cada tratamiento y qué videos explicativos ya existen?'
  ],'Una imagen por tratamiento y los videos existentes, con nombre del servicio y confirmación del derecho de uso.'),
@@ -151,7 +150,7 @@ PAGES=[
  item('07.01','Solicitudes y reservas',[
  '¿Quién recibe y responde las solicitudes? ¿A qué WhatsApp o correo deben llegar?',
  '¿Qué agenda o CRM utilizan? ¿Tienen un enlace de reserva? ¿El formulario solicita una cita o confirma un horario real?'
- ],'Contacto de destino, responsable y enlace de agenda si existe. Indicar cómo se asignan solicitudes a cada sede cuando corresponda.'),
+ ],'Contacto de destino, responsable y enlace de agenda si existe.'),
  item('07.02','Dominio y acceso técnico',[
  '¿Qué dominio utilizará BE SMILE y quién administra el dominio y su publicación?',
  '¿A qué herramientas deben invitarnos para publicar la web y conectar la agenda?'
@@ -235,7 +234,7 @@ c.drawString(M,232,'Tecnología · Material visual · Agenda y legales')
 c.setFillColor(HexColor('#181B22'));c.roundRect(M,88,CW,100,10,fill=1,stroke=0)
 c.setFillColor(CYAN);c.setFont('Bold',10);c.drawString(M+18,164,'CÓMO COMPLETAR ESTE BRIEF')
 coverstyle=ParagraphStyle('cover',fontName='Body',fontSize=9.5,leading=14,textColor=HexColor('#D6DEEB'))
-p=Paragraph('Respondan por número de punto en un documento compartido y enlacen los archivos correspondientes. Repitan las fichas por sede, profesional y tratamiento. Si algo falta, indiquen “Pendiente”, responsable y fecha; si no aplica, expliquen el motivo.',coverstyle);_,hh=p.wrap(CW-36,1000);p.drawOn(c,M+18,146-hh)
+p=Paragraph('Respondan por número de punto en un documento compartido y enlacen los archivos correspondientes. Repitan las fichas por profesional y tratamiento. Si algo falta, indiquen “Pendiente”, responsable y fecha; si no aplica, expliquen el motivo.',coverstyle);_,hh=p.wrap(CW-36,1000);p.drawOn(c,M+18,146-hh)
 footer(1,True);c.showPage()
 
 for n,p in enumerate(PAGES,2):
@@ -253,7 +252,7 @@ para('<b>En el documento de respuestas</b><br/>Identificar BE SMILE, responsable
 y-=90
 c.setFillColor(BLUE);c.setFont('Bold',10);c.drawString(M,y,'CARPETA COMPARTIDA: BE-SMILE / WEB');y-=25
 folders=[
- ('01 Marca y sedes','Logo, manual, redes y fichas de contacto por sede.'),
+ ('01 Marca y contacto','Logo, manual, redes y ficha de contacto de BE SMILE.'),
  ('02 Clínica y equipo','Historia, diferenciadores, cifras y fichas de profesionales.'),
  ('03 Tratamientos y promociones','Fichas por servicio, precios, dudas y al menos dos paquetes.'),
  ('04 Tecnología','Inventario, marcas y fotos de equipos reales.'),
@@ -265,7 +264,7 @@ for name,desc in folders:
  c.setFillColor(INK);c.setFont('Bold',9.5);c.drawString(M,y,name)
  h=para(escape(desc),M+182,y+9,CW-182,'small');y-=max(h,18)+12
 c.setStrokeColor(LINE);c.line(M,y+3,W-M,y+3);y-=17
-h=para('<b>Formatos y nombres de archivo</b><br/>Fotos originales JPG o PNG; videos existentes MP4 o MOV; documentos PDF; logos vectoriales cuando estén disponibles. Eviten archivos comprimidos por WhatsApp. Usen nombres que identifiquen sede, persona, tratamiento y caso. Elevator adaptará tamaños y formatos.',M,y,CW,'small');y-=h+18
+h=para('<b>Formatos y nombres de archivo</b><br/>Fotos originales JPG o PNG; videos existentes MP4 o MOV; documentos PDF; logos vectoriales cuando estén disponibles. Eviten archivos comprimidos por WhatsApp. Usen nombres que identifiquen espacio de la clínica, persona, tratamiento y caso. Elevator adaptará tamaños y formatos.',M,y,CW,'small');y-=h+18
 h=para('<b>Antes de publicar</b><br/>BE SMILE valida textos, precios, tiempos clínicos, contactos y documentos. Cada caso o testimonio de paciente debe contar con autorización firmada. Los accesos técnicos se conceden por invitación, sin incluir contraseñas en este brief.',M,y,CW,'small');y-=h+18
 h=para('<b>COFEPRIS: rutas oficiales si el documento está pendiente</b><br/>Confirmar con el responsable de la clínica si corresponde permiso o aviso de publicidad. Estas son las páginas oficiales para consultar la modalidad y el proceso:',M,y,CW,'small');y-=h+8
 for label,url in [
