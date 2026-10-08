@@ -81,11 +81,11 @@ PAGES=[
  '¿Existe un video de presentación del fundador que podamos utilizar? Si existe, ¿quién aparece y qué comunica?'
  ],'Foto original del equipo; video del fundador, si ya existe, y nombre/cargo de las personas que aparecen. Indicar si hay material pendiente.'),
  ]),
- dict(section='04',title='Tratamientos y precios',subtitle='Ficha por tratamiento · Parte 1 de 2',intro='La información de los puntos 04.02 a 04.05 debe repetirse por cada tratamiento que se publicará.',items=[
+ dict(section='04',title='Tratamientos y precios',subtitle='Ficha por tratamiento · Parte 1 de 2',intro='La información de los puntos 04.02 a 04.05 debe repetirse por todos los tratamientos que ofrece BE SMILE, incluyendo cada variante o modalidad.',items=[
  item('04.01','Oferta real y prioridades',[
- '¿Qué tratamientos ofrece BE SMILE actualmente?',
+ '¿Cuál es la lista completa de todos los tratamientos que ofrece BE SMILE actualmente, con sus variantes y modalidades?',
  '¿Cuáles son los prioritarios para atraer pacientes y cuáles tienen mayor enfoque y rentabilidad para la clínica?'
- ],'Lista de servicios disponibles y orden de prioridad. Indicar con qué profesional se ofrece cada uno.'),
+ ],'Catálogo completo de servicios, variantes y modalidades; indicar con qué profesional se ofrece cada uno y su orden de prioridad.'),
  item('04.02','Objetivo, paciente y beneficios',[
  'Por tratamiento: ¿qué problema resuelve, para quién está indicado y cuáles son sus beneficios principales?',
  '¿Qué expectativas deben aclararse al paciente y en qué casos requiere valoración para definir su opción?'
@@ -96,11 +96,13 @@ PAGES=[
  '¿Qué materiales utilizan y recomiendan para las coronas sobre implantes? ¿Qué factores pueden modificar los tiempos?'
  ],'Pasos y rangos de tiempo aprobados por el profesional. Incluir materiales, cuidados y variaciones según valoración; no usar una duración única para todos los pacientes.'),
  ]),
- dict(section='04',title='Tratamientos y precios',subtitle='Ficha por tratamiento · Parte 2 de 2',intro='Completar precios y dudas por servicio. Para promociones, entregar al menos dos paquetes definidos y listos para preparar su presentación.',items=[
- item('04.04','Precio e inclusiones',[
- '¿Cuál es el precio en pesos mexicanos (MXN) o debe mostrarse “según valoración”? ¿Por qué unidad: pieza, arcada, sesión o tratamiento?',
- '¿Qué incluye y qué se cobra aparte? ¿Desde qué fecha está vigente?'
- ],'Precio vigente en pesos mexicanos (MXN) o criterio de valoración, inclusiones y cargos adicionales. Mantener coherencia con la primera valoración y las promociones.'),
+ dict(section='04',title='Tratamientos y precios',subtitle='Ficha por tratamiento · Parte 2 de 2',intro='Entregar el tarifario de todos los tratamientos, sus variantes y componentes. Para promociones, incluir al menos dos paquetes definidos.',items=[
+ item('04.04','Tarifario completo de todos los tratamientos',[
+ 'Por cada tratamiento y variante: ¿cuál es el precio vigente en pesos mexicanos (MXN) y la unidad de cobro: pieza, arcada, sesión o tratamiento?',
+ 'Si el importe depende de la valoración: ¿cuál es el precio desde o rango aproximado y qué factores modifican el costo?',
+ '¿Qué incluye cada precio? ¿Qué etapas, materiales, estudios o componentes se cobran por separado y cuánto cuesta cada uno?',
+ '¿Desde qué fecha están vigentes? ¿Qué precios autorizan publicar como precio fijo, “desde” o “según valoración”?'
+ ],'Tarifario completo en Excel o tabla editable, con una fila por tratamiento y variante: nombre, precio MXN o rango, unidad, inclusiones, extras con sus precios, vigencia y forma de publicación. Incluir todos los servicios disponibles y mantener coherencia con la valoración y las promociones.'),
  item('04.05','Tres dudas frecuentes',[
  '¿Cuáles son las tres dudas más frecuentes que hacen los pacientes sobre cada tratamiento?',
  '¿Cuál es la respuesta aprobada para cada una? Utilizar dudas y ejemplos provenientes de casos reales.'
@@ -250,7 +252,7 @@ c.setFillColor(BLUE);c.setFont('Bold',10);c.drawString(M,y,'CARPETA COMPARTIDA: 
 folders=[
  ('01 Marca y contacto','Logo, manual, redes y ficha de contacto de BE SMILE.'),
  ('02 Clínica y equipo','Historia, diferenciadores, cifras y fichas de profesionales.'),
- ('03 Tratamientos y promociones','Fichas por servicio, precios, dudas y al menos dos paquetes.'),
+ ('03 Tratamientos y promociones','Tarifario completo, fichas por servicio, dudas y al menos dos paquetes.'),
  ('04 Tecnología','Inventario, marcas y fotos de equipos reales.'),
  ('05 Fotos y casos','Instalaciones, material por tratamiento y casos antes/después.'),
  ('06 Testimonios y autorizaciones','Reseñas, videos existentes y autorizaciones firmadas vinculadas.'),
