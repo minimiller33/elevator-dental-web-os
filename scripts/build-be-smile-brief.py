@@ -150,9 +150,9 @@ PAGES=[
  '¿Qué agenda o CRM utilizan? ¿Tienen un enlace de reserva? ¿El formulario solicita una cita o confirma un horario real?'
  ],'Contacto de destino, responsable y enlace de agenda si existe.'),
  item('07.02','Dominio y acceso técnico',[
- '¿Qué dominio utilizará BE SMILE y quién administra el dominio y su publicación?',
+ '¿Quién administra besmile.mx y puede conceder el acceso necesario para publicar la web?',
  '¿A qué herramientas deben invitarnos para publicar la web y conectar la agenda?'
- ],'Dominio y contacto del administrador. Compartir permisos por invitación y por el canal acordado con Elevator; no escribir contraseñas en las respuestas.'),
+ ],'Dominio definido: besmile.mx. Facilitar el contacto del administrador y compartir permisos por invitación, por el canal acordado con Elevator; no escribir contraseñas en las respuestas.'),
  item('07.03','Privacidad y condiciones',[
  '¿Cuáles son los datos legales de BE SMILE y quién es responsable de privacidad?',
  '¿Qué aviso de privacidad y condiciones de citas, cancelaciones y pagos deben publicarse?'
@@ -256,7 +256,7 @@ folders=[
  ('04 Tecnología','Inventario, marcas y fotos de equipos reales.'),
  ('05 Fotos y casos','Instalaciones, material por tratamiento y casos antes/después.'),
  ('06 Testimonios y autorizaciones','Reseñas, videos existentes y autorizaciones firmadas vinculadas.'),
- ('07 Agenda y legales','Datos de agenda, dominio, privacidad y documentos de publicidad.'),
+ ('07 Agenda y legales','Datos de agenda, acceso a besmile.mx, privacidad y documentos de publicidad.'),
 ]
 for name,desc in folders:
  c.setFillColor(INK);c.setFont('Bold',9.5);c.drawString(M,y,name)
