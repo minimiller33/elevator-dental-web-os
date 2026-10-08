@@ -59,7 +59,7 @@ PAGES=[
  '¿A qué período corresponde cada cifra y cómo fue calculada?'
  ],'Cifras verificables con fecha de corte y período. Distinguir pacientes únicos, consultas y tratamientos, según el dato disponible.'),
  item('02.04','Primera valoración',[
- '¿Qué incluye la primera valoración y cuánto cuesta? Indiquen moneda.',
+ '¿Qué incluye la primera valoración y cuánto cuesta en pesos mexicanos (MXN)?',
  '¿Se descuenta ese importe del tratamiento? ¿Bajo qué condiciones?'
  ],'Descripción de la valoración, estudios incluidos o aparte, precio vigente y condiciones del descuento si aplica.'),
  ]),
@@ -98,16 +98,16 @@ PAGES=[
  ]),
  dict(section='04',title='Tratamientos y precios',subtitle='Ficha por tratamiento · Parte 2 de 2',intro='Completar precios y dudas por servicio. Para promociones, entregar al menos dos paquetes definidos y listos para preparar su presentación.',items=[
  item('04.04','Precio e inclusiones',[
- '¿Cuál es el precio o debe mostrarse “según valoración”? ¿En qué moneda y por qué unidad: pieza, arcada, sesión o tratamiento?',
+ '¿Cuál es el precio en pesos mexicanos (MXN) o debe mostrarse “según valoración”? ¿Por qué unidad: pieza, arcada, sesión o tratamiento?',
  '¿Qué incluye y qué se cobra aparte? ¿Desde qué fecha está vigente?'
- ],'Precio vigente o criterio de valoración, moneda, inclusiones y cargos adicionales. Mantener coherencia con la primera valoración y las promociones.'),
+ ],'Precio vigente en pesos mexicanos (MXN) o criterio de valoración, inclusiones y cargos adicionales. Mantener coherencia con la primera valoración y las promociones.'),
  item('04.05','Tres dudas frecuentes',[
  '¿Cuáles son las tres dudas más frecuentes que hacen los pacientes sobre cada tratamiento?',
  '¿Cuál es la respuesta aprobada para cada una? Utilizar dudas y ejemplos provenientes de casos reales.'
  ],'Tres preguntas y tres respuestas por tratamiento. Los ejemplos clínicos deben ser reales y presentarse sin datos que identifiquen al paciente.'),
  item('04.06','Pagos y dos paquetes de promociones',[
  '¿Qué métodos de pago y opciones de financiamiento ofrecen? Indiquen proveedor y condiciones, si aplica.',
- 'Por cada uno de al menos dos paquetes: ¿cuál es el nombre, tratamiento, beneficio, precio, moneda, inclusiones, vigencia y condiciones?',
+ 'Por cada uno de al menos dos paquetes: ¿cuál es el nombre, tratamiento, beneficio, precio en pesos mexicanos (MXN), inclusiones, vigencia y condiciones?',
  '¿Quién autoriza su activación o desactivación desde el Dashboard y qué mensaje y llamada a la acción tendrá su popup predeterminado?'
  ],'Ficha de cada paquete, restricciones, precio regular/promocional cuando corresponda y contenido del popup. Definir responsable y fechas para preparar el flujo de activación solicitado.'),
  ]),
