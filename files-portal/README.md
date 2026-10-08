@@ -2,7 +2,7 @@
 
 Private client intake portal at https://files.elevatordental.com, deployed as the standalone Cloudflare Worker `elevator-files`. It does not modify the main website or either Mailflare instance.
 
-The 28 requirements come from the approved client brief. Clients can save answers, share cloud links, upload files and submit dated progress snapshots. Reviewers can read and download the delivery without editing. Submission records an in-app snapshot; it does not send email.
+The 28 requirements come from the approved client brief. Clients can save answers, share cloud links, upload files and submit dated progress snapshots. Each of the 28 points includes three editable suggested answer drafts. Selecting a draft keeps the point pending, autosaves it, and asks whether to append or replace an existing response. Templates leave unknown clinic facts for confirmation. Reviewers can read and download the delivery without editing. Submission records an in-app snapshot; it does not send email.
 
 ## Storage and access
 
