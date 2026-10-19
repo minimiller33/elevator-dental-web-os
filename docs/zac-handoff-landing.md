@@ -18,7 +18,7 @@ Estado: propuesta implementada en `design/landing-zac-review`; sin publicación 
 
 ## Arquitectura antes de publicar
 
-`next build` genera una exportación estática en `out/`. El Worker de Cloudflare (`worker/index.ts` y `worker/seo.ts`) sirve esos archivos y atiende `/api/contact`, `/api/seo-config`, `/api/seo-diagnosis` y `/api/seo-report` bajo el mismo origen. Una publicación **solo** de `out/` en Vercel no implementa esas API: la página puede verse, pero los envíos y el diagnóstico no quedan operativos. Resolver las rutas en el destino elegido y probarlas antes de abrir tráfico. `npm run deploy` publica el Worker vinculado a `elevatordental.com` y `www.elevatordental.com`; no usarlo como preview.
+`next build` genera una exportación estática en `out/`. El Worker de Cloudflare (`worker/index.ts` y `worker/seo.ts`) sirve esos archivos y atiende `/api/contact`, `/api/seo-config`, `/api/seo-diagnosis` y `/api/seo-report` bajo el mismo origen. Servir **solo** `out/` no implementa esas API: la página puede verse, pero los envíos y el diagnóstico no quedan operativos. Validar las rutas del Worker y probarlas antes de abrir tráfico. `npm run deploy` publica el Worker vinculado a `elevatordental.com` y `www.elevatordental.com`; no usarlo como preview.
 
 Nombres de configuración a verificar por canal privado, sin copiar valores al repositorio: `GHL_WEBHOOK_URL` para contacto; `GHL_CALENDAR_URL` si se usa agenda; `SEO_SERVICE_URL`, `SEO_SERVICE_TOKEN`, `TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY` para diagnóstico. El servicio SEO y el portal tienen configuración independiente. Verificar dominio permitido en Turnstile, origen de las peticiones, webhook y entrega de informe con datos de prueba controlados.
 
@@ -31,11 +31,7 @@ Nombres de configuración a verificar por canal privado, sin copiar valores al r
 ## Lista de comprobación para Zac
 
 1. Revisar copy, jerarquía visual, móvil y escritorio con Héctor; confirmar condiciones comerciales y legales anteriores.
-2. Elegir arquitectura de publicación y probar bajo el mismo origen contacto, diagnóstico, Turnstile, informe privado y estados de error. Hacer los envíos de prueba solo en un entorno controlado, sin crear leads reales.
+2. Revisar la arquitectura del Worker de Cloudflare y probar bajo el mismo origen contacto, diagnóstico, Turnstile, informe privado y estados de error. Hacer los envíos de prueba solo en un entorno controlado, sin crear leads reales.
 3. Revisar enlaces, navegación, contraste, desbordamiento, teclado y movimiento reducido. Verificar que el formulario nunca anuncie éxito si la API falla.
 4. Revisar metadatos, `llms.txt`, `llms-full.txt` y analítica antes de dar la aprobación final.
 5. Publicar solo tras la aprobación de Héctor. El PR no autoriza merge ni despliegue a producción.
-
-## Entrega a GitHub y preview automático
-
-El proyecto Vercel `elevator-dental-os` tiene un despliegue de origen Git de **este** repositorio (`minimiller33/elevator-dental-web-os`), rama `main`, commit `485de2258a268b6aedca0454ac0fb5a0b281d8ae`. Subir una rama o abrir un PR podría generar un preview automático en Vercel. Confirmar con Héctor si se permite ese preview antes del push; no cambiar ajustes de Vercel ni usarlo como sustituto de las API del Worker. El repositorio GitHub y el proyecto Vercel llevan nombres distintos, pero la referencia de Git en el despliegue los vincula.
