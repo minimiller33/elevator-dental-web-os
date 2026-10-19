@@ -35,3 +35,11 @@ Nombres de configuración a verificar por canal privado, sin copiar valores al r
 3. Revisar enlaces, navegación, contraste, desbordamiento, teclado y movimiento reducido. Verificar que el formulario nunca anuncie éxito si la API falla.
 4. Revisar metadatos, `llms.txt`, `llms-full.txt` y analítica antes de dar la aprobación final.
 5. Publicar solo tras la aprobación de Héctor. El PR no autoriza merge ni despliegue a producción.
+
+## Verificación de integración — 19 de octubre de 2026
+
+La rama incluye íntegramente la base actual `main` (`485de22`); no hay conflictos ni cambios pendientes de integrar desde esa base. Se repitieron `npm run build`, las 10 pruebas de `tests/*.test.mjs` y ESLint: compilación correcta, pruebas aprobadas y cero errores de lint (tres advertencias existentes en el portal).
+
+Se comprobó con Aside el ensayo local del formulario corto: confirmación de demo, cero llamadas `fetch` y sin creación de contactos reales. La vista móvil de 390 px no presenta desbordamiento horizontal ni anclas internas sin destino. El Worker y las rutas de diagnóstico no cambian en este PR. Estas verificaciones no equivalen a una prueba de las credenciales o automatizaciones de producción.
+
+La propuesta queda lista para revisión del PR; no se ha fusionado a `main` ni desplegado a producción. Siguen vigentes las decisiones comerciales y revisiones previas a publicación enumeradas arriba.
