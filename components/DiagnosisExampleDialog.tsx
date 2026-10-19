@@ -74,7 +74,7 @@ export function DiagnosisExampleDialog() {
         </section>
         <h3>Tres estados para entender cada observación</h3>
         <ul className={styles.legend}><li><strong>Detectado</strong><span>Encontramos la señal. Su presencia no verifica que todos sus datos sean correctos.</span></li><li><strong>No detectado</strong><span>No la identificamos con esta comprobación; puede existir en otro formato.</span></li><li><strong>Requiere revisión</strong><span>Necesita una comprobación humana antes de sacar una conclusión.</span></li></ul>
-        <p className={styles.note}>El informe también incluye la carga móvil, los controles básicos y hasta tres prioridades. Revisa una sola página y no mide posiciones ni recomendaciones de una IA.</p>
+        <p className={styles.note}>El informe reúne la carga móvil, los controles básicos y hasta tres prioridades de la página que compartas.</p>
         <JigglyButton className={styles.action} href="/diagnostico-seo">Solicitar mi diagnóstico gratis ↗</JigglyButton>
       </div>
     </dialog>

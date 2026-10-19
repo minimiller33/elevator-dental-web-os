@@ -17,3 +17,4 @@ backups/
 .dev.vars
 .dev.vars.*
 *.access.json
+.higgsfield/

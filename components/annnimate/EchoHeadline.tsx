@@ -87,7 +87,7 @@ export default function EchoHeadline({ text = "ELEVATOR DENTAL" }: { text?: stri
       {Array.from({ length: COPIES }, (_, index) => {
         const i = COPIES - index;
         const far = (i - 1) / (COPIES - 1);
-        return <span key={i} className="eh_echo" aria-hidden="true" style={{ "--eh-i": i / COPIES, opacity: 0.35 * Math.pow(0.02 / 0.35, far) } as CSSProperties}>{text}</span>;
+        return <span key={i} className="eh_echo" aria-hidden="true" style={{ "--eh-i": String(i / COPIES), opacity: (0.35 * Math.pow(0.02 / 0.35, far)).toFixed(6) } as CSSProperties}>{text}</span>;
       })}
       <h2 className="eh_word" ref={wordRef}>{text}</h2>
     </div></div>

@@ -12,12 +12,12 @@ const questions = [
   { id: "ia", question: "¿El diagnóstico comprueba si ChatGPT recomienda mi clínica?", answer: "No. Identifica señales en una página: datos del negocio, ubicación, contacto y organización del contenido. Muestra evidencia y puntos que necesitan revisión humana. La presencia de esos elementos no demuestra que una IA cite o recomiende tu clínica." },
   { id: "independiente", question: "¿Funciona para una clínica pequeña o un profesional independiente?", answer: "Sí. Elevator Dental Web está pensada para clínicas y profesionales independientes de la odontología, incluidos implantólogos, ortodoncistas y especialistas en rehabilitación. Revisamos tus servicios, tu ubicación y tu situación antes de proponer un plan." },
   { id: "sin-web", question: "¿Y si todavía no tengo una web?", answer: "El diagnóstico necesita una página pública para analizarla. Si aún no tienes una, cuéntanos sobre tu clínica y los tratamientos que quieres impulsar. Podemos ayudarte a preparar una web desde el inicio." },
-  { id: "servicio", question: "¿Qué diferencia hay entre el diagnóstico y la membresía?", answer: "El diagnóstico es una revisión puntual de una página. La membresía mantiene y opera tu web: incluye hosting, mantenimiento técnico, monitoreo de demanda local y ciclos mensuales de mejora. El alcance y el plan se conversan en llamada." },
+  { id: "servicio", question: "¿Qué diferencia hay entre el diagnóstico y la membresía?", answer: "El diagnóstico revisa una página una sola vez. Con la membresía, Elevator se ocupa del hosting, el mantenimiento y las mejoras continuas de tu web. Revisamos qué buscan las personas en tu zona y trabajamos nuevas prioridades sin pedirte que coordines cada ajuste. El alcance y el plan se conversan en llamada." },
   { id: "licencia", question: "¿La web es mía o funciona bajo licencia?", answer: "Elevator Web funciona bajo licencia mientras la membresía está activa. El servicio no incluye transferencia del código. Antes de contratar, revisamos contigo las condiciones de uso y de continuidad del servicio." },
   { id: "tiempos", question: "¿Cuánto tarda la publicación y cuándo se ven resultados?", answer: "El calendario se acuerda según las páginas, los materiales disponibles y las aprobaciones de la clínica. Publicar la web y ganar visibilidad son procesos distintos: el crecimiento orgánico necesita tiempo y no tiene una fecha de resultados garantizada." },
-  { id: "solicitudes", question: "¿Cómo funcionan el mantenimiento y los cambios?", answer: "La membresía incluye hosting, mantenimiento técnico, ciclos de mejora y 3 créditos mensuales de solicitudes. Acordamos el alcance de cada solicitud antes de realizarla; no equivale a cambios ilimitados ni a cualquier desarrollo a medida." },
+  { id: "solicitudes", question: "¿Tengo que pedir cada mejora? ¿Para qué sirven los créditos?", answer: "No tienes que dirigir cada mejora habitual: Elevator revisa la web y trabaja en sus siguientes pasos. La membresía también incluye 3 créditos mensuales para solicitudes de la clínica. Revisamos el alcance de cada solicitud antes de realizarla; no son cambios ilimitados ni cualquier desarrollo a medida. La información clínica sensible se valida contigo cuando corresponde." },
   { id: "resultados", question: "¿Me garantizan aparecer primero o recibir pacientes cada semana?", answer: "No. Ningún servicio puede controlar la posición en Google ni las respuestas de una plataforma de IA. Trabajamos para fortalecer tu visibilidad orgánica. La ubicación, la competencia, la información de tu clínica y la decisión de cada paciente también influyen." },
-  { id: "contenido", question: "¿Tengo que publicar contenido todos los días?", answer: "No necesitas publicar todos los días ni automatizar la conversación clínica. Elevator trabaja la base digital para que buscadores y pacientes encuentren información clara sobre tus tratamientos. Tú revisas con nosotros los cambios sensibles de la información clínica." },
+  { id: "contenido", question: "¿Tengo que publicar contenido todos los días?", answer: "No. Elevator se ocupa de revisar y mejorar la web dentro del alcance de la membresía. Tú validas los datos y afirmaciones clínicas sensibles cuando corresponde; no necesitas gestionar las mejoras habituales ni publicar a diario." },
 ];
 
 function DiagnosisPreview() {
@@ -79,7 +79,7 @@ export function DentalDiagnosisSection() {
 }
 
 export function DentalQuestionsSection() {
-  return <div className={`edw-arc ${styles.section}`} data-theme="dark" data-accent="blue" id="preguntas">
+  return <div className={`edw-arc ${styles.section}`} data-theme="dark" data-accent="blue" id="preguntas-contenido">
     <FaqSection
       variant="accordion"
       title="Preguntas antes de dar el siguiente paso"

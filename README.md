@@ -24,7 +24,7 @@ npm run dev
 
 ## Páginas y funcionamiento
 
-- `/`: landing y formulario de contacto de cinco pasos, conectado al Worker y CRM. Guarda el contacto inicial y envía el cuestionario al completarlo.
+- `/`: landing y formulario corto de conversación. En producción, el formulario envía la solicitud al Worker y confirma el envío solo cuando este responde correctamente. En localhost, el envío está desactivado; `?demo=contacto#contacto` permite ensayar la confirmación sin enviar datos.
 - `/diagnostico-seo`: solicitud de diagnóstico en dos pasos, con verificación Turnstile. El Worker envía el trabajo al servicio SEO; el informe se entrega por correo.
 - `/informe-seo#token=…`: informe privado mediante enlace temporal.
 - `/diagnostico-seo/privacidad`: uso de los datos del diagnóstico.
@@ -57,7 +57,7 @@ npm run build
 npm start
 ```
 
-El Worker local usa el puerto 3001; `npm run preview:cloudflare` utiliza 8788. Un servidor estático sencillo solo muestra la interfaz: no proporciona las rutas `/api/*`.
+El Worker local usa el puerto 3001; `npm run preview:cloudflare` utiliza 8788. Un servidor estático sencillo solo muestra la interfaz: no proporciona las rutas `/api/*`. La exportación de Next.js tampoco implementa esas rutas por sí sola; las atiende el Worker de Cloudflare. Antes de publicar en otra plataforma, hay que resolver las API bajo el mismo origen y probar los formularios. Ver [entrega para Zac](docs/zac-handoff-landing.md).
 
 ## Credenciales e integraciones
 

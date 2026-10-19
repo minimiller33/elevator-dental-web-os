@@ -13,11 +13,11 @@ import "./dock-footer.css";
 if (typeof window !== "undefined") gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const columns = [
-  { title: "Elevator Dental Web", links: [["Tu web", "#web"], ["Información y confianza", "#claridad"], ["Caso real", "#caso"]] },
-  { title: "Membership", links: [["Operación continua", "#membership"], ["Cómo trabajamos", "#metodo"], ["Alcance del servicio", "#inversion"]] },
+  { title: "Elevator Dental Web", links: [["Tu web", "#web"], ["Información y confianza", "#claridad"]] },
+  { title: "Membership", links: [["Operación continua", "#membership"], ["Cómo trabajamos", "#continuidad"], ["Alcance del servicio", "#inversion"]] },
   { title: "El siguiente paso", links: [["Diagnóstico gratuito", "/diagnostico-seo"], ["Revisar mi clínica", "#contacto"], ["Preguntas frecuentes", "#preguntas"]] },
 ];
-const navigation = [["Tu web dental", "#web"], ["Membership", "#membership"], ["Diagnóstico gratis", "/diagnostico-seo"], ["Cómo trabajamos", "#metodo"], ["Hablemos", "#contacto"]];
+const navigation = [["Tu web dental", "#web"], ["Membership", "#membership"], ["Diagnóstico gratis", "/diagnostico-seo"], ["Cómo trabajamos", "#continuidad"], ["Hablemos", "#contacto"]];
 
 // Adapted from the supplied Annnimate DockFooter: expanding glass dock,
 // staggered reveals and rolling characters, using the landing's light palette.
