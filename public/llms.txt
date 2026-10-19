@@ -7,7 +7,7 @@ El sitio oficial es https://elevatordental.com/ y está en español. El servicio
 ## Información principal
 
 - [Información ampliada](https://elevatordental.com/llms-full.txt): Servicios, alcance, proceso y preguntas frecuentes en texto.
-- [Elevator Dental Web](https://elevatordental.com/): Presentación del servicio, caso observado, alcance y formulario de contacto.
+- [Elevator Dental Web](https://elevatordental.com/): Presentación del servicio, alcance y formulario de contacto.
 - [Diagnóstico SEO gratuito](https://elevatordental.com/diagnostico-seo): Revisión de una sola página pública de una clínica, con resultados enviados por email. Sin tarjeta ni cuenta.
 
 ## Optional

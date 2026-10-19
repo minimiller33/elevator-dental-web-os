@@ -9,8 +9,8 @@ import "./simple-menu.css";
 
 const links = [
   { label: "El sistema", href: "#sistema" },
-  { label: "Caso real", href: "#caso" },
-  { label: "Inversión", href: "#inversion" },
+  { label: "Membership", href: "#membership" },
+  { label: "Alcance", href: "#inversion" },
   { label: "Diagnóstico gratis", href: "/diagnostico-seo" },
 ];
 const query = "(max-width: 768px)";
