@@ -20,17 +20,18 @@ export function CaseStudyProof() {
       <div className="container">
         <header className="case-proof__heading" data-reveal>
           <div>
-            <span className="kicker">02 · BEFORE &amp; AFTER · CASO REAL</span>
+            <span className="kicker">02 · CRECIMIENTO ORGÁNICO · CASO REAL</span>
             <h2 id="case-proof-title">
-              La clínica ya tenía una web.
+              Una web publicada era solo el comienzo.
               <br />
               <span>Lo que cambió fue lo que ocurrió después.</span>
             </h2>
           </div>
           <p>
-            Comparamos dos periodos reportados de cuatro meses en Clínica
-            DrDiente: el punto de partida y el periodo posterior con una web
-            operada como un activo que acumula mejoras.
+            En Clínica DrDiente, las impresiones orgánicas reportadas pasaron
+            de 38 mil a más de 480 mil al comparar dos periodos de cuatro
+            meses. Un caso observado que muestra el potencial del trabajo
+            continuo, no un resultado garantizado para otras clínicas.
           </p>
         </header>
 

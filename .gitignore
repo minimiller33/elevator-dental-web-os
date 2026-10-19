@@ -7,3 +7,13 @@ out/
 !.env.example
 *.log
 .DS_Store
+.cube
+.wrangler/
+services/seo-audit/data/
+
+# Local backups, build caches and private runtime configuration.
+backups/
+*.tsbuildinfo
+.dev.vars
+.dev.vars.*
+*.access.json

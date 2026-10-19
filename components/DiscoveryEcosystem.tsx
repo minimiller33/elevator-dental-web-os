@@ -3,6 +3,7 @@ import { BrandMark } from "./BrandMark";
 const platforms = [
   { slug: "google", mark: "G", name: "Google", type: "Búsqueda" },
   { slug: "bing", mark: "b", name: "Bing", type: "Búsqueda" },
+  { slug: "brave", mark: "B", name: "Brave", type: "Búsqueda" },
   { slug: "chatgpt", mark: "✣", name: "ChatGPT", type: "Respuesta IA" },
   { slug: "gemini", mark: "✦", name: "Gemini", type: "Respuesta IA" },
   { slug: "claude", mark: "C", name: "Claude", type: "Respuesta IA" },
@@ -20,7 +21,7 @@ export function DiscoveryEcosystem() {
       >
         <header className="discovery-network__header discovery-credibility__header">
           <span><i aria-hidden="true" /> 01 · NUEVO MAPA DE BÚSQUEDA</span>
-          <small>7 SUPERFICIES DE DESCUBRIMIENTO</small>
+          <small>8 SUPERFICIES DE DESCUBRIMIENTO</small>
         </header>
 
         <div className="ecosystem-core discovery-source">
@@ -32,11 +33,11 @@ export function DiscoveryEcosystem() {
             <BrandMark compact />
             <span>ELEVATOR WEB</span>
             <strong id="discovery-credibility-title">
-              Preparada para el nuevo mapa de búsqueda
+              Una presencia clara para cada forma de buscar
             </strong>
             <p>
-              Información pública organizada para que pueda ser rastreada,
-              entendida y verificada.
+              La información de tu clínica, organizada para que buscadores y
+              asistentes de IA puedan rastrearla, entenderla y contrastarla.
             </p>
             <div className="ecosystem-status discovery-source__signals" aria-label="Señales estructurales">
               <span>Rastreable</span>
@@ -69,7 +70,7 @@ export function DiscoveryEcosystem() {
         </ul>
 
         <p className="discovery-credibility__note">
-          Una sola fuente clara para un ecosistema de búsqueda que ya no vive en un solo lugar.
+          Una fuente clara para búsquedas tradicionales y respuestas asistidas por IA.
         </p>
       </div>
       <figcaption id="discovery-ecosystem-disclaimer">

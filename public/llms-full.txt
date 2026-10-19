@@ -1,0 +1,105 @@
+# Elevator Dental
+
+> Información pública de Elevator Dental Web: desarrollo y operación continua de webs para clínicas y profesionales de la odontología.
+
+Sitio oficial: https://elevatordental.com/
+Idioma del sitio: español.
+Mercados de atención: México, Colombia, Costa Rica y Estados Unidos, con atención en español.
+Contacto: https://elevatordental.com/#contacto
+Email de soporte: soporte@elevatordental.com
+
+## Qué hace Elevator Dental
+
+Elevator Dental Web organiza los servicios, la experiencia y la ubicación de una clínica en una web clara para pacientes, buscadores y asistentes de IA. Trabaja la estructura técnica y el contenido para apoyar la visibilidad orgánica y las consultas mejor calificadas. Elevator Dental es un servicio digital para el sector odontológico; no es una clínica ni ofrece diagnósticos médicos.
+
+Está dirigido a clínicas dentales y profesionales independientes, incluidos implantólogos, ortodoncistas y especialistas en estética y rehabilitación dental.
+
+## Elevator Dental Web: construcción inicial
+
+El alcance publicado contempla:
+
+- Hasta siete páginas adaptadas a celulares.
+- Arquitectura de servicios y redacción del contenido.
+- Ajustes técnicos para buscadores y datos estructurados.
+- Analítica, configuración y publicación.
+
+La información ayuda a explicar tratamientos, experiencia, ubicación y próximos pasos. El equipo de la clínica revisa los cambios sensibles de la información clínica.
+
+## Elevator Dental Membership: operación continua
+
+La membresía publicada incluye:
+
+- Hosting y mantenimiento técnico.
+- Monitoreo de demanda local.
+- Ciclos mensuales de mejora.
+- Tres créditos mensuales de solicitudes.
+
+El alcance corresponde a una marca, una ubicación y un idioma. Elevator Web opera bajo licencia mientras la membresía está activa. El servicio descrito no incluye campañas publicitarias, gestión de redes sociales ni CRM.
+
+## Proceso de trabajo
+
+1. Escuchar la demanda local: revisar qué buscan las personas cerca de la clínica y qué tratamientos despiertan interés.
+2. Ordenar la información clínica: explicar servicios, experiencia y ubicación con contenido claro y revisado con la clínica.
+3. Mejorar con cada ciclo: medir señales orgánicas y priorizar mejoras para la presencia digital.
+
+## Inversión y contratación
+
+No se publica una tarifa fija. El alcance inicial, la inversión y el plan de operación se conversan en una llamada personalizada después de revisar la clínica y sus necesidades.
+
+Contacto y solicitud de conversación: https://elevatordental.com/#contacto
+
+## Diagnóstico SEO gratuito
+
+Formulario: https://elevatordental.com/diagnostico-seo
+
+Es una revisión automatizada de una sola página pública elegida por el solicitante. Está disponible sin tarjeta ni creación de cuenta. El formulario solicita datos de contacto, clínica, ubicación y la dirección de la página. El informe se envía por email.
+
+El diagnóstico revisa:
+
+- Cómo carga la página en una visita móvil simulada.
+- Cuándo aparece el contenido y si hay movimientos que dificulten usarla.
+- Título, descripción y organización básica del contenido.
+- Conexión segura y adaptación al celular.
+- Descripciones de imágenes y otros controles básicos de la página.
+- Hasta tres acciones prioritarias según los hallazgos.
+
+La revisión cubre únicamente la dirección enviada. No mide posiciones en Google, tráfico, enlaces externos ni presencia en Google Maps. Sus puntuaciones no representan una evaluación global del SEO de la clínica. Los resultados pueden variar según la carga del sitio y del servidor.
+
+Los informes individuales se entregan mediante un enlace al solicitante; no forman parte del contenido público de este resumen.
+
+Uso de datos: https://elevatordental.com/diagnostico-seo/privacidad
+
+## Preguntas frecuentes
+
+### ¿Puedo usar el servicio si todavía no tengo una web?
+
+El diagnóstico gratuito necesita una página pública para analizarla. Si la clínica aún no tiene web, puede contactar a Elevator Dental para revisar la construcción desde el inicio.
+
+### ¿Debo publicar contenido todos los días?
+
+El servicio no exige publicaciones diarias. Trabaja la base digital y el contenido de la web con revisión de la clínica.
+
+### ¿Se garantiza aparecer primero en Google o recibir pacientes?
+
+No. La ubicación, la competencia, las condiciones iniciales y las decisiones de cada plataforma y paciente influyen en los resultados. La preparación de información para IA tampoco garantiza que una plataforma cite o recomiende la clínica.
+
+### ¿Qué diferencia hay entre el diagnóstico y la membresía?
+
+El diagnóstico es una revisión puntual y gratuita de una página. La membresía es el servicio de mantenimiento y operación continua de la web, cuyo alcance e inversión se acuerdan en llamada.
+
+## Caso observado publicado
+
+La landing presenta el caso de Clínica DrDiente: las impresiones orgánicas reportadas pasaron de 38 mil a más de 480 mil al comparar dos periodos de cuatro meses, según la información publicada sobre Google Search Console.
+
+Las impresiones representan visibilidad en resultados de búsqueda; no equivalen a visitas, consultas ni pacientes. Este caso es un resultado observado, no una promesa de desempeño para otras clínicas.
+
+Fuente: https://elevatordental.com/#caso
+
+## Fuentes y alcance de este documento
+
+- Landing oficial: https://elevatordental.com/
+- Diagnóstico gratuito: https://elevatordental.com/diagnostico-seo
+- Índice para asistentes: https://elevatordental.com/llms.txt
+- Sitemap: https://elevatordental.com/sitemap.xml
+
+Este archivo resume información pública del sitio. Para contratar, confirmar el alcance vigente o resolver dudas sobre una clínica concreta, utiliza el formulario oficial de contacto.

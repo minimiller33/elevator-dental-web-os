@@ -225,7 +225,7 @@ function PreviewNotice() {
 function ResultScreen({ answers, onReset }: { answers: FitScanAnswers; onReset: () => void }) {
   const result = getFitResult(answers);
   const actionCopy = result.band === "fast"
-    ? "Activar mi Elevator Web — $2,194"
+    ? "Conversar sobre mi Elevator Web"
     : result.band === "guided"
       ? "Reservar diagnóstico Elevator"
       : "Recibir mi plan de preparación";
@@ -460,11 +460,10 @@ export function FitScanExperience() {
   if (stage === 6) {
     floorFields = (
       <>
-        <div className={styles.priceBrief}>
-          <span><small>ACTIVACIÓN</small><strong>$1,497</strong></span>
-          <i aria-hidden="true">+</i>
-          <span><small>PRIMER MES</small><strong>$697</strong></span>
-          <div><small>TOTAL INICIAL</small><strong>$2,194 USD</strong><p>Después, $697/mes mientras la Membership esté activa.</p></div>
+        <div className={styles.callBrief}>
+          <small>ALCANCE E INVERSIÓN</small>
+          <strong>Lo conversamos en una llamada</strong>
+          <p>Revisaremos las necesidades de tu clínica, el alcance adecuado y la inversión antes de que tomes una decisión.</p>
         </div>
         <ChoiceGroup legend="¿Cuándo te gustaría comenzar?" name="timeline" value={answers.timeline} onChange={(value) => setScalar("timeline", value)} compact choices={[
           { value: "now", label: "Ahora" }, { value: "thirty", label: "En 30 días" }, { value: "ninety", label: "1–3 meses" }, { value: "exploring", label: "Explorando" },
@@ -472,8 +471,8 @@ export function FitScanExperience() {
         <ChoiceGroup legend="¿Participas en la decisión final?" name="decisionAuthority" value={answers.decisionAuthority} onChange={(value) => setScalar("decisionAuthority", value)} compact choices={[
           { value: "yes", label: "Sí, decido" }, { value: "shared", label: "Decidimos en equipo" }, { value: "no", label: "Debo involucrar a alguien" },
         ]} />
-        <ChoiceGroup legend="¿La inversión encaja con la clínica?" name="priceAccepted" value={answers.priceAccepted} onChange={(value) => setScalar("priceAccepted", value)} compact choices={[
-          { value: "yes", label: "Sí, podemos activar" }, { value: "discuss", label: "Quiero hablarlo" }, { value: "no", label: "No por ahora" },
+        <ChoiceGroup legend="¿Te gustaría conversar sobre el alcance y la inversión en una llamada?" name="priceAccepted" value={answers.priceAccepted} onChange={(value) => setScalar("priceAccepted", value)} compact choices={[
+          { value: "yes", label: "Sí, agendemos" }, { value: "discuss", label: "Quiero conocer el alcance" }, { value: "no", label: "Prefiero después" },
         ]} />
         <ChoiceGroup legend="Elevator Web es un producto estandarizado, sin cambios ilimitados ni garantías de ranking. ¿Encaja contigo?" name="scopeAccepted" value={answers.scopeAccepted} onChange={(value) => setScalar("scopeAccepted", value)} compact choices={[
           { value: "yes", label: "Sí, quiero simplicidad" }, { value: "no", label: "Busco algo personalizado" },
@@ -523,7 +522,6 @@ export function FitScanExperience() {
     <main className={styles.shell}>
       <div className={styles.ambient} aria-hidden="true"><i /><i /><i /></div>
       <header className={styles.header}>
-        <Link href="/" aria-label="Volver a Elevator Dental OS"><BrandMark /></Link>
         <PreviewNotice />
         <div className={styles.headerProgress}>
           <span>{stage > 6 ? "ESCANEO COMPLETO" : `${completedFloors}/6 PISOS LISTOS`}</span>

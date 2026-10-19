@@ -1,0 +1,10 @@
+.mtt_filter_svg { position:fixed; width:0; height:0; overflow:hidden; pointer-events:none; }
+.mtt_tooltip { position:fixed; left:0; top:0; width:0; height:0; opacity:0; pointer-events:none; z-index:110; border-radius:10px; background:#0071e3; color:#fff; overflow:hidden; box-shadow:0 5px 18px #0071e31a; }
+.mtt_tooltip_text,.mtt_measure { box-sizing:border-box; padding:9px 13px; font-family:var(--font-geist-sans),Arial,sans-serif; font-size:13px; font-weight:400; line-height:1.4; letter-spacing:-.01em; text-align:center; }
+.mtt_tooltip_text { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+.mtt_measure { position:fixed; left:-9999px; top:-9999px; display:inline-block; max-width:min(200px,calc(100vw - 32px)); visibility:hidden; pointer-events:none; }
+.mtt_goo { position:fixed; left:0; top:0; opacity:0; z-index:109; pointer-events:none; }
+.mtt_goo > span { position:absolute; left:0; top:0; background:#0071e3; border-radius:999px; }
+.mtt_goo > span:nth-child(2) { border-radius:10px; }
+.mtt_sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(prefers-reduced-motion:reduce) { .mtt_goo { display:none; } }

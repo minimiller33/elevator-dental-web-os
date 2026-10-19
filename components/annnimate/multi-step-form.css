@@ -1,0 +1,72 @@
+/* Annnimate multi-step form, retaining Elevator's questions and live CRM flow. */
+:is(.edw-site.edw-ref,.ed-internal) .er-contact__form { padding:40px 32px; background:#f5f3f1; border-radius:24px; }
+:is(.edw-ref,.ed-internal) .edw-form .mstf_form { color:#242322; font:inherit; }
+.mstf_card { position:relative; width:100%; max-width:440px; margin:0 auto; }
+.mstf_header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; gap:16px; }
+.mstf_counter { display:flex; align-items:baseline; gap:5px; font-size:13px; color:#8b857e; font-variant-numeric:tabular-nums; }
+.mstf_counter_roller { display:inline-block; height:1.2em; line-height:1.2em; overflow:hidden; color:#242322; }
+.mstf_counter_face { display:block; }
+.mstf_stage_name { color:#7b756d; font-size:13px; }
+.mstf_progress { position:relative; height:1px; background:#24232226; margin-bottom:32px; }
+.mstf_progress_fill { position:absolute; inset:0; background:#0071e3; transform:scaleX(.2); transform-origin:left; }
+.mstf_viewport { overflow:clip; position:relative; }
+.mstf_step { position:relative; width:100%; }
+:is(.edw-ref,.ed-internal) .edw-form .mstf_step_title { margin:0 0 24px; font-size:28px; line-height:1.15; font-weight:300; outline:none; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-intro { margin:0 0 22px; color:#7b756d; font-size:14px; line-height:1.5; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-content { display:flex; flex-direction:column; gap:0; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-fields { display:flex; flex-direction:column; gap:20px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field { display:block; position:relative; margin:0 0 22px; font-size:14px; line-height:1.5; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field > span { display:block; margin:0; color:#7b756d; font-weight:400; font-size:14px; line-height:1.5; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field :is(input,select,textarea) { width:100%; min-height:49px; padding:14px 0 8px; border:0; border-bottom:1px solid #24232233; background:transparent; color:#242322; border-radius:0; box-shadow:none; font:inherit; font-size:16px; outline:none; transition:border-color .25s; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field :is(input,select,textarea):focus { border-color:#0071e3; box-shadow:0 1px 0 #0071e3; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field select { appearance:none; padding-right:25px; cursor:pointer; background:linear-gradient(45deg,transparent 50%,#8b857e 50%) calc(100% - 7px) 27px/5px 5px no-repeat,linear-gradient(135deg,#8b857e 50%,transparent 50%) calc(100% - 2px) 27px/5px 5px no-repeat; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field select option { background:#fff; color:#242322; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field textarea { min-height:90px; resize:vertical; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating { margin-bottom:8px; padding-top:5px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating input { height:55px; padding:23px 0 8px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating > span { position:absolute; left:0; top:22px; transform-origin:left center; pointer-events:none; font-size:16px; transition:transform .32s cubic-bezier(.3,.9,.1,1),color .25s; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating:focus-within > span,:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating input:not(:placeholder-shown) + span { transform:translateY(-19px) scale(.82); }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field--floating:focus-within > span { color:#0071e3; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field small { display:block; color:#8b857e; font-size:12px; line-height:1.5; margin-top:7px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-field input:-webkit-autofill { -webkit-text-fill-color:#242322; caret-color:#242322; box-shadow:inset 0 0 0 1000px #f5f3f1; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-group { margin:0 0 26px; padding:0; border:0; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-group legend { margin-bottom:13px; font-size:14px; line-height:1.5; color:#7b756d; font-weight:400; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-options { display:flex; flex-wrap:wrap; gap:8px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option { display:flex; align-items:center; gap:7px; padding:9px 12px; min-height:40px; border:1px solid #24232226; border-radius:9px; background:transparent; font-size:13px; cursor:pointer; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option > span { color:#5d5750; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option:is(:hover,.is-selected) { border-color:#0071e3; background:#eaf3ff; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option.is-selected > span { color:#0066cc; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option input { width:14px; height:14px; min-height:0; accent-color:#0071e3; padding:0; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-option:focus-within { outline:2px solid #0071e3; outline-offset:2px; }
+:is(.edw-ref,.ed-internal) .edw-form :is(.qual-privacy,.qual-hint,.form-note,.qual-inline-note) { font-size:12px; line-height:1.6; margin:14px 0 0; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-privacy { margin-top:23px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-investment { padding:0 0 20px; margin-bottom:25px; border:0; border-bottom:1px solid #24232226; background:transparent; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-investment small { color:#7b756d; font-size:11px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-investment strong { color:#242322; font-weight:400; font-size:18px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-investment span { color:#7b756d; font-size:13px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-error { font-size:13px; padding:10px 0; margin:8px 0 0; background:transparent; border:0; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-actions { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:28px; }
+:is(.edw-ref,.ed-internal) .edw-form .qual-back { padding:12px 22px; min-height:44px; font:inherit; font-size:14px; border:1px solid #24232233; border-radius:999px; background:transparent; color:#5d5750; }
+:is(.edw-ref,.ed-internal) .edw-form .mstf_submit { position:relative; width:auto; min-height:46px; padding:12px 22px; margin-left:auto; font-size:14px; white-space:normal; text-align:center; }
+:is(.edw-ref,.ed-internal) .edw-form .mstf_submit .jb_text { color:#fff; }
+:is(.edw-ref,.ed-internal) .edw-form .mstf_submit[aria-busy="true"] { width:48px; min-width:48px; height:48px; padding:0; opacity:1; }
+.mstf_submit[aria-busy="true"] .jb_text { visibility:hidden; }
+.mstf_submit[aria-busy="true"]::after { content:""; position:absolute; inset:0; margin:auto; width:18px; height:18px; border:2px solid #ffffff55; border-top-color:#fff; border-radius:50%; animation:mstf-spin .7s linear infinite; }
+@keyframes mstf-spin { to { transform:rotate(360deg); } }
+@media(max-width:479px) { :is(.edw-site.edw-ref,.ed-internal) .er-contact__form { padding:32px 20px; } .mstf_card { max-width:100%; } :is(.edw-ref,.ed-internal) .edw-form .mstf_step_title { font-size:26px; } }
+@media(prefers-reduced-motion:reduce) { .mstf_form *, .mstf_form *::after { transition:none!important; animation:none!important; } }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-actions .mstf_submit { flex:0 1 auto; width:auto; padding:12px 22px; font-size:14px; letter-spacing:-.01em; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-actions .mstf_submit[aria-busy="true"] { flex:none; width:48px; min-width:48px; padding:0; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-option.is-selected { border-color:#0071e3; background:#eaf3ff; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone { margin:10px 0 8px; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone__title { display:block; color:#7b756d; font-size:14px; margin-bottom:12px; }
+.qual-phone__row { display:grid; grid-template-columns:minmax(125px,.85fr) minmax(0,1.4fr); gap:16px; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone .qual-field { min-width:0; margin-bottom:0; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone .qual-field > span { font-size:12px; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone input { height:49px; padding:14px 0 8px; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone select { padding-right:18px; text-overflow:ellipsis; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone input::placeholder { font-size:13px; color:#9a948c; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone > small { display:block; margin-top:8px; color:#8b857e; font-size:12px; line-height:1.5; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone__error { color:#b42318; margin:8px 0 0; font-size:13px; line-height:1.5; }
+:is(.edw-site.edw-ref,.ed-internal) .edw-form .qual-phone input[aria-invalid="true"] { border-color:#b42318; }
+@media(max-width:400px) { .qual-phone__row { grid-template-columns:minmax(110px,.85fr) minmax(0,1fr); gap:12px; } }

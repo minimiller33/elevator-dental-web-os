@@ -131,14 +131,14 @@ export function LiveComparison() {
     >
       <div className="container">
         <header className="live-comparison__heading" data-reveal>
-          <span className="kicker kicker--blue">03 · US VS THEM · DOS DESTINOS</span>
+          <span className="kicker kicker--blue">03 · PUBLICAR NO ES EL FINAL</span>
           <h2 id="live-comparison-title">
-            Ambas pueden verse bien.
+            Una web puede quedarse quieta.
             <br />
             <span>Solo una sigue trabajando.</span>
           </h2>
           <p>
-            La diferencia empieza justo después de publicar.
+            La diferencia está en lo que ocurre después de publicar: mejorar la visibilidad de tu clínica de forma continua.
           </p>
         </header>
 
@@ -161,7 +161,7 @@ export function LiveComparison() {
             <figure className="live-comparison__visual">
               <FrozenElevator />
               <figcaption>
-                Cada cambio vuelve a depender de tiempo, mensajes y presupuesto.
+                Una web antigua, sin seguimiento, deja pasar oportunidades y cada mejora se convierte en otro proyecto.
               </figcaption>
             </figure>
 
@@ -197,8 +197,7 @@ export function LiveComparison() {
             <figure className="live-comparison__visual">
               <LivingElevator />
               <figcaption>
-                Aprende del mercado y convierte cada mejora en el inicio del
-                siguiente ciclo.
+                Revisa señales de búsqueda y convierte cada mejora en el inicio del siguiente ciclo.
               </figcaption>
             </figure>
 
@@ -216,9 +215,9 @@ export function LiveComparison() {
         </div>
 
         <div className="live-comparison__bridge" data-reveal>
-          <span>Para una web convencional, publicar es el final.</span>
+          <span>Tu web no tiene que depender de que publiques otro reel.</span>
           <i aria-hidden="true"><ArrowBridge /></i>
-          <strong>Para una Elevator Web, es el inicio.</strong>
+          <strong>Puede seguir trabajando mientras atiendes.</strong>
         </div>
       </div>
     </section>

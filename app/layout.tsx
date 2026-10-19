@@ -1,18 +1,25 @@
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
-import { GeistMono } from "geist/font/mono";
+import { Suspense, type ReactNode } from "react";
+import { LeadAttributionTracker } from "@/components/LeadAttributionTracker";
 import { GeistSans } from "geist/font/sans";
+import "@/components/arc/foundation.css";
 import "./globals.css";
-import "./experience.css";
-import "./search-experience.css";
+import "./dental-landing.css";
+import "./internal-pages.css";
+
+const waldenburg = localFont({ src: "../public/fonts/waldenburg-light.woff2", weight: "300", display: "swap", variable: "--font-waldenburg" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap", preload: false });
+const geistMono = localFont({ src: "../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2", variable: "--font-geist-mono", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   title: {
-    default: "Elevator Web — La web dental que evoluciona",
+    default: "Elevator Dental Web — Visibilidad orgánica para odontología",
     template: "%s | Elevator Dental OS",
   },
   description:
-    "Elevator Web es la web dental operada que monitorea oportunidades locales, protege el SEO y mejora mes a mes sin que tu equipo tenga que operar tecnología.",
+    "Webs para clínicas dentales con SEO local y preparación para IA. Elevator Dental mejora tu presencia digital con mantenimiento y optimización continua.",
   keywords: [
     "web para clínicas dentales",
     "SEO dental",
@@ -22,31 +29,31 @@ export const metadata: Metadata = {
     "página web dental",
   ],
   openGraph: {
-    title: "Tus pacientes ya están buscando. Que tu clínica esté lista para ser la respuesta.",
+    title: "Elevator Dental Web — Una web que sigue trabajando por tu clínica",
     description:
-      "La web dental operada que monitorea continuamente y mejora mes a mes, powered by Elevator Dental OS.",
+      "Visibilidad orgánica para clínicas y profesionales de la odontología, con una web que se opera y mejora continuamente.",
     type: "website",
     locale: "es_ES",
     siteName: "Elevator Dental OS",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elevator Web",
-    description: "La web que le da ventaja a tu clínica dental en la era de la IA.",
+    title: "Elevator Dental Web",
+    description: "Una web dental viva para atraer tráfico orgánico mejor calificado y reducir la dependencia de anuncios y contenido constante.",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#05070B",
-  colorScheme: "dark light",
+  themeColor: "#fdfcfc",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="es" className={`${GeistSans.variable} ${geistMono.variable} ${inter.variable} ${waldenburg.variable}`}>
+      <body><Suspense fallback={null}><LeadAttributionTracker /></Suspense>{children}</body>
     </html>
   );
 }

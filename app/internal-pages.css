@@ -1,0 +1,10 @@
+.ed-internal { padding-top:64px; min-height:100dvh; background:#fdfcfc; color:#242322; color-scheme:light; font-family:var(--font-inter),Arial,sans-serif; font-size:16px; line-height:1.6; }
+.ed-internal * { box-sizing:border-box; }
+.ed-internal :is(h1,h2) { font-family:var(--font-waldenburg),var(--font-inter),sans-serif; font-weight:300; letter-spacing:-.04em; }
+.ed-internal :is(input,select,textarea,button) { font-family:inherit; }
+.ed-internal :is(a,button,input,select,textarea,summary):focus-visible { outline:2px solid #0071e3; outline-offset:4px; }
+.ed-internal input[type=checkbox],.ed-internal input[type=radio] { accent-color:#0071e3; }
+.ed-internal .ed-not-found { max-width:1100px; margin:auto; padding:100px 24px 140px; }
+.ed-not-found h1 { font-size:clamp(40px,6vw,72px); line-height:1.08; margin:20px 0; max-width:650px; }
+.ed-not-found p { color:#746e66; }
+.ed-not-found a { display:inline-flex; margin-top:24px; padding:12px 24px; background:#0071e3; color:white; border-radius:999px; text-decoration:none; }

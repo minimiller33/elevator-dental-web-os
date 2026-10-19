@@ -1,0 +1,2 @@
+[data-anm-hide-header] { will-change: transform; }
+@media (prefers-reduced-motion: reduce) { [data-anm-hide-header] { transform: none !important; will-change: auto; } }

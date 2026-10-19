@@ -33,11 +33,10 @@ export function NinetyDayEngine() {
 
       <div className="container">
         <header className="activation-heading" data-reveal>
-          <span className="kicker kicker--blue">04 · PRIMEROS 90 DÍAS · ELEVATOR WEB ENCENDIDA</span>
-          <h2 id="growth-engine-title">90 días. <span>Una reacción en cadena.</span></h2>
+          <span className="kicker kicker--blue">04 · OPERACIÓN CONTINUA · ELEVATOR WEB ENCENDIDA</span>
+          <h2 id="growth-engine-title">Cada mes. <span>Una nueva oportunidad para mejorar.</span></h2>
           <p>
-            Tu web entrega información más clara, observa cómo responde internet y convierte esas señales
-            en el siguiente ciclo de mejora.
+            En lugar de publicar y esperar, observamos cómo responden los buscadores y usamos esas señales para decidir qué mejorar en tu presencia digital.
           </p>
         </header>
 
@@ -45,8 +44,8 @@ export function NinetyDayEngine() {
           <div className="growth-engine__grid" aria-hidden="true" />
 
           <div className="growth-engine__status">
-            <span><i aria-hidden="true" /> SISTEMA ENCENDIDO</span>
-            <strong>Ciclo de mejora activo</strong>
+            <span><i aria-hidden="true" /> OPERACIÓN CONTINUA</span>
+            <strong>Tu web sigue trabajando</strong>
             <small>SEÑAL → DECISIÓN → MEJORA</small>
           </div>
 
@@ -144,14 +143,14 @@ export function NinetyDayEngine() {
               <span>91</span><i /><i /><i />
             </div>
             <div className="growth-engine__day91-copy">
-              <small>EL DÍA 90 NO TERMINA EL PROCESO</small>
-              <h3>El día 91 comienza con todo lo que tu web ya construyó.</h3>
+              <small>EL CRECIMIENTO NO SE PAUSA EN EL DÍA 90</small>
+              <h3>Cada ciclo parte de lo que ya aprendimos sobre tu mercado.</h3>
               <div className="growth-engine__microflow" aria-label="Ciclo: señales, prioridades, mejoras, más descubrimiento y nuevas señales">
                 <span>Señales</span><i>→</i><span>Prioridades</span><i>→</i><span>Mejoras</span><i>→</i><span>Más descubrimiento</span><i>↻</i>
               </div>
             </div>
             <a className="button button--primary" href="#contacto">
-              Quiero mi Elevator Web <ArrowUpRight />
+              Quiero mi web dental viva <ArrowUpRight />
             </a>
           </div>
 

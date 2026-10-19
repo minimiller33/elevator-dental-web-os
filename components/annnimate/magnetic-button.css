@@ -1,0 +1,8 @@
+/* Annnimate magnetic movement; typography and colors remain owned by Elevator. */
+.anm_magnetic_shell { display: inline-flex; min-width: 0; }
+[data-anm-magnetic-button] { transform: translateZ(0); }
+[data-anm-magnetic-text] { display: inline-flex; align-items: center; justify-content: center; gap: 18px; }
+@media (max-width: 680px) { .anm_magnetic_shell { max-width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  [data-anm-magnetic-button], [data-anm-magnetic-text] { transform: none !important; transition: none !important; }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "elevator-dental-web",
+  "account_id": "22f27790057121d9d05044d4ea0c2fe7",
+  "compatibility_date": "2026-10-03",
+  "workers_dev": true,
+  "vars": {
+    "GHL_CALENDAR_URL": "https://api.leadconnectorhq.com/widget/booking/ZSMvG1HV5HndrINClSTq"
+  },
+  "main": "worker/index.ts",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "elevatordental.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.elevatordental.com",
+      "custom_domain": true
+    }
+  ]
+}

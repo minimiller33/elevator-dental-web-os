@@ -1,0 +1,16 @@
+/* Keep the existing blue button surfaces, dimensions and native semantics. */
+.jb_button { touch-action:manipulation; -webkit-tap-highlight-color:transparent; transform-origin:50% 100%; }
+.jb_button > .jb_text { display:inline-flex; align-items:inherit; justify-content:inherit; gap:inherit; transform-origin:50% 50%; }
+.er-showcase__tiles .jb_button > .jb_text { display:flex; align-items:center; width:100%; gap:inherit; }
+.er-showcase__tiles .jb_text > span { display:grid; gap:3px; }
+.er-showcase__tiles .jb_text > svg { flex:none; }
+.er-showcase__tiles .jb_text > svg:last-child { margin-left:auto; }
+.er-showcase__tiles button[aria-pressed="true"] .jb_text > svg { color:#0066cc; }
+.jb_button:focus-visible { outline:2px solid #0071e3; outline-offset:4px; }
+@media(prefers-reduced-motion:reduce) { .jb_button,.jb_text { will-change:auto; } }
+
+.edw-ref .er-floating-contact > .jb_text { display:flex; width:auto; height:auto; background:none; border-radius:0; gap:10px; }
+.er-floating-contact .jb_text > span { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:#ffffff26; }
+@media(max-width:767px) { .er-floating-contact .jb_text > span { width:32px; height:32px; } }
+
+.df_panel_foot > .jb_text { width:100%; }

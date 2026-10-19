@@ -1,0 +1,6 @@
+.anm_text_reveal { min-width: 0; }
+.anm_text_reveal .edw-heading-accent { display: inline-block; }
+.anm_split_line { overflow: visible; }
+@media (prefers-reduced-motion: reduce) {
+  .anm_split_word, .anm_split_char { transform: none !important; opacity: 1 !important; }
+}

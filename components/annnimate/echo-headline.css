@@ -1,0 +1,22 @@
+/* The compact mark occupies the existing pause between diagnosis and case. */
+.edw-ref .er-diagnosis:has(+ .er-echo-divider) { padding-bottom:24px; }
+.edw-ref .er-echo-divider + .er-case { padding-top:48px; border-top:0; }
+.edw-ref .eh_track {
+  --eh-perspective:16em; --eh-depth:0em; --eh-reach:0;
+  --eh-rx:0deg; --eh-ry:0deg; --eh-shift-x:0em; --eh-shift-y:0em;
+  position:relative; height:156px; color:#0071e3;
+  font-family:var(--er-display); font-size:clamp(24px,4.5vw,54px);
+  font-weight:500; line-height:1.1; letter-spacing:-.025em;
+}
+.eh_stage { height:100%; width:100%; display:grid; place-items:center; perspective:var(--eh-perspective); perspective-origin:var(--eh-vanish,50% 50%); }
+.eh_slab { position:relative; width:max-content; transform-style:preserve-3d; transform:translate(var(--eh-shift-x),var(--eh-shift-y)) rotateX(var(--eh-rx)) rotateY(var(--eh-ry)); }
+.edw-ref .eh_word,.eh_echo { font:inherit; letter-spacing:inherit; white-space:nowrap; margin:0; padding:0; }
+.edw-ref .eh_word { position:relative; color:#0071e3; font-size:inherit; line-height:inherit; font-weight:500; }
+.eh_echo { position:absolute; inset:0; color:inherit; visibility:hidden; transform:translateZ(calc(-1 * var(--eh-depth) * var(--eh-i) * var(--eh-reach))); backface-visibility:hidden; pointer-events:none; user-select:none; }
+.eh_is-built.eh_is-shown .eh_echo { visibility:visible; }
+@media(max-width:760px) {
+  .edw-ref .eh_track { height:126px; font-size:clamp(22px,5.4vw,38px); }
+  .edw-ref .er-echo-divider + .er-case { padding-top:28px; }
+  .edw-ref .er-diagnosis:has(+ .er-echo-divider) { padding-bottom:12px; }
+}
+@media(prefers-reduced-motion:reduce) { .eh_echo { display:none; } .eh_slab { transform:none; } }

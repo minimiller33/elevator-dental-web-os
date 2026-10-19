@@ -1,0 +1,147 @@
+/* Palette and CTA geometry adapted from the Apple HTML supplied by the user.
+   Scoped to the landing so the diagnosis application keeps its own styles. */
+.edw-site.edw-apple {
+  --edw-ink: #fff;
+  --edw-deep: #f5f5f7;
+  --edw-panel: #fff;
+  --edw-white: #1d1d1f;
+  --edw-soft: #6e6e73;
+  --edw-mint: #0066cc;
+  --edw-teal: #0071e3;
+  --edw-lilac: #0066cc;
+  --edw-line: #d2d2d7;
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-geist-sans), Arial, sans-serif;
+  letter-spacing: -.015em;
+}
+.edw-apple .edw-header { min-height: 64px; background: #ffffffd9; backdrop-filter: blur(20px) saturate(180%); }
+.edw-apple .edw-nav a { color: #424245; font-family: inherit; text-transform: none; letter-spacing: 0; font-size: 13px; }
+.edw-apple .edw-brand__lockup small { color: #6e6e73; }
+.edw-apple .edw-button, .edw-apple .edw-form .button, .edw-apple .edw-mobile-cta {
+  min-height: 44px; padding: 11px 22px; border-radius: 980px; font-family: inherit; font-size: 17px; font-weight: 400; line-height: 1.25; letter-spacing: -.02em; text-transform: none; white-space: nowrap;
+}
+.edw-apple .edw-button--light, .edw-apple .edw-button--nav, .edw-apple .edw-form .button, .edw-apple .edw-mobile-cta { background: #0071e3; border-color: #0071e3; color: #fff !important; box-shadow: none; }
+.edw-apple .edw-button--nav { font-size: 14px; min-height: 36px; padding: 8px 17px; }
+.edw-apple .edw-button--outline { color: #0066cc; border-color: #0066cc; background: transparent; }
+.edw-apple .edw-button:hover, .edw-apple .edw-form .button:hover, .edw-apple .edw-mobile-cta:hover { background: #0077ed; border-color: #0077ed; color: #fff; transform: none; }
+.edw-apple .edw-hero { padding-top: 64px; background: #f5f5f7; gap: 52px; }
+.edw-apple .edw-hero__wash, .edw-apple .edw-contact__wash { display: none; }
+.edw-apple .edw-eyebrow { padding: 0; border: 0; color: #6e6e73; font-family: inherit; font-size: 12px; letter-spacing: .08em; }
+.edw-apple .edw-hero h1 { font-size: clamp(44px, 5.8vw, 76px); font-weight: 600; letter-spacing: -.055em; }
+.edw-apple .edw-hero h1 .edw-heading-accent { color: #1d1d1f; }
+.edw-apple .edw-hero__lead { font-size: 21px; line-height: 1.5; max-width: 690px; }
+.edw-apple .edw-hero__actions { gap: 17px; }
+.edw-apple .edw-journey { background: #fff; border-color: #e5e5e8; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 40px #00000005; }
+.edw-apple .edw-journey figcaption { color: #6e6e73; font-family: inherit; }
+.edw-apple .edw-journey figcaption span:first-child { color: #424245; }
+.edw-apple .edw-journey__canvas { background: #fafafa; }
+.edw-apple .edw-journey__page, .edw-apple .edw-journey__outcome { background: #fff; border-color: #e5e5e8; border-radius: 16px; box-shadow: 0 8px 24px #00000005; }
+.edw-apple .edw-journey__bar, .edw-apple .edw-journey__page p, .edw-apple .edw-journey__topics, .edw-apple .edw-journey__engine > p, .edw-apple .edw-journey__outcome span, .edw-apple .edw-journey__foot { color: #6e6e73; }
+.edw-apple .edw-journey__page-link { color: #0066cc; }
+.edw-apple .edw-journey__connections .edw-journey__ghost { stroke: #d2d2d7; }
+.edw-apple .edw-overview { padding-block: 54px 68px; }
+.edw-apple .edw-operation, .edw-apple .edw-deliverables, .edw-apple .edw-case, .edw-apple .edw-comparison, .edw-apple .edw-contact { border: 0; background: #fff; }
+.edw-apple .edw-deliverables, .edw-apple .edw-contact { background: #f5f5f7; }
+.edw-apple .edw-section-tag, .edw-apple .edw-deliverables__index, .edw-apple .edw-case__axis, .edw-apple .edw-case__numbers small, .edw-apple .edw-case__result small { color: #6e6e73; }
+.edw-apple .edw-operation h2, .edw-apple .edw-deliverables h2, .edw-apple .edw-case h2, .edw-apple .edw-comparison h2, .edw-apple .edw-contact h2 { font-weight: 600; letter-spacing: -.045em; }
+.edw-apple :is(.edw-operation,.edw-deliverables,.edw-case,.edw-comparison,.edw-contact) h2 span { color: #6e6e73; }
+.edw-apple .edw-deliverables__grid > article { border: 0; border-radius: 24px; background: #fff; }
+.edw-apple .edw-blueprint, .edw-apple .edw-care { border: 0; border-radius: 16px; background: #f5f5f7; }
+.edw-apple .edw-blueprint__root, .edw-apple .edw-blueprint__branches span, .edw-apple .edw-care span { border-color: #d2d2d7; border-radius: 8px; background: #fff; }
+.edw-apple .edw-blueprint__branches::before { border-color: #d2d2d7; }
+.edw-apple .edw-blueprint p, .edw-apple .edw-care p { color: #6e6e73; font-family: inherit; }
+.edw-apple .edw-case__chart { border: 0; border-radius: 24px; background: #f5f5f7; }
+.edw-apple .edw-case__result span { color: #424245; }
+.edw-apple .edw-comparison__scroll { border-radius: 20px; }
+.edw-apple .edw-comparison thead, .edw-apple .edw-comparison tbody tr:nth-child(even) { background: #f5f5f7; }
+.edw-apple .edw-comparison td { color: #515154; }
+.edw-apple .edw-contact .edw-form { background: #fff; border: 0; border-radius: 24px; }
+.edw-apple .edw-form :is(.qual-field,.qual-group legend,.qual-option,.qual-progress > span) { color: #515154; }
+.edw-apple .edw-form :is(input,select,textarea) { color: #1d1d1f; background: #fff; border-color: #86868b; border-radius: 10px; font-size: 16px; }
+.edw-apple .edw-form :is(input,textarea)::placeholder { color: #6e6e73; }
+.edw-apple .edw-form .qual-option { border-color: #d2d2d7; border-radius: 10px; background: #f5f5f7; }
+.edw-apple .edw-form .qual-option:is(:hover,.is-selected) { border-color: #0071e3; background: #eef6ff; color: #1d1d1f; }
+.edw-apple .edw-form .qual-progress > span > i { border-color: #d2d2d7; }
+.edw-apple .edw-form .qual-progress > span.is-active { color: #0066cc; }
+.edw-apple .edw-form :is(.qual-privacy,.qual-hint,.qual-result__hint,.form-note) { color: #6e6e73 !important; }
+.edw-apple .edw-form :is(.qual-back,.qual-start-over) { color: #0066cc; border-color: #0066cc; border-radius: 980px; }
+.edw-apple .edw-form .qual-error { color: #b42318; }
+.edw-apple .edw-contact__aside { color: #6e6e73; font-family: inherit; letter-spacing: 0; text-transform: none; font-size: 12px; }
+.edw-apple .edw-footer { background: #f5f5f7; }
+.edw-apple .edw-footer > :is(span,div,small) { color: #6e6e73; }
+.edw-apple .edw-arc[data-theme] {
+  --background: #fff; --surface: #f5f5f7; --surface-raised: #fff; --surface-muted: #eeeef0;
+  --foreground: #1d1d1f; --text-secondary: #6e6e73; --text-muted: #6e6e73;
+  --border: #d2d2d7; --border-subtle: #e5e5e8; --border-strong: #86868b;
+  --accent: #0066cc; --accent-strong: #0066cc; --accent-subtle: #eef6ff;
+  --radius-control: 980px; --radius-surface: 24px;
+  --font-body: -apple-system, BlinkMacSystemFont, var(--font-geist-sans), Arial, sans-serif;
+}
+.edw-apple .edw-arc a[data-variant="primary"] { background: #0071e3; color: #fff; }
+.edw-apple .edw-arc a[data-variant="primary"]:hover { background: #0077ed; }
+@media (max-width: 680px) {
+  .edw-apple .edw-hero { padding-top: 46px; }
+  .edw-apple .edw-hero h1 { font-size: clamp(36px, 9.5vw, 60px); }
+  .edw-apple .edw-hero__lead { font-size: 17px; }
+  .edw-apple .edw-hero__actions { flex-wrap: wrap; gap: 12px; }
+  .edw-apple .edw-hero__actions .edw-button { width: auto; min-height: 44px; font-size: 14px; padding-inline: 18px; }
+  .edw-apple .edw-mobile-cta { font-size: 16px; box-shadow: 0 4px 20px #0002; }
+  .edw-apple .edw-comparison__next .edw-button { white-space: normal; text-align: center; font-size: 15px; }
+}
+.edw-apple .edw-form .lead-form { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.edw-apple .edw-form label span, .edw-apple .edw-form .form-activation-head { color: #515154; }
+.edw-apple .edw-form .form-activation-head { font-family: inherit; letter-spacing: 0; }
+.edw-apple .edw-form .form-activation-head strong { color: #0066cc; }
+
+/* A softer dental direction: daylight, ice-blue surfaces and a smile-like arc. */
+.edw-site.edw-apple { --edw-deep: #f1f7fa; --edw-soft: #5e707b; --edw-line: #dce7ed; }
+.edw-apple .edw-hero { background: #f1f7fa; padding-top: 56px; padding-bottom: 64px; gap: 76px; }
+.edw-hero__intro { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: clamp(32px, 4vw, 64px); width: min(100%, 1280px); }
+.edw-apple .edw-hero__copy { grid-column: auto; grid-row: auto; text-align: left; }
+.edw-apple .edw-hero h1 { margin: 24px 0; font-size: clamp(36px, 4.2vw, 64px); line-height: 1.08; letter-spacing: -.055em; }
+.edw-apple .edw-hero__lead { font-size: 19px; line-height: 1.7; margin: 0; }
+.edw-apple .edw-hero__actions { justify-content: flex-start; gap: 12px; }
+.edw-apple .edw-hero__actions .edw-button { font-size: 15px; padding-inline: 19px; gap: 10px; }
+.edw-hero__photo { position: relative; min-width: 0; margin: 0; padding-bottom: 24px; }
+.edw-hero__photo::before { content: ''; position: absolute; left: -16px; right: -16px; bottom: 40px; height: 55%; border: 1px solid #cee0e9; border-top: 0; border-radius: 0 0 50% 50%; transform: rotate(-5deg); }
+.edw-hero__photo img { position: relative; display: block; width: 100%; height: clamp(330px, 34vw, 480px); object-fit: cover; object-position: 64% center; border-radius: 28px 28px 110px 28px; box-shadow: 0 20px 50px #183a4b0a; }
+.edw-hero__photo figcaption { position: absolute; bottom: 0; right: 20px; color: #5e707b; font-size: 10px; line-height: 1.6; }
+.edw-apple .edw-journey { border-color: #e3edf2; box-shadow: 0 16px 50px #183a4b05; }
+.edw-apple .edw-journey__canvas { background: #f8fbfc; padding-block: 48px; }
+.edw-apple .edw-journey__page, .edw-apple .edw-journey__outcome { border-color: #e3edf2; box-shadow: 0 8px 30px #183a4b04; }
+.edw-apple .edw-overview { padding-block: 72px 88px; }
+.edw-apple .edw-overview li { border-color: #e3edf2; padding-top: 26px; }
+.edw-apple .edw-operation, .edw-apple .edw-deliverables, .edw-apple .edw-case, .edw-apple .edw-comparison, .edw-apple .edw-contact { padding-block: 116px; }
+.edw-apple .edw-deliverables, .edw-apple .edw-contact, .edw-apple .edw-footer { background: #f1f7fa; }
+.edw-apple .edw-deliverables__grid { gap: 32px; }
+.edw-apple .edw-deliverables__grid > article { padding: 38px; border-radius: 28px; box-shadow: 0 12px 40px #183a4b03; }
+.edw-apple .edw-blueprint, .edw-apple .edw-care, .edw-apple .edw-case__chart, .edw-apple .edw-comparison thead, .edw-apple .edw-comparison tbody tr:nth-child(even) { background: #f1f7fa; }
+.edw-apple .edw-contact .edw-form { padding: 38px; border-radius: 28px; box-shadow: 0 16px 50px #183a4b05; }
+.edw-apple .edw-arc[data-theme] { --surface: #f1f7fa; --surface-muted: #eaf2f6; --text-secondary: #5e707b; --text-muted: #5e707b; --border: #dce7ed; --border-subtle: #e3edf2; }
+.edw-apple .edw-section-tag { font-family: inherit; letter-spacing: .06em; }
+@media (max-width: 1000px) and (min-width: 801px) {
+  .edw-apple .edw-hero h1 { font-size: 36px; }
+  .edw-apple .edw-hero__lead { font-size: 17px; }
+}
+@media (max-width: 800px) {
+  .edw-hero__intro { grid-template-columns: 1fr; gap: 38px; }
+  .edw-apple .edw-hero__copy { max-width: 650px; text-align: center; justify-self: center; }
+  .edw-apple .edw-hero h1 { font-size: clamp(36px, 7vw, 58px); }
+  .edw-apple .edw-hero__actions { justify-content: center; }
+  .edw-hero__photo { width: min(100%, 600px); margin-inline: auto; }
+  .edw-hero__photo img { height: 340px; border-radius: 24px 24px 80px 24px; }
+}
+@media (max-width: 680px) {
+  .edw-apple .edw-hero { padding-top: 44px; gap: 48px; padding-bottom: 40px; }
+  .edw-apple .edw-hero h1 { font-size: clamp(33px, 9.2vw, 56px); }
+  .edw-apple .edw-hero__lead { font-size: 17px; }
+  .edw-hero__photo img { height: 280px; object-position: 67% center; }
+  .edw-hero__photo::before { left: -8px; right: -8px; }
+  .edw-apple .edw-journey__canvas { padding-block: 28px; }
+  .edw-apple .edw-overview { padding-block: 48px 60px; }
+  .edw-apple .edw-operation, .edw-apple .edw-deliverables, .edw-apple .edw-case, .edw-apple .edw-comparison, .edw-apple .edw-contact { padding-block: 80px; }
+  .edw-apple .edw-deliverables__grid > article { padding: 26px 22px; }
+  .edw-apple .edw-contact .edw-form { padding: 26px 20px; }
+}
+
+.edw-apple .edw-hero__lead strong { color: #0066cc; font-weight: 650; }

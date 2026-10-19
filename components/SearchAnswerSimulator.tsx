@@ -45,7 +45,7 @@ export function SearchAnswerSimulator() {
 
             <div className="search-sim__searchbox">
               <SearchIcon />
-              <span className="search-sim__typed-query">dentista cerca de mí</span>
+              <span className="search-sim__typed-query">implantes dentales en mi zona</span>
               <i className="search-sim__cursor" aria-hidden="true" />
               <span className="search-sim__voice" aria-hidden="true"><MicIcon /></span>
             </div>
@@ -66,8 +66,8 @@ export function SearchAnswerSimulator() {
                   <CheckIcon />
                 </i>
               </div>
-              <h3>Tu Clínica | Atención dental en tu zona</h3>
-              <p>Implantes, carillas y ortodoncia con información clara para ayudarte a elegir.</p>
+              <h3>Tu Clínica | Implantes dentales en tu zona</h3>
+              <p>Conoce el equipo, el proceso de valoración y las opciones de tratamiento disponibles.</p>
               <div className="search-sim__result-actions" aria-hidden="true">
                 <span><LocationIcon /> Cómo llegar</span>
                 <span><CalendarIcon /> Solicitar cita</span>
@@ -75,7 +75,7 @@ export function SearchAnswerSimulator() {
             </article>
 
             <div className="search-sim__scene-reward" aria-hidden="true">
-              <CheckIcon /> Una búsqueda puede convertirse en una oportunidad
+              <CheckIcon /> La información clara ayuda a los pacientes a evaluar sus opciones
             </div>
           </section>
 
@@ -92,7 +92,7 @@ export function SearchAnswerSimulator() {
 
             <div className="search-sim__prompt">
               <span className="search-sim__user-avatar" aria-hidden="true">TÚ</span>
-              <p>¿Qué dentista me recomiendas cerca de mí?</p>
+              <p>¿Qué clínicas ofrecen implantes dentales en mi zona?</p>
             </div>
 
             <div className="search-sim__ai-process" aria-hidden="true">

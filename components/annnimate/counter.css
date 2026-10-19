@@ -1,0 +1,2 @@
+.edw-counter { display: inline-block; min-width: var(--counter-width); font: inherit; color: inherit; font-variant-numeric: tabular-nums; }
+.edw-counter-sr { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

@@ -17,24 +17,6 @@ const membershipIncludes = [
   "Dashboard sencillo y 3 créditos mensuales",
 ];
 
-const valueStack = [
-  { label: "Desarrollo + diseño mobile-first", value: 2200 },
-  { label: "Arquitectura SEO", value: 2000 },
-  { label: "Preparación para búsquedas con IA", value: 2000 },
-  { label: "Copy + analítica y tracking", value: 1500 },
-] as const;
-
-const activationPrice = 1497;
-const membershipPrice = 697;
-const separateValue = valueStack.reduce((total, item) => total + item.value, 0);
-const estimatedSavings = separateValue - activationPrice;
-const savingsPercentage = Math.round((estimatedSavings / separateValue) * 100);
-const usd = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
-
 export function OfferPricing() {
   return (
     <section className="offer-section offer-system" id="incluye">
@@ -42,13 +24,12 @@ export function OfferPricing() {
         <div className="center-heading offer-system__heading" data-reveal>
           <span className="kicker kicker--blue">05 · DOS PISOS. UN SISTEMA.</span>
           <h2>
-            No compras otra web.
+            No necesitas otra web estática.
             <br />
             Enciendes un activo que sigue vivo.
           </h2>
           <p>
-            La activación construye tu Elevator Web. La Membership mantiene
-            encendido el sistema que la protege, mide y mejora.
+            Construimos la presencia digital de tu clínica y la mantenemos activa con seguimiento, prioridades y mejoras continuas.
           </p>
         </div>
 
@@ -60,30 +41,20 @@ export function OfferPricing() {
             </header>
 
             <div className="offer-old-way__copy">
-              <h3>Cuatro proveedores. Cuatro entregas. Ningún motor.</h3>
+              <h3>Más publicaciones y campañas. La misma dependencia.</h3>
               <p>
-                Coordinas cada especialidad por separado y, al final, recibes
-                una web que deja de avanzar cuando se publica.
+                Si todo depende de anuncios, redes o referidos, cada mes empieza de cero. Tu web puede ser un canal orgánico que acumula mejoras con el tiempo.
               </p>
             </div>
 
-            <div
-              className="offer-old-way__pieces"
-              aria-label="Valor estimado de los servicios contratados por separado"
-            >
-              {valueStack.map((item, index) => (
-                <div className="offer-old-way__piece" key={item.label}>
+            <div className="offer-old-way__pieces">
+              {activationIncludes.slice(1, 5).map((item, index) => (
+                <div className="offer-old-way__piece" key={item}>
                   <span aria-hidden="true">0{index + 1}</span>
-                  <p>{item.label}</p>
-                  <del>{usd.format(item.value)}</del>
+                  <p>{item}</p>
                 </div>
               ))}
             </div>
-
-            <footer className="offer-old-way__total">
-              <span>VALOR ESTIMADO POR SEPARADO</span>
-              <del>{usd.format(separateValue)}</del>
-            </footer>
           </article>
 
           <div className="offer-system__switch" aria-hidden="true">
@@ -114,15 +85,11 @@ export function OfferPricing() {
                   <span>PISO 02 · EL ACTIVO</span>
                   <h3>Elevator Web</h3>
                 </div>
-                <div className="offer-floor__price">
-                  <strong>{usd.format(activationPrice)}</strong>
-                  <span>USD · una sola vez</span>
-                </div>
+                <div className="offer-floor__price"><strong>Alcance inicial</strong><span>Lo definimos en llamada</span></div>
               </header>
 
               <p className="offer-floor__result">
-                Una web dental completa, mobile-first y preparada para empezar
-                a crecer desde que se publica.
+                Una web dental estratégica, mobile-first y preparada para explicar tus tratamientos y fortalecer tu visibilidad orgánica.
               </p>
 
               <ul className="offer-floor__includes">
@@ -140,15 +107,11 @@ export function OfferPricing() {
                   <span>PISO 01 · EL MOTOR</span>
                   <h3>Elevator Dental Membership</h3>
                 </div>
-                <div className="offer-floor__price">
-                  <strong>{usd.format(membershipPrice)}</strong>
-                  <span>USD/mes · al publicarse</span>
-                </div>
+                <div className="offer-floor__price"><strong>Operación continua</strong><span>Conversamos el plan en llamada</span></div>
               </header>
 
               <p className="offer-floor__result">
-                La operación mensual que mantiene tu activo saludable, medible
-                y evolucionando.
+                Operación mensual para monitorear oportunidades y mejorar tu presencia en buscadores y respuestas de IA.
               </p>
 
               <ul className="offer-floor__includes">
@@ -174,32 +137,12 @@ export function OfferPricing() {
         </div>
 
         <div className="offer-decision" data-reveal>
-          <div className="offer-decision__price">
-            <span>ACTIVA TU ELEVATOR WEB</span>
-            <strong>
-              {usd.format(activationPrice)} <small>USD</small>
-            </strong>
-            <p>
-              + {usd.format(membershipPrice)} USD/mes cuando entra en operación
-            </p>
-          </div>
-
-          <div className="offer-decision__saving">
-            <span>AHORRO INICIAL ESTIMADO</span>
-            <strong>{usd.format(estimatedSavings)}</strong>
-            <p>aprox. {savingsPercentage}% frente al valor por separado</p>
-          </div>
+          <div className="offer-decision__price"><span>ALCANCE E INVERSIÓN</span><strong>Lo conversamos en llamada</strong><p>Revisaremos las necesidades de tu clínica y el plan adecuado para empezar.</p></div>
 
           <a className="button button--primary" href="#contacto">
-            Quiero mi Elevator Web <ArrowUpRight />
+            Quiero mi web dental viva <ArrowUpRight />
           </a>
         </div>
-
-        <p className="offer-system__value-note">
-          El ahorro compara únicamente la activación estimada; no incluye la
-          Membership. Estos valores no representan un precio anterior de
-          Elevator y pueden variar según proveedor.
-        </p>
 
         <div className="offer-boundary" data-reveal>
           <strong>Modelo simple y escalable:</strong>

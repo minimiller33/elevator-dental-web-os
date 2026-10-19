@@ -80,7 +80,7 @@ export function MobileExperience() {
         <span>⌃</span>
       </div>
       <a className="mobile-cta-dock" ref={dockRef} href="#contacto">
-        <span><small>ELEVATOR WEB</small><strong>Quiero mi Elevator Web</strong></span>
+        <span><small>ELEVATOR DENTAL WEB</small><strong>Atraer pacientes ideales</strong></span>
         <i><ArrowUpRight /></i>
       </a>
     </>

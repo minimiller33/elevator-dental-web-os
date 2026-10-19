@@ -412,6 +412,27 @@ footer a:hover {
   margin-top: 36px;
 }
 
+.hero-fit-link {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  color: #8793a7;
+  font-size: 11px;
+  line-height: 1.35;
+  transition: color 180ms ease;
+}
+
+.hero-fit-link span {
+  color: #c6d2e4;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+}
+
+.hero-fit-link:hover,
+.hero-fit-link:hover span {
+  color: var(--cyan);
+}
+
 .hero-proof {
   display: flex;
   align-items: center;
@@ -3160,3 +3181,8 @@ footer { padding: 65px 0 25px; background: #05070b; }
   .day91-orbit,
   .day91-orbit::before { animation: none !important; }
 }
+
+/* Official artwork replaces the former approximate SVG and typed wordmark. */
+.brand-mark--original .brand-mark__logo { display:block; width:164px; height:auto; object-fit:contain; }
+.brand-mark--original .brand-mark__icon { object-fit:contain; }
+.brand-mark--original .brand-mark__product { margin-top:5px; }

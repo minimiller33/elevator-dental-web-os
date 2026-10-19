@@ -1,0 +1,12 @@
+.root { min-width: 0; max-width: 100%; --focus-color: #0071e3; }
+.text { position: relative; margin: 0; }
+.word { display: inline-block; --focus-distance: 0; }
+.root[data-focus-ready="true"] .word { opacity: calc(1 - .2 * var(--focus-distance)); filter: blur(calc(1.2px * var(--focus-distance))); transition: opacity .35s cubic-bezier(.3,.9,.1,1), filter .35s cubic-bezier(.3,.9,.1,1); }
+.root[data-focus-ready="true"] .word.active { opacity: 1; filter: blur(0); }
+.frame { position: absolute; top: 0; left: 0; pointer-events: none; opacity: .8; }
+.corner { position: absolute; top: 0; left: 0; width: var(--focus-corner, .2em); height: var(--focus-corner, .2em); box-sizing: border-box; border: 0 solid var(--focus-color); will-change: transform; }
+.topLeft { border-top-width: var(--focus-thickness, 1px); border-left-width: var(--focus-thickness, 1px); }
+.topRight { border-top-width: var(--focus-thickness, 1px); border-right-width: var(--focus-thickness, 1px); }
+.bottomLeft { border-bottom-width: var(--focus-thickness, 1px); border-left-width: var(--focus-thickness, 1px); }
+.bottomRight { border-bottom-width: var(--focus-thickness, 1px); border-right-width: var(--focus-thickness, 1px); }
+@media (prefers-reduced-motion: reduce), (hover: none), (max-width: 767px) { .frame { display: none; } .root[data-focus-ready="true"] .word { opacity: 1; filter: none; transition: none; } }

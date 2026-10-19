@@ -3,21 +3,21 @@ import { Check, Spark } from "./Icons";
 const faqs = [
   {
     category: "INVERSIÓN",
-    question: "¿Qué pago por la activación y qué se cobra después?",
+    question: "¿Cómo se define el alcance y la inversión?",
     answer:
-      "La activación de $1,497 USD cubre onboarding, construcción, configuración y publicación. Cuando la web entra en operación comienza la Membership de $697 USD al mes, que mantiene la infraestructura y el ciclo mensual de crecimiento.",
+      "En una llamada revisamos las necesidades de tu clínica, el alcance inicial y la operación mensual. Te explicamos cada etapa y su inversión para que puedas decidir con claridad antes de comenzar.",
   },
   {
-    category: "PRIMEROS 90 DÍAS",
-    question: "¿Qué puedo esperar durante los primeros 90 días?",
+    category: "PARA QUIÉN ES",
+    question: "¿Sirve para un profesional independiente o solo para clínicas?",
     answer:
-      "Una web publicada y medible, una línea base, oportunidades detectadas y los primeros ciclos de mejora. Es una proyección operativa; no garantizamos posiciones, recomendaciones de IA ni pacientes específicos.",
+      "Está pensada para clínicas dentales y profesionales independientes de la odontología, como implantólogos, ortodoncistas y especialistas en rehabilitación. La estrategia se adapta a los servicios y al área donde atiendes.",
   },
   {
     category: "EXPECTATIVAS",
-    question: "¿Qué resultados puede y no puede garantizar Elevator?",
+    question: "¿Me garantiza aparecer primero en Google o en ChatGPT?",
     answer:
-      "Elevator garantiza la operación acordada: monitoreo, priorización, protección técnica y mejoras mensuales. No puede garantizar una posición, recomendación de IA o cantidad de pacientes; también influyen tu mercado, oferta y capacidad de conversión.",
+      "No. Ningún servicio puede controlar qué posición ocupa una página ni qué recomienda una plataforma de IA. Sí trabajamos para que la información de tu clínica sea clara, rastreable y útil, y para mejorarla con señales del mercado.",
   },
   {
     category: "CONTROL",
@@ -41,7 +41,7 @@ export function FAQSection() {
         <aside className="faq-intro" data-reveal="left">
           <span className="kicker">06 · ANTES DE ACTIVAR</span>
           <h2>Lo importante.<br /><span>Sin letra pequeña.</span></h2>
-          <p>Cinco respuestas para decidir con claridad y cero promesas escondidas.</p>
+          <p>Qué hacemos, para quién funciona y qué resultados dependen de cada plataforma.</p>
 
           <div className="faq-console" aria-hidden="true">
             <div><span><i /> REVISIÓN DE CLARIDAD</span><small>5 PUNTOS</small></div>

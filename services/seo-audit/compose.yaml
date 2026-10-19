@@ -1,0 +1,31 @@
+services:
+  seo-audit:
+    build: .
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    ports:
+      - "127.0.0.1:3100:3100"
+    volumes:
+      - seo-data:/app/data
+    mem_limit: 2g
+    cpus: 2
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=elevator-seo-edge
+      - traefik.http.routers.elevator-seo.rule=Host(`srv1530006.hstgr.cloud`)
+      - traefik.http.routers.elevator-seo.entrypoints=websecure
+      - traefik.http.routers.elevator-seo.tls.certresolver=letsencrypt
+      - traefik.http.services.elevator-seo.loadbalancer.server.port=3100
+    networks:
+      - default
+      - traefik
+networks:
+  traefik:
+    name: elevator-seo-edge
+    external: true
+volumes:
+  seo-data:
