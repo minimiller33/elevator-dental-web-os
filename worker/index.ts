@@ -1,4 +1,5 @@
 import { handleSeo } from "./seo";
+import { normalizeWebsite, validContactName } from "../lib/contact-validation";
 import { normalizeWhatsApp } from "../lib/phone";
 
 interface Env {
@@ -144,7 +145,7 @@ const worker = {
     const rawPhone = text(input.phone ?? input.whatsapp, 40);
     const phone = normalizeWhatsApp(rawPhone);
 
-    if (!leadId || !name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!leadId || !validContactName(name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return json({ ok: false, error: "Revisa tu nombre, WhatsApp y correo para continuar." }, 400, origin);
     }
     if (!phone) {
@@ -153,6 +154,9 @@ const worker = {
     if (eventType !== "lead_started" && eventType !== "lead_completed") {
       return json({ ok: false, error: "Tipo de envío no válido." }, 400, origin);
     }
+
+    const website = text(input.website, 2048);
+    if (website && !normalizeWebsite(website)) return json({ ok: false, error: "Escribe una dirección web válida que empiece con https:// o http://." }, 400, origin);
 
     const leadStatus = eventType === "lead_started" ? "started" : text(input.lead_status, 30);
     if (!["started", "qualified", "manual_review", "not_qualified"].includes(leadStatus)) {
@@ -167,6 +171,7 @@ const worker = {
     }
     const payload = {
       ...elevatorInput,
+      website: website ? normalizeWebsite(website) : "",
       lead_id: leadId,
       event_type: eventType,
       lead_status: leadStatus,
