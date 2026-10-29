@@ -45,6 +45,9 @@
 .er-contact--spotlight .mstf_counter_roller { height:30px; min-width:34px; padding:7px 8px; line-height:16px; border-radius:8px; background:#e6f0ff; color:#0066cc; font-weight:500; }
 .er-contact--spotlight .mstf_progress { height:3px; border-radius:4px; background:#dbe8f8; }
 .er-contact--spotlight .mstf_progress_fill { border-radius:4px; }
+.er-contact--spotlight :is(input,select,textarea,.qual-title,.qual-result h3) { scroll-margin-top:104px; }
+.er-contact--spotlight :is(.qual-privacy,.qual-result) a { color:#0066cc; text-decoration:underline; text-underline-offset:3px; }
+.er-contact--spotlight .qual-result h3 { outline:none; }
 :is(.edw-site.edw-ref,.ed-internal) .er-contact--spotlight .edw-form .qual-title { font-size:28px; line-height:1.18; }
 :is(.edw-site.edw-ref,.ed-internal) .er-contact--spotlight .edw-form .qual-actions .mstf_submit { box-shadow:0 5px 14px #0071e326; }
 /* Clear text contrast on the bright card, including explanations and errors. */

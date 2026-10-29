@@ -1,0 +1,79 @@
+{
+  "persona": "literal",
+  "round": "final",
+  "success": true,
+  "exactQualificationAnswers": {
+    "name": "Ana Mora QA",
+    "country": "CR",
+    "phone": "88887777",
+    "city": "San José, Costa Rica",
+    "chairs": "one",
+    "treatment": "under500",
+    "goal": "one3",
+    "technology": "none",
+    "timeline": "exploring",
+    "expectation": "no"
+  },
+  "revenue": "private",
+  "checks": [
+    {
+      "name": "unexpected-500-localized-and-data-retained",
+      "pass": true
+    },
+    {
+      "name": "same-qualification-answers-reach-accepted-review",
+      "pass": true,
+      "heading": {
+        "x": 724.59375,
+        "y": 104.421875,
+        "width": 459.765625,
+        "height": 24
+      }
+    }
+  ],
+  "requests": [
+    {
+      "event": "lead_started",
+      "id": "fcad6035-6dbb-434c-8ca7-0c221da3b89d"
+    },
+    {
+      "event": "lead_completed",
+      "id": "fcad6035-6dbb-434c-8ca7-0c221da3b89d",
+      "status": "not_qualified"
+    },
+    {
+      "event": "lead_completed",
+      "id": "fcad6035-6dbb-434c-8ca7-0c221da3b89d",
+      "status": "manual_review"
+    }
+  ],
+  "unresolved": [],
+  "environment": "Actual built Next + Worker; fixture downstream; unexpected 500 injected in separate tab; main journey clean context, original business choices. Mobile remains375x812slow3GCPU4x.",
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}

@@ -1,0 +1,724 @@
+{
+  "persona": "Impatient first-time dental-clinic owner",
+  "success": true,
+  "recoverySuccess": true,
+  "elapsedMs": 101786,
+  "history": [
+    {
+      "step": 1,
+      "command": {
+        "op": "click",
+        "role": "link",
+        "name": "Solicitar diagnóstico gratis",
+        "wait": 1500
+      },
+      "atMs": 2182,
+      "durationMs": 2628
+    },
+    {
+      "step": 2,
+      "command": {
+        "op": "shot",
+        "name": "09-recovery-diagnosis-fixed-routing"
+      },
+      "atMs": 4878,
+      "durationMs": 525
+    },
+    {
+      "step": 3,
+      "command": {
+        "op": "dom"
+      },
+      "atMs": 5412,
+      "durationMs": 115
+    },
+    {
+      "step": 4,
+      "command": {
+        "op": "fill",
+        "label": "Nombre",
+        "value": "Persona"
+      },
+      "atMs": 19689,
+      "durationMs": 205
+    },
+    {
+      "step": 5,
+      "command": {
+        "op": "fill",
+        "label": "Apellido",
+        "value": "Impaciente"
+      },
+      "atMs": 19943,
+      "durationMs": 16
+    },
+    {
+      "step": 6,
+      "command": {
+        "op": "fill",
+        "label": "Email",
+        "value": "qa-impatient@example.com"
+      },
+      "atMs": 19961,
+      "durationMs": 6
+    },
+    {
+      "step": 7,
+      "command": {
+        "op": "click",
+        "name": "Continuar →"
+      },
+      "atMs": 19969,
+      "durationMs": 950
+    },
+    {
+      "step": 8,
+      "command": {
+        "op": "shot",
+        "name": "10-recovery-url"
+      },
+      "atMs": 20924,
+      "durationMs": 782
+    },
+    {
+      "step": 9,
+      "command": {
+        "op": "dom"
+      },
+      "atMs": 21711,
+      "durationMs": 24
+    },
+    {
+      "step": 10,
+      "command": {
+        "op": "fill",
+        "label": "de la clínica",
+        "value": "Clínica QA Impaciente"
+      },
+      "atMs": 46422,
+      "durationMs": 29
+    },
+    {
+      "step": 11,
+      "command": {
+        "op": "placeholder",
+        "name": "www.tuclinica.com/tratamientos",
+        "value": "https://example.com"
+      },
+      "atMs": 46468,
+      "durationMs": 13
+    },
+    {
+      "step": 12,
+      "command": {
+        "op": "fill",
+        "label": "País",
+        "value": "México"
+      },
+      "atMs": 46482,
+      "durationMs": 5
+    },
+    {
+      "step": 13,
+      "command": {
+        "op": "fill",
+        "label": "Ciudad",
+        "value": "Ciudad de México"
+      },
+      "atMs": 46489,
+      "durationMs": 5
+    },
+    {
+      "step": 14,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "",
+        "exact": false,
+        "nth": 0
+      },
+      "atMs": 46498,
+      "durationMs": 856
+    },
+    {
+      "step": 15,
+      "command": {
+        "op": "click",
+        "name": "Enviar diagnóstico →",
+        "wait": 2000
+      },
+      "atMs": 47358,
+      "durationMs": 2076
+    },
+    {
+      "step": 16,
+      "command": {
+        "op": "shot",
+        "name": "11-recovery-submit"
+      },
+      "atMs": 49438,
+      "durationMs": 72
+    },
+    {
+      "step": 17,
+      "command": {
+        "op": "click",
+        "role": "heading",
+        "name": "¿Qué tan clara es",
+        "exact": false
+      },
+      "atMs": 68194,
+      "durationMs": 857
+    },
+    {
+      "step": 18,
+      "command": {
+        "op": "shot",
+        "name": "12-recovery-status-top"
+      },
+      "atMs": 69054,
+      "durationMs": 127
+    },
+    {
+      "step": 19,
+      "command": {
+        "op": "dom"
+      },
+      "atMs": 69183,
+      "durationMs": 6
+    }
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/z9g4n/1x00000000000000000000AA/light/fbE/api/flexible",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/__next.__PAGE__.txt",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "round": "before",
+  "personaDropout": {
+    "occurred": true,
+    "success": false,
+    "at": "Full five-step contact flow final outcome",
+    "reason": "Unexplained not-fit result after completing every step; only home link, no review path or concrete response expectation",
+    "evidence": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/07-dropout-vague-rejection.png"
+  },
+  "recoveryProbe": {
+    "separate": true,
+    "success": true,
+    "route": "Landing > Solicitar diagnóstico gratis > contact > clinic URL > Enviar diagnóstico",
+    "scenarioChange": "Synthetic public example.com URL supplied to exercise diagnosis; primary persona said no website",
+    "confirmation": "Solicitud recibida / Tu web está en la cola. Preparamos el diagnóstico y lo enviaremos a qa-impatient@example.com cuando esté listo. Revisa también la carpeta de spam.",
+    "evidence": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/12-recovery-status-top.png"
+  },
+  "issues": [
+    {
+      "number": 1,
+      "key": "qualification-vague-rejection",
+      "title": "Five-step contact request ends with unexplained rejection and no review route",
+      "severity": "P2",
+      "evidence": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/07-dropout-vague-rejection.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/04-step3.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/06-step5.png"
+      ],
+      "steps": [
+        "Landing > Solicitar conversación",
+        "Enter Persona Impaciente, qa-impatient@example.com, México +52 5512345678",
+        "Owner, general dentistry, Ciudad de México,8–15 years,2 chairs,30–80kMXN treatment,target4–10patients,revenue Prefiero no decir",
+        "Referrals,no prior marketing,no website;no lab/no technology;self decision;start<30days;organic-results understood",
+        "Click Ver mis siguientes pasos"
+      ],
+      "expected": "Explain which condition prevents fit and offer concrete next step, manual review or ability to correct answers",
+      "actual": "Por ahora, Elevator Web quizá no sea el paso más adecuado. Guardamos tus datos para compartirte recursos que puedan servirte. Only Volver al inicio. No rejection reason or review option.",
+      "limit": "UI evidence does not establish whether the qualification score itself is wrong."
+    },
+    {
+      "number": 2,
+      "key": "diagnosis-success-offscreen",
+      "title": "Diagnosis submission leaves viewport below its success confirmation",
+      "severity": "P2",
+      "evidence": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/11-recovery-submit.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/12-recovery-status-top.png"
+      ],
+      "steps": [
+        "Complete two-step diagnosis with synthetic contact,clinic,Mexico City,https://example.com",
+        "Select first consent checkbox and click Enviar diagnóstico",
+        "Observe viewport after two seconds",
+        "Scroll back up by targeting existing main heading"
+      ],
+      "expected": "Bring the accepted-request confirmation into view or focus it after replacing the long form",
+      "actual": "Viewport stayed at lower article cards Rendimiento móvil / Salud de la página; the successful queued confirmation was above viewport and only visible after returning to top."
+    }
+  ],
+  "observations": [
+    {
+      "key": "long-contact-effort",
+      "finding": "Primary conversation CTA requires contact plus four additional qualification steps including income and equipment before receiving outcome. Friction for this impatient persona, not classified as a functional error.",
+      "evidence": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/04-step3.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/06-step5.png"
+      ]
+    },
+    {
+      "key": "diagnosis-consent-visual-check",
+      "finding": "Step2 screenshot shows an oversized blank checkbox and large whitespace below country/city. Flag for root visual verification; not promoted to confirmed standalone issue.",
+      "evidence": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/impatient/10-recovery-url.png"
+      ]
+    }
+  ],
+  "environmentLimits": [
+    "Real Chromium desktop1440x1000,clean isolated profile,es-MX.",
+    "Only local candidate submitted; fixture CRM/email/booking; no real leads/emails/appointments.",
+    "Diagnosis initial404 was confirmed by root as QA static-route-server mismatch and corrected. Excluded from product findings; screenshot08 retained as environment artifact.",
+    "Automation locator corrections/restarts excluded from persona dropout.",
+    "Browser startup and operator/tool delays make total wall time unsuitable as product latency.",
+    "No implementation source inspection or product edits.",
+    "No actual email delivery/report/appointment verification.",
+    "Recovery diagnosis uses synthetic example.com URL and is a separate probe from no-website primary persona."
+  ],
+  "contactHistory": [
+    {
+      "step": 1,
+      "command": {
+        "op": "shot",
+        "name": "01-start"
+      },
+      "atMs": 7708,
+      "durationMs": 987
+    },
+    {
+      "step": 2,
+      "command": {
+        "op": "click",
+        "role": "link",
+        "name": "Solicitar conversación"
+      },
+      "atMs": 8704,
+      "durationMs": 1422
+    },
+    {
+      "step": 3,
+      "command": {
+        "op": "fill",
+        "label": "Nombre completo",
+        "value": "Persona Impaciente"
+      },
+      "atMs": 10181,
+      "durationMs": 108
+    },
+    {
+      "step": 4,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "México +52"
+        }
+      },
+      "atMs": 10328,
+      "durationMs": 12
+    },
+    {
+      "step": 5,
+      "command": {
+        "op": "fill",
+        "label": "Número de WhatsApp",
+        "value": "5512345678"
+      },
+      "atMs": 10344,
+      "durationMs": 21
+    },
+    {
+      "step": 6,
+      "command": {
+        "op": "fill",
+        "label": "Email",
+        "value": "qa-impatient@example.com"
+      },
+      "atMs": 10373,
+      "durationMs": 12
+    },
+    {
+      "step": 7,
+      "command": {
+        "op": "click",
+        "name": "Guardar y continuar",
+        "wait": 1200
+      },
+      "atMs": 10389,
+      "durationMs": 1440
+    },
+    {
+      "step": 8,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "Dueño o socio de clínica dental"
+        }
+      },
+      "atMs": 11841,
+      "durationMs": 24
+    },
+    {
+      "step": 9,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Odontología general"
+      },
+      "atMs": 11873,
+      "durationMs": 1095
+    },
+    {
+      "step": 10,
+      "command": {
+        "op": "fill",
+        "label": "¿En qué ciudad y país está tu clínica?",
+        "value": "Ciudad de México, México"
+      },
+      "atMs": 12970,
+      "durationMs": 8
+    },
+    {
+      "step": 11,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "8 a 15 años"
+        }
+      },
+      "atMs": 12980,
+      "durationMs": 4
+    },
+    {
+      "step": 12,
+      "command": {
+        "op": "click",
+        "name": "Continuar",
+        "wait": 1000
+      },
+      "atMs": 12986,
+      "durationMs": 1048
+    },
+    {
+      "step": 13,
+      "command": {
+        "op": "shot",
+        "name": "04-step3"
+      },
+      "atMs": 14037,
+      "durationMs": 122
+    },
+    {
+      "step": 14,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "2"
+        }
+      },
+      "atMs": 21851,
+      "durationMs": 90
+    },
+    {
+      "step": 15,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "30.000 MXN a 80.000 MXN"
+        }
+      },
+      "atMs": 21985,
+      "durationMs": 5
+    },
+    {
+      "step": 16,
+      "command": {
+        "op": "select",
+        "index": 3,
+        "value": {
+          "label": "4 a 10"
+        }
+      },
+      "atMs": 21992,
+      "durationMs": 5
+    },
+    {
+      "step": 17,
+      "command": {
+        "op": "select",
+        "index": 4,
+        "value": {
+          "label": "Prefiero no decir"
+        }
+      },
+      "atMs": 22000,
+      "durationMs": 9
+    },
+    {
+      "step": 18,
+      "command": {
+        "op": "click",
+        "name": "Continuar"
+      },
+      "atMs": 22013,
+      "durationMs": 963
+    },
+    {
+      "step": 19,
+      "command": {
+        "op": "shot",
+        "name": "05-step4"
+      },
+      "atMs": 22979,
+      "durationMs": 161
+    },
+    {
+      "step": 20,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Referidos"
+      },
+      "atMs": 37113,
+      "durationMs": 966
+    },
+    {
+      "step": 21,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Nada"
+      },
+      "atMs": 38088,
+      "durationMs": 839
+    },
+    {
+      "step": 22,
+      "command": {
+        "op": "fill",
+        "label": "¿Cuál es tu mayor frustración al conseguir pacientes?",
+        "value": "Quiero una web clara sin dedicar tiempo a coordinar cada cambio."
+      },
+      "atMs": 38930,
+      "durationMs": 37
+    },
+    {
+      "step": 23,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "No"
+        }
+      },
+      "atMs": 38969,
+      "durationMs": 7
+    },
+    {
+      "step": 24,
+      "command": {
+        "op": "click",
+        "name": "Continuar"
+      },
+      "atMs": 38978,
+      "durationMs": 870
+    },
+    {
+      "step": 25,
+      "command": {
+        "op": "shot",
+        "name": "06-step5"
+      },
+      "atMs": 39856,
+      "durationMs": 186
+    },
+    {
+      "step": 26,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "No"
+        }
+      },
+      "atMs": 52475,
+      "durationMs": 9
+    },
+    {
+      "step": 27,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Ninguna"
+      },
+      "atMs": 52488,
+      "durationMs": 837
+    },
+    {
+      "step": 28,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "Sí, solo yo"
+        }
+      },
+      "atMs": 53326,
+      "durationMs": 4
+    },
+    {
+      "step": 29,
+      "command": {
+        "op": "select",
+        "index": 2,
+        "value": {
+          "label": "En menos de 30 días"
+        }
+      },
+      "atMs": 53333,
+      "durationMs": 6
+    },
+    {
+      "step": 30,
+      "command": {
+        "op": "select",
+        "index": 3,
+        "value": {
+          "label": "Sí, lo entiendo"
+        }
+      },
+      "atMs": 53340,
+      "durationMs": 3
+    },
+    {
+      "step": 31,
+      "command": {
+        "op": "click",
+        "name": "Ver mis siguientes pasos",
+        "wait": 2000
+      },
+      "atMs": 53346,
+      "durationMs": 2063
+    },
+    {
+      "step": 32,
+      "command": {
+        "op": "shot",
+        "name": "07-success"
+      },
+      "atMs": 55416,
+      "durationMs": 103
+    },
+    {
+      "step": 33,
+      "command": {
+        "op": "shot",
+        "name": "07-dropout-vague-rejection"
+      },
+      "atMs": 75157,
+      "durationMs": 254
+    },
+    {
+      "step": 34,
+      "command": {
+        "op": "click",
+        "role": "link",
+        "name": "Solicitar diagnóstico gratis",
+        "wait": 1500
+      },
+      "atMs": 75421,
+      "durationMs": 2183
+    },
+    {
+      "step": 35,
+      "command": {
+        "op": "shot",
+        "name": "08-recovery-diagnosis"
+      },
+      "atMs": 77651,
+      "durationMs": 34
+    },
+    {
+      "step": 36,
+      "command": {
+        "op": "dom"
+      },
+      "atMs": 77686,
+      "durationMs": 12
+    }
+  ],
+  "contactElapsedMs": 147663,
+  "contactErrors": [],
+  "contactFailedRequests": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "timings": {
+    "contactFinalActionMs": 2063,
+    "contactToFinalMs": 55409,
+    "recoverySubmitActionMs": 2076,
+    "note": "Action durations include explicit post-click waits; they are evidence timing, not isolated latency measurements."
+  }
+}

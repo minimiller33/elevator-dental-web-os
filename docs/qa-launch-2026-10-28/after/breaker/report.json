@@ -1,0 +1,351 @@
+{
+  "persona": "breaker",
+  "round": "after",
+  "success": true,
+  "firstSuccess": {
+    "type": "accepted-manual-review",
+    "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/15-manual-review-accepted.png",
+    "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+    "visibleText": "Solicitud recibida. La revisaremos contigo. El equipo revisará tus respuestas y te contactará por email o WhatsApp; support@elevatordental.com for additions."
+  },
+  "qualificationValues": {
+    "utm_source": "",
+    "utm_medium": "",
+    "utm_campaign": "",
+    "utm_term": "",
+    "utm_content": "",
+    "gclid": "",
+    "fbclid": "",
+    "ttclid": "",
+    "ab_hero": "",
+    "first_touch_source": "direct / none",
+    "first_touch_landing_page": "http://127.0.0.1:4330/",
+    "first_touch_date": "2026-10-29T04:30:18.406Z",
+    "last_touch_source": "direct / none",
+    "last_touch_landing_page": "http://127.0.0.1:4330/",
+    "last_touch_date": "2026-10-29T04:30:18.406Z",
+    "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+    "event_id": "7a214aae-7265-45da-935d-466675b3c453",
+    "fbp": "",
+    "fbc": "",
+    "lead_lang": "es",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "landing_page_url": "http://127.0.0.1:4330/#contacto",
+    "conversion_timestamp": "2026-10-29T04:32:31.631Z",
+    "pages_visited": "/",
+    "device": "desktop",
+    "event_type": "lead_completed",
+    "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+    "lead_status": "not_qualified",
+    "score": 0,
+    "lead_priority": "none",
+    "name": "María José de la Cruz",
+    "full_name": "María José de la Cruz",
+    "phone": "+525512345678",
+    "whatsapp": "+525512345678",
+    "email": "qa-breaker@example.com",
+    "profile": "Dueño o socio de clínica dental",
+    "specialty": "Odontología general",
+    "city_country": "Ciudad de México, México",
+    "currency": "MXN",
+    "years_practicing": "8 a 15 años",
+    "chairs": "2",
+    "treatment_value": "10.000 MXN a menos de 30.000 MXN",
+    "patients_goal": "4 a 10",
+    "monthly_revenue": "Prefiero no decir",
+    "patient_sources": "Referidos",
+    "previous_marketing": "Nada",
+    "frustration": "Necesito presentar con claridad la clínica y sus tratamientos.",
+    "has_website": "Sí",
+    "website": "https://example.com",
+    "in_house_lab": "No",
+    "technology": "Ninguna",
+    "decision_maker": "Sí, solo yo",
+    "timeline": "En 1 a 3 meses",
+    "organic_expectation": "Sí, lo entiendo",
+    "partner_attends": "No",
+    "currency_symbol": "10.000 MXN",
+    "source": "Elevator Dental Web"
+  },
+  "qualificationComparison": "All same original answers entered. Application normalizes https://example.com to https://example.com/. New event/time/lead identifiers naturally differ. No score was inferred or manipulated.",
+  "issues": [
+    {
+      "key": "contact-server500-raw-injected-message",
+      "title": "Injected English server500 message remains untranslated",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/07-server500-spanish.png"
+      ],
+      "steps": [
+        "Fill valid contact",
+        "Intercept exactly one LOCAL /api/contact response with status500 and JSON {ok:false,error:QA simulated server error}",
+        "Double click Guardar y continuar"
+      ],
+      "actual": "Injected English server message shown verbatim; inputs retained and subsequent retry works.",
+      "expected": "Spanish failure/retry guidance at shared failure boundary.",
+      "evidenceLimit": "This is a synthetic injected English error, not an actual Worker-generated English response."
+    }
+  ],
+  "unresolved": [
+    "contact-server500-raw-injected-message"
+  ],
+  "checks": [
+    {
+      "key": "whitespace-name-blocked-before-post",
+      "pass": true,
+      "details": "0 POSTs; localized error shown"
+    },
+    {
+      "key": "junk-name-blocked-before-post",
+      "pass": true,
+      "details": "123<>!!! blocked with 0 POSTs"
+    },
+    {
+      "key": "malformed-email-blocked",
+      "pass": true,
+      "details": "not-an-email blocked; localized example shown"
+    },
+    {
+      "key": "phone-junk-blocked",
+      "pass": true,
+      "details": "Letters stripped; no POST"
+    },
+    {
+      "key": "short-phone-blocked",
+      "pass": true,
+      "details": "12 blocked with localized number guidance; no POST"
+    },
+    {
+      "key": "international-phone-normalized",
+      "pass": true,
+      "details": "+52 (55) 1234-5678 normalized to +525512345678"
+    },
+    {
+      "key": "injected-server500-localized",
+      "pass": false,
+      "details": "Explicitly injected English QA simulated server error was shown verbatim; retained contact data"
+    },
+    {
+      "key": "network-abort-localized",
+      "pass": true,
+      "details": "No pudimos confirmar el envío. Revisa tu conexión y vuelve a intentarlo; tus respuestas siguen aquí."
+    },
+    {
+      "key": "failure-retry-succeeds",
+      "pass": true,
+      "details": "Retry advanced to clinic; same lead_id"
+    },
+    {
+      "key": "rapid-contact-dblclick-one-request",
+      "pass": true,
+      "details": "One request per attempted save; no extra doubleclick request"
+    },
+    {
+      "key": "volver-unchanged-contact-no-post",
+      "pass": true,
+      "details": "0 additional lead_started on return/resave unchanged contact"
+    },
+    {
+      "key": "browser-back-forward-retains-data",
+      "pass": true,
+      "details": "Exact stage2 field values unchanged"
+    },
+    {
+      "key": "reload-preserves-step3",
+      "pass": true,
+      "details": "Exact chairs/treatmentValue/currency/patientGoal/revenue values restored, visible resume notice"
+    },
+    {
+      "key": "reload-preserves-prior-answers",
+      "pass": true,
+      "details": "Contact and clinic answers restored when using Volver"
+    },
+    {
+      "key": "reload-preserves-lead-id",
+      "pass": true,
+      "details": "Initial, retry, completion and manual-review lead_id all 535e1b1c-5831-477e-b835-d9717aa41e98"
+    },
+    {
+      "key": "reload-no-extra-post",
+      "pass": true,
+      "details": "0 POST on reload or unchanged contact resume"
+    },
+    {
+      "key": "javascript-scheme-blocked-at-step4",
+      "pass": true,
+      "details": "Localized HTTP(S) guidance; remained step4"
+    },
+    {
+      "key": "data-scheme-blocked-at-step4",
+      "pass": true,
+      "details": "Localized HTTP(S) guidance; remained step4"
+    },
+    {
+      "key": "ftp-scheme-blocked-at-step4",
+      "pass": true,
+      "details": "Localized HTTP(S) guidance; remained step4"
+    },
+    {
+      "key": "https-accepted",
+      "pass": true,
+      "details": "Entered https://example.com, payload normalized to https://example.com/"
+    },
+    {
+      "key": "same-baseline-qualification",
+      "pass": true,
+      "details": "Every business/contact answer matches baseline; only website canonical trailing slash differs in payload"
+    },
+    {
+      "key": "final-dblclick-one-request",
+      "pass": true,
+      "details": "1 lead_completed not_qualified"
+    },
+    {
+      "key": "final-visible-focused-below-header",
+      "pass": true,
+      "details": "H3 focused at y104.42; screenshot confirms header does not obscure it"
+    },
+    {
+      "key": "manual-review-dblclick-one-request",
+      "pass": true,
+      "details": "1 lead_completed manual_review after explicit Pedir revisión al equipo"
+    },
+    {
+      "key": "manual-review-visible-focused",
+      "pass": true,
+      "details": "Solicitud recibida. La revisaremos contigo. H3 focused y104.42; next contact by email/WhatsApp and support address visible"
+    },
+    {
+      "key": "explicit-reset-clears-inputs-without-post",
+      "pass": true,
+      "details": "Enviar otra solicitud returns blank stage1, default CO, 0 POST"
+    },
+    {
+      "key": "explicit-reset-subsequent-new-lead-id",
+      "pass": null,
+      "details": "Deferred; explicit reset checked, subsequent submit not performed"
+    }
+  ],
+  "requestObservations": [
+    {
+      "attempt": 1,
+      "event_type": "lead_started",
+      "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+      "outcome": "injected500",
+      "count": 1
+    },
+    {
+      "attempt": 2,
+      "event_type": "lead_started",
+      "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+      "outcome": "injected-network-abort",
+      "count": 1
+    },
+    {
+      "attempt": 3,
+      "event_type": "lead_started",
+      "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+      "outcome": "200 fixture accepted",
+      "count": 1
+    },
+    {
+      "attempt": 4,
+      "event_type": "lead_completed",
+      "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+      "lead_status": "not_qualified",
+      "outcome": "200 fixture accepted",
+      "count": 1
+    },
+    {
+      "attempt": 5,
+      "event_type": "lead_completed",
+      "lead_id": "535e1b1c-5831-477e-b835-d9717aa41e98",
+      "lead_status": "manual_review",
+      "outcome": "200 fixture accepted",
+      "count": 1
+    },
+    {
+      "attempt": 6,
+      "event_type": "lead_started",
+      "lead_id": "2fc686c5-70ee-4330-8842-8b68a001d44f",
+      "outcome": "200 fixture accepted in reset-check replay; exact ID recovered by root server log",
+      "count": 1
+    },
+    {
+      "attempt": 7,
+      "event_type": "lead_completed",
+      "lead_id": "2fc686c5-70ee-4330-8842-8b68a001d44f",
+      "lead_status": "not_qualified",
+      "outcome": "200 fixture accepted in reset-check replay; exact ID recovered by root server log",
+      "count": 1
+    }
+  ],
+  "duplicateCounts": {
+    "totalObservedPostAttempts": 7,
+    "mainJourneyPostAttempts": 5,
+    "mainJourneyLeadStartedAttempts": 3,
+    "mainJourneyLeadCompletedAttempts": 2,
+    "resetCheckReplayPostAttempts": 2,
+    "rapidDoubleClickExtraPosts": 0,
+    "unchangedContactBackExtraPosts": 0,
+    "reloadResumeExtraPosts": 0,
+    "explicitResetExtraPosts": 0
+  },
+  "networkTests": [
+    {
+      "kind": "injected500",
+      "requests": 1,
+      "dataRetained": true,
+      "retryWorked": true,
+      "spanishMessage": false,
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/07-server500-spanish.png"
+    },
+    {
+      "kind": "injected-network-abort",
+      "requests": 1,
+      "dataRetained": true,
+      "retryWorked": true,
+      "spanishMessage": true,
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/08-offline-spanish.png"
+    }
+  ],
+  "baselineIssueStatus": {
+    "contact-reload-loses-progress": "fixed for pending drafts",
+    "contact-junk-name-accepted": "fixed before POST",
+    "contact-raw-network-error": "network abort fixed; injected500-message handling unresolved",
+    "contact-result-offscreen": "fixed; heading focused and visible y104",
+    "contact-rejection-no-next-step": "fixed; reason + explicit review/diagnosis actions; accepted manual review demonstrated",
+    "contact-nonhttp-website-step-validation": "fixed; javascript/data/ftp blocked"
+  },
+  "screenshots": [
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/01-landing.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/02-contact-start.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/03-whitespace-blocked.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/04-junk-name-blocked.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/05-email-blocked.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/06-short-phone-blocked.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/07-server500-spanish.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/08-offline-spanish.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/09-volver-no-extra-send.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/10-browser-back-forward.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/11-reload-restored-step3.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/12-blocked-data.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/12-blocked-ftp.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/12-blocked-javascript.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/13-final-ready.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/14-final-disposition.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/15-manual-review-accepted.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/16-explicit-new-request-reset.png",
+    "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/breaker/18-reload-after-success.png"
+  ],
+  "environmentLimits": [
+    "Real Chromium desktop 1440x1000 clean after context; local Worker + fixture CRM/email/booking; no real commercial sends.",
+    "Only local /api/contact intercepted for one500 and one disconnected request.",
+    "Actual email delivery and booking not tested.",
+    "Completed draft intentionally cleared after send and reload, consistent with disclosed retention; not treated as a pending-draft regression. Screenshot18 records this behavior.",
+    "Optional privacy popup did not appear within9s and test driver exited; link behavior not classified, subsequent new-lead-ID test deferred. Main journey and explicit-reset observations were already completed.",
+    "Main journey request identifiers and counts preserved in observations; second reset-check replay exact IDs unavailable after driver exception. Report reconstructed from captured tool output and screenshots.",
+    "Browser process exited with driver; no product source inspected or edited."
+  ],
+  "rootVerifiedServerLogNote": "Root recovered replay lead_id 2fc686c5-70ee-4330-8842-8b68a001d44f, distinct from first 535e1b1c-5831-477e-b835-d9717aa41e98. Main three successful submissions plus replay two were forwarded to fixture CRM. Injected500 and aborted attempts were intercepted locally and not forwarded."
+}

@@ -15,6 +15,6 @@ export default function DiagnosisPrivacy() {
     <h2>Mensajes adicionales</h2>
     <p>La casilla de consejos y novedades es opcional. Solicitar el diagnóstico no te suscribe automáticamente a comunicaciones comerciales.</p>
     <h2>Consultas sobre tus datos</h2>
-    <p>Puedes contactar a Elevator mediante <Link href="/#contacto">el formulario de contacto</Link> para solicitar acceso o eliminación de tus datos, o retirar tu consentimiento para futuras comunicaciones.</p>
+    <p>Puedes contactar a Elevator mediante <a href="mailto:support@elevatordental.com">support@elevatordental.com</a> para solicitar acceso o eliminación de tus datos, o retirar tu consentimiento para futuras comunicaciones.</p>
   </article></main>;
 }

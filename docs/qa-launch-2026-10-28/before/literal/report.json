@@ -1,0 +1,251 @@
+{
+  "persona": "literal Spanish-speaking first-time dentist; no unexplained English/marketing assumptions",
+  "round": "before",
+  "success": {
+    "primaryContact": false,
+    "recoveryDiagnosis": true,
+    "acceptedText": "Solicitud recibida. Tu web está en la cola. Prepararemos el diagnóstico y lo enviaremos a qa-literal@example.com cuando esté listo.",
+    "nextStep": "Wait for email and check spam; actual email delivery not tested because fixture-only."
+  },
+  "honestPath": {
+    "primary": "Landing Solicitar conversación → five contact steps → rejected → nav Diagnóstico gratis → two diagnosis steps → accepted",
+    "contactAnswers": {
+      "fullName": "Ana Mora QA",
+      "phone": "+506 88887777",
+      "email": "qa-literal@example.com",
+      "profile": "Dueño o socio de clínica dental",
+      "specialty": "Odontología general",
+      "location": "San José, Costa Rica",
+      "experience": "8 a 15 años",
+      "chairs": "1",
+      "treatmentValue": "Menos de 250.000 CRC",
+      "patientGoal": "1 a 3",
+      "revenue": "Prefiero no decir",
+      "source": "Referidos",
+      "previousMarketing": "Nada",
+      "frustration": "No sé si las personas encuentran la información de mi consultorio. Estoy explorando opciones.",
+      "website": "No",
+      "lab": "No",
+      "technology": "Ninguna",
+      "decision": "Sí, solo yo",
+      "timing": "Solo estoy explorando",
+      "understanding": "No — organic/qualified traffic and scaling were not explained"
+    },
+    "diagnosisAnswers": {
+      "name": "Ana",
+      "surname": "Mora QA",
+      "email": "qa-literal@example.com",
+      "clinic": "Consultorio Ana Mora QA",
+      "url": "https://elevatordental.com/",
+      "country": "Costa Rica",
+      "city": "San José",
+      "requiredConsent": true,
+      "optionalMarketing": false
+    },
+    "literalLimits": "Diagnosis consent was selected by its DOM accessible label after screenshots showed no visible explanation. This proves acceptance path technically works, but does not count as unaided literal human completion."
+  },
+  "timings": {
+    "landingVisibleMs": 614,
+    "contactSaveToStep2Ms": 161,
+    "contactFinalClickReturnedMs": 2076,
+    "diagnosisFinalLatency": "Not precisely measured; visible acceptance on next observation. Do not infer from tool polling durations.",
+    "timingLimits": "Browser startup excluded; human reading, tooling/locator timeouts and screenshot review excluded from site speed judgments."
+  },
+  "environment": {
+    "browser": "Real Chrome for Testing via Playwright, desktop 1440x1000, locale es-MX",
+    "base": "http://127.0.0.1:4330",
+    "backend": "Actual Worker validation routed by harness to fixture CRM/email/booking; external writes blocked; no production submissions",
+    "sourceInspection": false,
+    "productEdits": false,
+    "limitations": "Email arrival and actual business follow-up not tested. Failed YouTube telemetry writes are harness policy artifacts, not product defects. Cloudflare request aborted during navigation; no visible user-facing error."
+  },
+  "issues": [
+    {
+      "key": "literal-consent-invisible",
+      "title": "Diagnosis checkboxes have no visible consent explanation",
+      "severity": "P1",
+      "screenshots": [
+        "13-diagnosis-ready.png",
+        "14-diagnosis-sending.png"
+      ],
+      "steps": [
+        "Open Diagnóstico gratis",
+        "Fill contact and clinic/location details",
+        "Read the area below country/city"
+      ],
+      "expected": "Readable authorization text beside a normal checkbox, optional email consent clearly distinguished.",
+      "actual": "A giant checked box and a separate empty box sit in huge white space; consent labels visible in DOM text were absent in screenshots. A literal visitor cannot tell what either checkbox authorizes. Automation used the accessible label to reach acceptance, so this is a human-completion blocker."
+    },
+    {
+      "key": "literal-diagnosis-confirmation-offscreen",
+      "title": "Accepted diagnosis confirmation appears above the current viewport",
+      "severity": "P1",
+      "screenshots": [
+        "15-diagnosis-result.png",
+        "16-diagnosis-success-visible.png"
+      ],
+      "steps": [
+        "Scroll to and click Enviar diagnóstico",
+        "Wait for request acceptance"
+      ],
+      "expected": "Move or focus the confirmation into view so the visitor knows the request succeeded.",
+      "actual": "The large form collapses, leaving the viewport showing lower informational content; Solicitud recibida and email instructions are above screen. Manual upward scroll was required to read the successful next step."
+    },
+    {
+      "key": "literal-understanding-jargon",
+      "title": "Final understanding question requires accepting unexplained marketing language",
+      "severity": "P2",
+      "screenshots": [
+        "08-next-outcome.png"
+      ],
+      "steps": [
+        "Complete contact steps1–4",
+        "Read the final ¿Lo entiendes? statement"
+      ],
+      "expected": "Plain Spanish explaining that a site can help people find clinic information, results vary and take time; a request for explanation if unsure.",
+      "actual": "Paragraph uses tráfico orgánico, tráfico calificado, escalar and nueva era digital and says it is the best option. This literal persona could not honestly say Sí, so selected No; next outcome was generic rejection, with no explanation offered. Cannot attribute rejection to this answer alone."
+    },
+    {
+      "key": "literal-contact-next-step",
+      "title": "Conversation request ends in rejection without a concrete next step",
+      "severity": "P2",
+      "screenshots": [
+        "10-contact-rejected.png"
+      ],
+      "steps": [
+        "Click Solicitar conversación",
+        "Answer honestly: small clinic, exploring, private revenue, does not understand jargon",
+        "Submit all five steps"
+      ],
+      "expected": "Explain whether the conversation request was accepted or declined and offer a useful action, including where/when promised resources will arrive.",
+      "actual": "Por ahora... quizá no sea el paso más adecuado and Guardamos tus datos para compartirte recursos... give no reason, contact channel or timing. Only Volver al inicio is offered; persona independently tried the header diagnosis link."
+    },
+    {
+      "key": "literal-high-value",
+      "title": "Business questions do not define alto valor",
+      "severity": "P2",
+      "screenshots": [
+        "04-step3-visible.png"
+      ],
+      "steps": [
+        "Reach El negocio",
+        "Answer treatment-value and patient-goal questions"
+      ],
+      "expected": "A short definition/examples of what counts as an expensive treatment/patient, or a not-sure choice.",
+      "actual": "Both tratamiento de alto valor and pacientes nuevos de alto valor are required without definition. Currency helper explains CRC only. Persona estimated the lowest range and1–3 patients, but the meaning remains ambiguous."
+    },
+    {
+      "key": "literal-step-scroll",
+      "title": "Contact step transition preserves a scroll position below the new heading",
+      "severity": "P2",
+      "screenshots": [
+        "04-step3-visible.png",
+        "05-step4-visible.png"
+      ],
+      "steps": [
+        "Fill a contact step and scroll to Continuar",
+        "Continue to business/current-situation step"
+      ],
+      "expected": "New step begins with heading, progress and first question visible.",
+      "actual": "New heading/progress and first question are above the viewport; screenshots start partway down the form. Visitor must scroll back up to understand which step they reached."
+    },
+    {
+      "key": "literal-seo-terms",
+      "title": "Prior-marketing choices use unexplained acronyms",
+      "severity": "P3",
+      "screenshots": [
+        "05-step4-visible.png"
+      ],
+      "steps": [
+        "Read ¿Qué has probado antes para conseguir pacientes?"
+      ],
+      "expected": "Spanish explanation such as mejorar la aparición en Google and an explanation of agente de inteligencia artificial.",
+      "actual": "SEO and Agente de IA are offered without explanation. Persona could safely choose Nada, so this did not block this journey."
+    },
+    {
+      "key": "literal-loading-text",
+      "title": "Submission buttons become an unlabeled spinner",
+      "severity": "P3",
+      "screenshots": [
+        "08-next-outcome.png",
+        "14-diagnosis-sending.png"
+      ],
+      "steps": [
+        "Submit final contact or diagnosis step"
+      ],
+      "expected": "Maintain an action-specific label such as Enviando tu solicitud… while processing.",
+      "actual": "Button text vanishes, leaving only a circular spinner. No visible text distinguishes sending, validating or waiting."
+    }
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/1nx4p/1x00000000000000000000AA/light/fbE/api/flexible",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "rank": 1,
+    "issue": "Final sin explicación ni siguiente paso útil",
+    "affected": [
+      "impatient",
+      "skeptic",
+      "mobile",
+      "literal",
+      "breaker"
+    ],
+    "count": 5,
+    "severity": "P1",
+    "fix": "Explicación del motivo, revisar respuestas y pedir revisión personal; ingresos privados pasan a revisión.",
+    "illustrativeScreenshot": "before/breaker/24-final-visible.png"
+  },
+  {
+    "rank": 2,
+    "issue": "Confirmación fuera de pantalla tras encoger el formulario",
+    "affected": [
+      "impatient",
+      "mobile",
+      "literal",
+      "breaker"
+    ],
+    "count": 4,
+    "severity": "P1",
+    "fix": "Foco y desplazamiento explícitos a la confirmación en contacto y diagnóstico.",
+    "illustrativeScreenshot": "before/mobile/13-success.png"
+  },
+  {
+    "rank": 3,
+    "issue": "No se puede consultar el uso de datos antes de enviar",
+    "affected": [
+      "skeptic",
+      "breaker"
+    ],
+    "count": 2,
+    "severity": "P2",
+    "fix": "Aviso factual accesible desde el formulario y el pie; contacto directo para consultas.",
+    "illustrativeScreenshot": "before/skeptic/05-contact-consent.png"
+  },
+  {
+    "rank": 4,
+    "issue": "Consentimientos del diagnóstico recortados por casillas gigantes",
+    "affected": [
+      "impatient",
+      "literal"
+    ],
+    "count": 2,
+    "severity": "P1",
+    "fix": "Casillas de 18px y texto flexible visible dentro de la tarjeta.",
+    "illustrativeScreenshot": "before/literal/13-diagnosis-ready.png"
+  },
+  {
+    "rank": 5,
+    "issue": "Pregunta obligatoria combina expectativas con una afirmación de mejor opción",
+    "affected": [
+      "skeptic",
+      "literal"
+    ],
+    "count": 2,
+    "severity": "P2",
+    "fix": "Pregunta en español sencillo; opción de pedir explicación sin afirmar resultados.",
+    "illustrativeScreenshot": "before/skeptic/10-contact-step5.png"
+  },
+  {
+    "rank": 6,
+    "issue": "Nombre y error de validación quedan detrás del menú",
+    "affected": [
+      "mobile"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Primer campo inválido visible con margen respecto al menú fijo.",
+    "illustrativeScreenshot": "before/mobile/05-empty-validation.png"
+  },
+  {
+    "rank": 7,
+    "issue": "Etiqueta Email se superpone al texto mientras se anima",
+    "affected": [
+      "mobile"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Espacio reservado para la etiqueta; conserva transición de foco sin superposición.",
+    "illustrativeScreenshot": "before/mobile/06-filled-contact.png"
+  },
+  {
+    "rank": 8,
+    "issue": "Nueva pregunta de un paso queda fuera de la vista",
+    "affected": [
+      "literal"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Al terminar la transición animada, enfoca el título del nuevo paso.",
+    "illustrativeScreenshot": "before/literal/04-step3-visible.png"
+  },
+  {
+    "rank": 9,
+    "issue": "Alto valor no explica a qué tratamiento/paciente se refiere",
+    "affected": [
+      "literal"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Ejemplos concretos: implantes, alineadores y diseño de sonrisa; objetivo vinculado a esos tratamientos.",
+    "illustrativeScreenshot": "before/literal/04-step3-visible.png"
+  },
+  {
+    "rank": 10,
+    "issue": "Opciones SEO e IA sin explicación",
+    "affected": [
+      "literal"
+    ],
+    "count": 1,
+    "severity": "P3",
+    "fix": "Aparecer en Google (SEO) y asistente automático de atención (IA).",
+    "illustrativeScreenshot": "before/literal/05-step4-visible.png"
+  },
+  {
+    "rank": 11,
+    "issue": "Envío muestra únicamente un spinner",
+    "affected": [
+      "literal"
+    ],
+    "count": 1,
+    "severity": "P3",
+    "fix": "Mensaje visible y anunciado mientras guarda o registra la solicitud.",
+    "illustrativeScreenshot": "before/literal/14-diagnosis-sending.png"
+  },
+  {
+    "rank": 12,
+    "issue": "Recargar borra el cuestionario y devuelve al paso 1",
+    "affected": [
+      "breaker"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Borrador de pestaña con caducidad, restauración y eliminación al completar.",
+    "illustrativeScreenshot": "before/breaker/13-reload-mid-step.png"
+  },
+  {
+    "rank": 13,
+    "issue": "Errores de red o servidor aparecen en inglés",
+    "affected": [
+      "breaker"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Mensajes propios en español, reintento y datos conservados; no copiar mensajes inesperados del servidor.",
+    "illustrativeScreenshot": "before/breaker/17-offline-contact.png"
+  },
+  {
+    "rank": 14,
+    "issue": "Se acepta javascript: como sitio de la clínica",
+    "affected": [
+      "breaker"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Normalización de direcciones web y rechazo de protocolos ejecutables en cliente y Worker.",
+    "illustrativeScreenshot": "before/breaker/21-invalid-scheme-retained.png"
+  },
+  {
+    "rank": 15,
+    "issue": "Nombre 123<>!!! se guarda como contacto",
+    "affected": [
+      "breaker"
+    ],
+    "count": 1,
+    "severity": "P3",
+    "fix": "Validación que admite nombres internacionales y rechaza entradas sin letras o con etiquetas.",
+    "illustrativeScreenshot": "before/breaker/15-junk-name-retained.png"
+  },
+  {
+    "rank": 16,
+    "issue": "Volver y continuar reenvía lead_started sin cambiar contacto",
+    "affected": [
+      "breaker"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Firma del contacto ya guardado evita repetir el evento; nueva solicitud obtiene nuevo ID.",
+    "illustrativeScreenshot": "before/breaker/13-reload-mid-step.png"
+  },
+  {
+    "rank": 17,
+    "issue": "Resultado cambia la finalidad a envío de recursos sin elección",
+    "affected": [
+      "skeptic"
+    ],
+    "count": 1,
+    "severity": "P2",
+    "fix": "Finalidad coherente: responder a la solicitud por email/WhatsApp; no suscripción implícita.",
+    "illustrativeScreenshot": "before/skeptic/12-success.png"
+  },
+  {
+    "rank": 18,
+    "issue": "Controles utilizables antes de activar JavaScript en carga 3G",
+    "affected": [
+      "mobile"
+    ],
+    "count": 1,
+    "severity": "P1",
+    "fix": "Controles deshabilitados hasta hidratar y restaurar el borrador, con mensaje Preparando; alternativa por correo sin JavaScript.",
+    "illustrativeScreenshot": "final/mobile/pre-hydration-probe.png",
+    "discoveredIn": "final regression",
+    "causalLimit": "Se observó client=false y una prueba sin POST ni valores guardados. No se atribuye con certeza la pérdida a una navegación GET; el estado previo a hidratación ahora impide interacción prematura."
+  }
+]

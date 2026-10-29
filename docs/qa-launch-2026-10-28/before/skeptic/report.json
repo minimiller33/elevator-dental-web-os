@@ -1,0 +1,169 @@
+{
+  "persona": "skeptic",
+  "round": "before",
+  "journey": "First-time skeptical Mexican clinic owner: landing, Alcance, expanded comparison, expanded FAQ ownership answer, contact consent, footer privacy check, all five contact steps with honest skeptical answers.",
+  "success": false,
+  "outcome": "All five steps submitted; final declined screen reached. It says Elevator Web may not be appropriate and stores details to share resources. No accepted conversation, concrete follow-up, diagnosis alternative, or way to clarify the final answer is shown within the result card.",
+  "syntheticData": {
+    "name": "QA Dueña Escéptica",
+    "email": "qa-skeptic@example.com",
+    "whatsapp": "+525512345678",
+    "city": "Ciudad de México, México",
+    "profile": "Dueño o socio de clínica dental",
+    "specialty": "Odontología general",
+    "experience": "8 a 15 años",
+    "chairs": "2",
+    "treatmentValue": "10.000 MXN a menos de 30.000 MXN",
+    "desiredPatients": "1 a 3",
+    "revenue": "Prefiero no decir",
+    "currentSources": "Referidos",
+    "tried": "Nada",
+    "frustration": "Quiero entender la inversión y las condiciones antes de decidir. Prueba QA sintética.",
+    "hasWebsite": "No",
+    "lab": "No",
+    "technology": "Ninguna",
+    "decision": "Sí, solo yo",
+    "timing": "Solo estoy explorando",
+    "understanding": "No"
+  },
+  "issues": [
+    {
+      "key": "privacy-notice-unavailable",
+      "title": "No visible privacy information before saving name, WhatsApp and email",
+      "severity": "medium",
+      "screenshots": [
+        "05-contact-consent.png",
+        "06-footer-no-privacy.png"
+      ],
+      "steps": [
+        "Read Alcance and ownership FAQ before sharing details.",
+        "Open Hablemos and inspect the consent wording.",
+        "Look in page footer and navigation for privacy or data-handling information."
+      ],
+      "expected": "A visible way to review actual data-handling information or reach a privacy contact before choosing to save personal details.",
+      "actual": "The form explains that details are saved immediately and used to respond, but provides no privacy link. Navigation, footer, and expanded FAQ have no privacy item. The owner cannot inspect retention, deletion/contact, or other handling details through the visible UI before saving."
+    },
+    {
+      "key": "contact-purpose-shift-on-decline",
+      "title": "Declined result changes the announced use of saved contact data",
+      "severity": "medium",
+      "screenshots": [
+        "05-contact-consent.png",
+        "12-success.png"
+      ],
+      "steps": [
+        "At step 1 read consent allowing data use to respond to the request.",
+        "Submit all five steps with revenue undisclosed, exploration timing and No on final understanding question.",
+        "Read final declined result."
+      ],
+      "expected": "The final result describes data use consistently with the request consent, or offers an explicit choice before a different follow-up purpose.",
+      "actual": "Step 1 says data is used 'para responder a tu solicitud'. The declined result says 'Guardamos tus datos para compartirte recursos que puedan servirte.' It does not say whether resources will be sent, by which channel, or how to decline that follow-up."
+    },
+    {
+      "key": "skeptical-owner-compound-claim-exit",
+      "title": "Final understanding question mixes patience with a best-option claim; skeptical answer ends without clarification",
+      "severity": "medium",
+      "screenshots": [
+        "10-contact-step5.png",
+        "11-skeptical-answer.png",
+        "12-success.png"
+      ],
+      "steps": [
+        "Reach step 5 as clinic owner with Solo estoy explorando.",
+        "Read the final required Yes/No question.",
+        "Answer No because the owner has not established that this is their best option.",
+        "Submit Ver mis siguientes pasos."
+      ],
+      "expected": "A clear, limited expectations question and a useful next step for an owner who needs clarification before deciding.",
+      "actual": "The question states the web 'atrae tráfico orgánico' and 'es tu mejor opción para escalar ... sin depender de anuncios' while asking ¿Lo entiendes?. A skeptical No ends in 'quizá no sea el paso más adecuado', only Volver al inicio, with no explanation of which answer caused the disposition and no clarification/contact or diagnosis alternative in the result. It is impossible to tell whether curiosity, misunderstanding, or disagreement with the best-option claim caused exclusion."
+    }
+  ],
+  "positiveFindings": [
+    "Custom investment is explained clearly: scope and conditions are defined together before starting; step 5 repeats that it is discussed on the call. No fixed-price defect asserted.",
+    "License dependence on active Membership and no code transfer are disclosed in Alcance and ownership FAQ. Continuity/use conditions are promised before contracting; no fabricated cancellation obligations asserted.",
+    "Mexico phone input accepted local 5512345678 after selecting MX; step 3 automatically used MXN.",
+    "Revenue offers Prefiero no decir and the flow accepted it.",
+    "No frontend runtime errors encountered during the substantive journey."
+  ],
+  "timings": {
+    "initialAttempt": "Abandoned networkidle navigation timed out at 30 seconds; background YouTube traffic makes this an unsuitable readiness wait. Excluded from product timing.",
+    "browserStartup": "Harness/Chromium first startup slow under shared QA load; excluded from product timing.",
+    "firstContactSubmitEpochMs": 1793247852772,
+    "finalSubmitEpochMs": 1793247918947,
+    "finalScreenshotEpochMs": 1793247920810,
+    "firstContactToFinalScreenMs": 68038,
+    "finalClickToCapturedResultMs": 1863,
+    "timingLimits": "Contact elapsed includes artificial tool interactions and screenshot overhead, not a controlled human usability benchmark. Final measurement includes an intentional 1500ms observation wait."
+  },
+  "environmentLimits": [
+    "Real Chromium, clean browser context, es-MX, desktop 1440x1000; local candidate http://127.0.0.1:4330 only.",
+    "Local APIs run Worker validation with fixture CRM/email/booking. No actual lead, message, reservation or email delivery is claimed.",
+    "Used visible rendered UI, labels and form controls only. No product source inspection or implementation edits.",
+    "No production submissions. No changed-answer recovery submitted; after preserving final evidence, Volver al inicio reset the form and no subsequent personal data was saved.",
+    "Original final screenshot is named 12-success.png but displays a declined outcome; success=false accurately reflects that."
+  ],
+  "screenshotsDirectory": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/skeptic",
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/establish_zw",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}

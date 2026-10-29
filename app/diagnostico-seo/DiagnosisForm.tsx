@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { postForm, revealFormElement, showInvalidField } from "@/lib/form-feedback";
+import { normalizeWebsite, validContactName } from "@/lib/contact-validation";
 import JigglyButton from "@/components/annnimate/JigglyButton";
 import MultiStepFormFrame from "@/components/annnimate/MultiStepFormFrame";
 import { ArrowUpRight } from "lucide-react";
@@ -24,6 +26,11 @@ export function DiagnosisForm() {
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const [email, setEmail] = useState("");
+  const sendingRef = useRef(false);
+  const successHeading = useRef<HTMLHeadingElement>(null);
+  const errorHeading = useRef<HTMLParagraphElement>(null);
+  useEffect(() => { if (email) revealFormElement(successHeading.current); }, [email]);
+  useEffect(() => { if (error) revealFormElement(errorHeading.current?.closest("form")?.querySelector<HTMLElement>("input:invalid, select:invalid, textarea:invalid") || errorHeading.current); }, [error]);
   const widget = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | null>(null);
   useEffect(() => {
@@ -62,25 +69,21 @@ export function DiagnosisForm() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (step === 1) { setError(""); setStep(2); return; }
-    if (sending || !ready || !token) return;
+    if (step === 1) { if (!validContactName(contact.firstName) || !validContactName(contact.lastName)) { setError("Escribe tu nombre y apellido, sin símbolos como < o >."); return; } setError(""); setStep(2); return; }
+    if (sendingRef.current || !ready || !token) return;
     const form = new FormData(event.currentTarget);
     if (!String(form.get("country") || "").trim() && !String(form.get("city") || "").trim()) {
       setError("Completa el país o la ciudad de tu clínica.");
       return;
     }
-    setSending(true); setError("");
+    const website = normalizeWebsite(String(form.get("website") || ""));
+    if (!website) { setError("Escribe una dirección web válida, por ejemplo https://tuclinica.com."); return; }
+    sendingRef.current = true; setSending(true); setError("");
     try {
-      const response = await fetch("/api/seo-diagnosis", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...contact, ...Object.fromEntries(form), consent: form.get("consent") === "on", marketingConsent: form.get("marketingConsent") === "on", turnstileToken: token }),
-        signal: AbortSignal.timeout(25_000),
-      });
-      const result = await response.json() as { ok?: boolean; error?: string };
-      if (!response.ok || !result.ok) throw new Error(result.error || "No pudimos registrar tu solicitud. Inténtalo de nuevo.");
+      await postForm("/api/seo-diagnosis", { ...contact, ...Object.fromEntries(form), website, consent: form.get("consent") === "on", marketingConsent: form.get("marketingConsent") === "on", turnstileToken: token });
       setEmail(contact.email);
     } catch (failure) { setError(failure instanceof Error ? failure.message : "No pudimos enviar la solicitud."); }
-    finally { setSending(false); setToken(""); if (widgetId.current) window.turnstile?.reset(widgetId.current); }
+    finally { sendingRef.current = false; setSending(false); setToken(""); if (widgetId.current) window.turnstile?.reset(widgetId.current); }
   }
 
   return <main className={styles.page}>
@@ -94,9 +97,10 @@ export function DiagnosisForm() {
         <div className="er-contact__visual" aria-hidden="true"><ArrowUpRight size={72} strokeWidth={1.15} /></div>
       </section>
       <section id="solicitar-diagnostico" className="er-contact__form edw-form" aria-label="Solicitar diagnóstico">
-        {email ? <div className={styles.success} role="status"><p className={styles.eyebrow}>Solicitud recibida</p><h2>Tu web está en la cola.</h2><p>Prepararemos el diagnóstico y lo enviaremos a <strong>{email}</strong> cuando esté listo.</p><p>Revisa también la carpeta de spam. Algunas webs pueden requerir una revisión adicional.</p><Link href="/">Volver a Elevator →</Link></div> :
-          <form className="mstf_form" onSubmit={submit}>
+        {email ? <div className={styles.success} role="status"><p className={styles.eyebrow}>Solicitud recibida</p><h2 ref={successHeading} tabIndex={-1}>Tu web está en la cola.</h2><p>Prepararemos el diagnóstico y lo enviaremos a <strong>{email}</strong> cuando esté listo.</p><p>Revisa también la carpeta de spam. Algunas webs pueden requerir una revisión adicional.</p><Link href="/">Volver a Elevator →</Link></div> :
+          <form className="mstf_form" onInvalid={event => showInvalidField(event, setError)} onSubmit={submit}>
             <MultiStepFormFrame step={step} totalSteps={2} stage={step === 1 ? "Contacto" : "Tu clínica"} title={step === 1 ? "Empecemos por ti." : "Ahora, tu clínica."}>
+              {error && <p ref={errorHeading} tabIndex={-1} className={styles.error} role="alert">{error}</p>}
               <p className="qual-intro">{step === 1 ? "Cuéntanos a quién enviaremos el diagnóstico de tu web." : "Comparte la página que quieres revisar y dónde atiendes."}</p>
               {step === 1 ? <div className="qual-fields">
                 <label className="qual-field qual-field--floating"><input name="firstName" autoComplete="given-name" maxLength={80} placeholder=" " required value={contact.firstName} onChange={event => setContact({ ...contact, firstName: event.currentTarget.value })} /><span>Nombre</span></label>
@@ -108,15 +112,15 @@ export function DiagnosisForm() {
                 <div className={styles.pair}><label className="qual-field qual-field--floating"><input name="country" autoComplete="country-name" maxLength={100} placeholder=" " value={clinic.country} onChange={event => setClinic({ ...clinic, country: event.currentTarget.value })} /><span>País</span></label><label className="qual-field qual-field--floating"><input name="city" autoComplete="address-level2" maxLength={120} placeholder=" " value={clinic.city} onChange={event => setClinic({ ...clinic, city: event.currentTarget.value })} /><span>Ciudad</span></label></div>
                 <p className="qual-hint">Completa al menos el país o la ciudad para contextualizar el diagnóstico.</p>
                 <div className={styles.honeypot} aria-hidden="true"><label>Deja este campo vacío<input name="honeypot" tabIndex={-1} autoComplete="off" /></label></div>
-                <label className={styles.spotlightConsent}><input name="consent" type="checkbox" required checked={clinic.consent} onChange={event => setClinic({ ...clinic, consent: event.currentTarget.checked })} /><span>Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. <Link href="/diagnostico-seo/privacidad">Cómo usamos tus datos</Link>.</span></label>
+                <label className={styles.spotlightConsent}><input name="consent" type="checkbox" required checked={clinic.consent} onChange={event => setClinic({ ...clinic, consent: event.currentTarget.checked })} /><span>Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. <Link href="/diagnostico-seo/privacidad" target="_blank" rel="noopener noreferrer">Cómo usamos tus datos (abre otra pestaña)</Link>.</span></label>
                 <label className={styles.spotlightConsent}><input name="marketingConsent" type="checkbox" checked={clinic.marketingConsent} onChange={event => setClinic({ ...clinic, marketingConsent: event.currentTarget.checked })} /><span>También quiero recibir consejos y novedades de Elevator por email. Opcional.</span></label>
                 <div ref={widget} className={styles.widget} />
                 {ready === false && <p className={styles.notice} role="status">El diagnóstico aún no está disponible. Vuelve a intentarlo más tarde.</p>}
               </>}
-              {error && <p className={styles.error} role="alert">{error}</p>}
+              {sending && <p className="qual-hint" role="status">Registrando tu solicitud…</p>}
               <div className="qual-actions">
                 {step === 2 && <JigglyButton className="qual-back" type="button" disabled={sending} onClick={() => { setToken(""); setError(""); setStep(1); }}>Atrás</JigglyButton>}
-                <JigglyButton className={`${styles.spotlightSubmit} mstf_submit`} type="submit" aria-busy={sending} disabled={step === 2 && (!ready || !token || sending)}>{step === 1 ? "Continuar →" : sending ? "Registrando solicitud…" : "Enviar diagnóstico →"}</JigglyButton>
+                <JigglyButton className={`${styles.spotlightSubmit} mstf_submit`} type="submit" aria-busy={sending} disabled={step === 2 && (!ready || !token || sending)}>{step === 1 ? "Continuar →" : sending ? "Registrando solicitud…" : "Solicitar diagnóstico →"}</JigglyButton>
               </div>
               <p className="form-note">{step === 1 ? "Gratis. Sin tarjeta ni cuenta." : ready === null ? "Comprobando disponibilidad…" : "Te enviaremos el resultado cuando termine el análisis."}</p>
             </MultiStepFormFrame>

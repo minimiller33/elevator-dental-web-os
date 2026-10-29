@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "body": "{\"utm_source\":\"\",\"utm_medium\":\"\",\"utm_campaign\":\"\",\"utm_term\":\"\",\"utm_content\":\"\",\"gclid\":\"\",\"fbclid\":\"\",\"ttclid\":\"\",\"ab_hero\":\"\",\"first_touch_source\":\"direct / none\",\"first_touch_landing_page\":\"http://127.0.0.1:4330/\",\"first_touch_date\":\"2026-10-29T04:29:10.266Z\",\"last_touch_source\":\"direct / none\",\"last_touch_landing_page\":\"http://127.0.0.1:4330/\",\"last_touch_date\":\"2026-10-29T04:29:10.266Z\",\"external_id\":\"3d8d9f8a-4808-4052-b05d-8c22438de929\",\"event_id\":\"dda1746f-b69f-46ff-a4fe-15ccedff8a4f\",\"fbp\":\"\",\"fbc\":\"\",\"lead_lang\":\"es\",\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36\",\"landing_page_url\":\"http://127.0.0.1:4330/#contacto\",\"conversion_timestamp\":\"2026-10-29T04:29:12.470Z\",\"pages_visited\":\"/\",\"device\":\"desktop\",\"event_type\":\"lead_started\",\"lead_id\":\"42f43350-731b-45fd-9829-576929156281\",\"name\":\"   \",\"full_name\":\"   \",\"whatsapp\":\"+525512345678\",\"phone\":\"+525512345678\",\"email\":\"qa-breaker@example.com\",\"source\":\"Elevator Dental Web\"}"
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "body": "{\"utm_source\":\"\",\"utm_medium\":\"\",\"utm_campaign\":\"\",\"utm_term\":\"\",\"utm_content\":\"\",\"gclid\":\"\",\"fbclid\":\"\",\"ttclid\":\"\",\"ab_hero\":\"\",\"first_touch_source\":\"direct / none\",\"first_touch_landing_page\":\"http://127.0.0.1:4330/\",\"first_touch_date\":\"2026-10-29T04:29:10.266Z\",\"last_touch_source\":\"direct / none\",\"last_touch_landing_page\":\"http://127.0.0.1:4330/\",\"last_touch_date\":\"2026-10-29T04:29:10.266Z\",\"external_id\":\"3d8d9f8a-4808-4052-b05d-8c22438de929\",\"event_id\":\"d0e037cd-341c-44b8-a4f4-2058ec0eac3a\",\"fbp\":\"\",\"fbc\":\"\",\"lead_lang\":\"es\",\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36\",\"landing_page_url\":\"http://127.0.0.1:4330/#contacto\",\"conversion_timestamp\":\"2026-10-29T04:29:16.784Z\",\"pages_visited\":\"/\",\"device\":\"desktop\",\"event_type\":\"lead_started\",\"lead_id\":\"42f43350-731b-45fd-9829-576929156281\",\"name\":\"María José de la Cruz\",\"full_name\":\"María José de la Cruz\",\"whatsapp\":\"+525512345678\",\"phone\":\"+525512345678\",\"email\":\"qa-breaker@example.com\",\"source\":\"Elevator Dental Web\"}"
+    }
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}

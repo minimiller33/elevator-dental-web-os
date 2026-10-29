@@ -1,0 +1,252 @@
+{
+  "persona": "first-time mobile clinic owner in Mexico",
+  "round": "before",
+  "environment": {
+    "browser": "151.0.7922.34",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "touch": true,
+    "mobile": true,
+    "locale": "es-MX",
+    "network": {
+      "latencyMs": 2000,
+      "downloadBytesPerSecond": 51200,
+      "uploadBytesPerSecond": 51200,
+      "connectionType": "cellular3g"
+    },
+    "cpuThrottleRate": 4,
+    "throttleDisabled": false,
+    "base": "http://127.0.0.1:4330"
+  },
+  "success": {
+    "acceptedRequest": true,
+    "completedFiveSteps": true,
+    "clearActionableNextStep": false,
+    "firstSuccess": false,
+    "result": "Gracias por contarnos sobre tu clínica. Por ahora, Elevator Web quizá no sea el paso más adecuado. Guardamos tus datos para compartirte recursos que puedan servirte.",
+    "screenshot": "14-confirmation-after-manual-scroll.png",
+    "note": "Final response accepted, but no conversation or review next step; final confirmation initially out of viewport."
+  },
+  "timings": {
+    "coldGotoDomContentLoadedMs": 15916,
+    "navigationDomContentLoadedMs": 15068.2,
+    "firstContentfulPaintMs": 17444,
+    "navigationLoadEventEndMs": 39586.2,
+    "firstScreenshotCompleteUpperBoundMs": 33709,
+    "ctaUsable": "Visible in cold-start screenshot; exact earliest usable instant not sampled. FCP=17.444s and screenshot completion upper bound=33.709s. Startup was before navigation clock.",
+    "step2To3Ms": 549,
+    "step3To4Ms": 278,
+    "step4To5Ms": 256,
+    "finalSubmissionResponseMs": 2321,
+    "finalSubmissionNextObservationMs": 6093,
+    "note": "Screenshots wait for fonts and active screenshots/tool intervals are excluded from claimed request timings."
+  },
+  "issues": [
+    {
+      "key": "mobile-invalid-field-hidden-header",
+      "title": "Required name field is hidden behind header after empty submit",
+      "severity": "P2",
+      "screenshots": [
+        "05-empty-validation.png"
+      ],
+      "steps": [
+        "Open primary Solicitar conversación CTA",
+        "Scroll to Guardar y continuar without entering data",
+        "Tap Guardar y continuar"
+      ],
+      "actual": "Native validation focuses fullName at y=-36.2px. Tooltip Completa este campo overlaps logo and the invalid input is outside viewport behind fixed header.",
+      "expected": "Scroll invalid field fully below sticky header so it is visible and editable."
+    },
+    {
+      "key": "mobile-filled-label-overlap",
+      "title": "Focused Email label collides with entered address",
+      "severity": "P2",
+      "screenshots": [
+        "06-filled-contact.png"
+      ],
+      "steps": [
+        "Fill fullName",
+        "Select México +52 and enter5512345678",
+        "Focus email and type qa-mobile@example.com"
+      ],
+      "actual": "Email label overlaps initial characters of the entered address in screenshot while focused. Field uses16px font.",
+      "expected": "Filled or focused field label moves clear of typed text."
+    },
+    {
+      "key": "mobile-final-confirmation-offscreen",
+      "title": "Final confirmation is above viewport and footer appears after submit",
+      "severity": "P1",
+      "screenshots": [
+        "12-final-submitting.png",
+        "13-success.png",
+        "14-confirmation-after-manual-scroll.png"
+      ],
+      "steps": [
+        "Complete all five qualification steps",
+        "Tap Ver mis siguientes pasos",
+        "Wait for accepted final POST"
+      ],
+      "actual": "POST200 after2321ms and form replaced, but viewport shows footer only. Result heading top=-632.7px, window.scrollY7635. Manually scrolling up is required to discover rejection/confirmation.",
+      "expected": "Move viewport and focus to final confirmation once submission succeeds."
+    }
+  ],
+  "observations": [
+    {
+      "key": "mobile-result-next-step",
+      "detail": "Owner/socio, general dentistry, CDMX,8-15 years,2chairs,MXN treatment10000-<30000,goal4-10,revenue Prefiero no decir,referrals/no previous acquisition,no website,no lab,intraoral scanner,sole decision maker,<30days,organic yes produced generic no-fit result without a contact/review next step. Qualification reason unknown; do not infer causal field."
+    },
+    {
+      "key": "mobile-overflow",
+      "detail": "document.documentElement.scrollWidth=375 and innerWidth375 on landing, step2 and final confirmation."
+    },
+    {
+      "key": "mobile-menu",
+      "detail": "Menu opens/closes, has 5 legible options including Hablemos; no obstruction observed."
+    },
+    {
+      "key": "keyboard-scope",
+      "detail": "Headless real Chromium touch emulation does not show OS virtual keyboard. tel input has inputmode=tel, fields16px; actual hardware keyboard occlusion unverified."
+    },
+    {
+      "key": "loading",
+      "detail": "Final submit visibly changes to Guardando…; network/error recovery not forced."
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "at": 242791,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "at": 386404,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    }
+  ],
+  "failures": {
+    "javascriptErrors": [],
+    "requestFailures": [
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      }
+    ],
+    "note": "All failed requests observed were external YouTube telemetry POSTs intentionally blocked by QA harness; no first-party failure."
+  },
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}
