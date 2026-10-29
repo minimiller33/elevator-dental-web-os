@@ -1,5 +1,6 @@
 import { DentalLanding } from "@/components/DentalLanding";
 import type { Metadata } from "next";
+import { brandVideo } from "@/lib/brand-video";
 
 export const metadata: Metadata = {
   title: { absolute: "Diseño web y SEO para dentistas | Elevator Dental" },
@@ -15,6 +16,20 @@ const structuredData = {
       "@id": "https://elevatordental.com/#organization",
       name: "Elevator Dental",
       url: "https://elevatordental.com/",
+      sameAs: ["https://www.youtube.com/@ElevatorDental"],
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://elevatordental.com/#presentacion-elevator",
+      name: brandVideo.title,
+      description: brandVideo.description,
+      thumbnailUrl: [brandVideo.thumbnailUrl],
+      uploadDate: brandVideo.uploadDate,
+      duration: brandVideo.duration,
+      embedUrl: brandVideo.embedUrl,
+      contentUrl: brandVideo.contentUrl,
+      inLanguage: "es-MX",
+      publisher: { "@id": "https://elevatordental.com/#organization" },
     },
     {
       "@type": "Service",

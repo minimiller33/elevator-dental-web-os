@@ -13,6 +13,7 @@ import "@/app/landing-clarity.css";
 import "@/app/contact-spotlight.css";
 import "@/app/landing-cro-v2.css";
 import "@/app/landing-video.css";
+import { brandVideo } from "@/lib/brand-video";
 
 const platforms = [
   { name: "Google", logo: "/logos/platforms/google.svg" }, { name: "ChatGPT", logo: "/logos/platforms/chatgpt.svg" },
@@ -77,10 +78,17 @@ export function DentalReferenceLanding() {
     <SimpleMenu />
     <section className="er-hero" aria-labelledby="er-title"><div className="er-hero__heading"><h1 id="er-title">Que te encuentren.<br /><span>Mientras tú atiendes.</span></h1></div><p>Construimos y cuidamos webs para <strong>clínicas dentales</strong>. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.</p><div className="er-hero__actions"><JigglyButton className="er-button er-button--primary" href="#contacto">Solicitar conversación</JigglyButton><JigglyButton className="er-button er-button--white" href="/diagnostico-seo">Diagnóstico gratis</JigglyButton></div></section>
     <section className="er-vsl" aria-label="Video de presentación de Elevator Dental Web">
-      <video controls playsInline preload="none" poster="/video/elevator-v41-portada.jpg" width={1920} height={1080} aria-label="Presentación de Elevator Dental Web">
-        <source src="/video/elevator-v41.mp4" type="video/mp4" />
-        Tu navegador no puede reproducir el video. <a href="/video/elevator-v41.mp4">Abrir el video de Elevator Dental Web</a>.
-      </video>
+      <iframe
+        src={`${brandVideo.embedUrl}?playsinline=1&rel=0`}
+        title={brandVideo.title}
+        width={1920}
+        height={1080}
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+      <a className="er-vsl__link" href={brandVideo.watchUrl} target="_blank" rel="noopener noreferrer">Ver en YouTube <ArrowUpRight size={13} aria-hidden="true" /></a>
     </section>
     <div className="er-showcase-wrap"><ElevatorStoryWidget /></div>
 

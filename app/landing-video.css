@@ -5,17 +5,20 @@
   border-radius: 24px;
   background: #f5f3f1;
 }
-.er-vsl video {
+.er-vsl iframe {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
-  object-fit: contain;
+  border: 0;
 }
-.er-vsl video:focus-visible {
+.er-vsl iframe:focus-visible {
   outline: 3px solid #0071e3;
   outline-offset: -4px;
 }
+.er-vsl__link { display: flex; justify-content: flex-end; align-items: center; gap: 5px; padding: 9px 14px; color: #1269ca; font-size: 12px; text-decoration: none; }
+.er-vsl__link:hover { text-decoration: underline; }
+.er-vsl__link:focus-visible { outline: 2px solid #0071e3; outline-offset: -4px; }
 @media (max-width: 767px) {
   .edw-ref .er-vsl { margin: 0 20px 28px; border-radius: 16px; }
 }
