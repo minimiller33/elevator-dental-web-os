@@ -1,0 +1,63 @@
+{
+  "persona": "mobile",
+  "round": "final",
+  "success": false,
+  "checks": [
+    {
+      "name": "unexpected-500-localized-and-data-retained",
+      "pass": true
+    }
+  ],
+  "requests": [],
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert((await page.locator('[name=fullName]').boundingBox()).y>64)\n\n    at file:///private/tmp/elevator-launch-qa/final-rerun.mjs:29:104",
+  "debug": {
+    "url": "http://127.0.0.1:4330/#contacto",
+    "fields": [
+      {
+        "name": "fullName",
+        "value": ""
+      },
+      {
+        "name": "whatsappNational",
+        "value": ""
+      },
+      {
+        "name": "email",
+        "value": ""
+      }
+    ],
+    "ready": "interactive",
+    "client": false
+  },
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}

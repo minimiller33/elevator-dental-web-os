@@ -94,7 +94,7 @@ export default function DockFooter({ internal = false }: { internal?: boolean })
           </div>
         </div>
       </div>
-      <div className="df_legal"><span>© 2026 Elevator Dental OS</span><span>La web dental que sigue trabajando.</span></div>
+      <div className="df_legal"><span>© 2026 Elevator Dental OS</span><a href="/privacidad">Privacidad y uso de datos</a><span>La web dental que sigue trabajando.</span></div>
     </div>
   </footer>;
 }

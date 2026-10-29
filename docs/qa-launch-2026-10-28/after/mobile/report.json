@@ -1,0 +1,362 @@
+{
+  "persona": "first-time mobile clinic owner in Mexico",
+  "round": "after",
+  "environment": {
+    "browser": "151.0.7922.34",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "touch": true,
+    "mobile": true,
+    "locale": "es-MX",
+    "network": {
+      "latencyMs": 2000,
+      "downloadBytesPerSecond": 51200,
+      "uploadBytesPerSecond": 51200,
+      "connectionType": "cellular3g"
+    },
+    "cpuThrottleRate": 4,
+    "throttleDisabled": false,
+    "base": "http://127.0.0.1:4330"
+  },
+  "success": {
+    "acceptedRequest": true,
+    "completedFiveSteps": true,
+    "clearActionableNextStep": true,
+    "firstSuccess": true,
+    "result": "Solicitud recibida. La revisaremos contigo. El equipo revisará tus respuestas y te contactará por email o WhatsApp.",
+    "screenshot": "11-review-accepted-automatic.png",
+    "unchangedAnswers": true
+  },
+  "answers": {
+    "fullName": "Mariana QA Móvil",
+    "country": "México +52",
+    "phone": "5512345678",
+    "email": "qa-mobile@example.com",
+    "profile": "Dueño o socio de clínica dental",
+    "specialty": [
+      "Odontología general"
+    ],
+    "location": "Ciudad de México, México",
+    "years": "8 a 15 años",
+    "chairs": "2",
+    "treatmentValue": "10.000 MXN a menos de 30.000 MXN",
+    "patientGoal": "4 a 10",
+    "revenue": "Prefiero no decir",
+    "patientSources": [
+      "Referidos"
+    ],
+    "triedBefore": [
+      "Nada"
+    ],
+    "frustration": "Soy dueña de una clínica en Ciudad de México y quiero que las personas encuentren tratamientos y contacto con claridad.",
+    "hasWebsite": "No",
+    "hasLab": "No",
+    "technology": [
+      "Escáner intraoral"
+    ],
+    "decisionMaker": "Sí, solo yo",
+    "timeline": "En menos de 30 días",
+    "organicExpectation": "Sí, lo entiendo"
+  },
+  "timings": {
+    "coldDomReturnedMs": 14253.893416,
+    "ctaVisibleDomObservedMs": 14382.472040999999,
+    "navigation": [
+      {
+        "responseStart": 119.10000000149012,
+        "domContentLoadedEventEnd": 14116.60000000149,
+        "loadEventEnd": 39260.79999999702
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "startTime": 14172
+      },
+      {
+        "name": "first-contentful-paint",
+        "startTime": 14172
+      }
+    ],
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "stepTimings": [
+      {
+        "toStep": 2,
+        "ms": 2355.766791000002
+      },
+      {
+        "toStep": 3,
+        "ms": 123.74637500000244
+      },
+      {
+        "toStep": 4,
+        "ms": 415.96941700000025
+      },
+      {
+        "toStep": 5,
+        "ms": 1155.2887090000004
+      }
+    ],
+    "finalAnswerResponseMs": 2594,
+    "reviewResponseMs": 3236,
+    "note": "Startup preceded navigation clock. CTA timing is Playwright visible observation, not earliest paint/input-ready measurement. Screenshots wait for fonts. No performance improvement claim. Old baseline final-heading probe timed out120s because new result copy changed; excluded from all product timings."
+  },
+  "checks": [
+    {
+      "key": "mobile-invalid-field-hidden-header",
+      "status": "pass",
+      "geometry": {
+        "top": 364.796875,
+        "bottom": 428.796875,
+        "focused": true,
+        "message": "Completa este campo",
+        "headerBottom": 64
+      },
+      "screenshots": [
+        "02-empty-validation.png"
+      ],
+      "actual": "Empty submission focuses fullName, input fully visible below64px header."
+    },
+    {
+      "key": "mobile-filled-label-overlap",
+      "status": "pass",
+      "geometry": {
+        "top": 621.796875,
+        "bottom": 685.796875,
+        "font": "16px",
+        "paddingTop": "28px"
+      },
+      "screenshots": [
+        "03-focused-filled-email.png"
+      ],
+      "actual": "Focused Email has separate label and entered address; name also separate."
+    },
+    {
+      "key": "mobile-step-headings",
+      "status": "pass",
+      "geometry": [
+        {
+          "step": 2,
+          "top": 104.296875,
+          "bottom": 163.296875
+        },
+        {
+          "step": 3,
+          "top": 104.296875,
+          "bottom": 163.296875
+        },
+        {
+          "step": 4,
+          "top": 104.296875,
+          "bottom": 163.296875
+        },
+        {
+          "step": 5,
+          "top": 104.296875,
+          "bottom": 163.296875
+        }
+      ],
+      "screenshots": [
+        "04-step2.png",
+        "05-step3.png",
+        "06-step4.png",
+        "07-step5.png"
+      ],
+      "actual": "All transition headings automatically visible below header."
+    },
+    {
+      "key": "mobile-final-confirmation-offscreen",
+      "status": "pass",
+      "geometry": {
+        "resultGeometry": {
+          "top": 104.296875,
+          "bottom": 176.296875,
+          "focused": true,
+          "activeTag": "H3",
+          "headerBottom": 64
+        },
+        "reviewGeometry": {
+          "top": 104.296875,
+          "bottom": 152.296875,
+          "focused": true,
+          "activeTag": "H3",
+          "headerBottom": 64
+        }
+      },
+      "screenshots": [
+        "10-result-state.png",
+        "11-review-accepted-automatic.png"
+      ],
+      "actual": "Both final result and accepted review automatically scrolled and focused with no manual scrolling."
+    },
+    {
+      "key": "private-revenue-review-path",
+      "status": "pass",
+      "screenshots": [
+        "10-result-state.png",
+        "11-review-accepted-automatic.png"
+      ],
+      "actual": "Original answers preserved, treatment-price reason shown, manual review accepted with email/WhatsApp next step."
+    },
+    {
+      "key": "mobile-overflow",
+      "status": "pass",
+      "actual": "Final document width375 equals viewport375."
+    }
+  ],
+  "issues": [],
+  "unresolved": [],
+  "requestCounts": {
+    "contactPosts": 3,
+    "allStatus200": true,
+    "retries": 0
+  },
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "at": 73892,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "at": 140863,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "at": 305771,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    }
+  ],
+  "limitations": [
+    "No hardware OS virtual keyboard in headless touch emulation; keyboard occlusion not claimed verified.",
+    "Network error recovery was not forced."
+  ],
+  "failures": {
+    "javascriptErrors": [],
+    "requestFailures": [
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      },
+      {
+        "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+        "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+      }
+    ],
+    "note": "Harness intentionally blocks external write requests such as YouTube telemetry."
+  },
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ]
+}

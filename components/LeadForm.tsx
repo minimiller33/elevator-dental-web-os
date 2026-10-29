@@ -3,8 +3,11 @@
 import MultiStepFormFrame from "@/components/annnimate/MultiStepFormFrame";
 import JigglyButton from "@/components/annnimate/JigglyButton";
 
-import { FormEvent, ReactNode, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
+import { classify } from "@/lib/lead-qualification";
 import Script from "next/script";
+import { postForm, revealFormElement, showInvalidField } from "@/lib/form-feedback";
+import { normalizeWebsite, validContactName } from "@/lib/contact-validation";
 import type { CountryCode } from "libphonenumber-js/min";
 import { normalizeWhatsApp } from "@/lib/phone";
 import { WhatsAppField } from "@/components/WhatsAppField";
@@ -51,14 +54,14 @@ const labels: Record<string, Record<string, string>> = {
   chairs: { one: "1", two: "2", threeFive: "3 a 5", sixPlus: "6 o más" },
   patientGoal: { one3: "1 a 3", four10: "4 a 10", over10: "Más de 10" },
   patientSources: { referrals: "Referidos", google: "Google", social: "Redes sociales", ads: "Anuncios", other: "Otro" },
-  triedBefore: { ads: "Anuncios", seo: "SEO", social: "Redes sociales", ai: "Agente de IA", website: "Web nueva", none: "Nada" },
+  triedBefore: { ads: "Anuncios", seo: "Aparecer en Google (SEO)", social: "Redes sociales", ai: "Asistente automático de atención (IA)", website: "Web nueva", none: "Nada" },
   hasWebsite: { yes: "Sí", no: "No" },
   hasLab: { yes: "Sí", no: "No", planning: "Lo estoy planeando" },
   technology: { cadcam: "CAD/CAM", scanner: "Escáner intraoral", tomography: "Tomógrafo 3D", printer: "Impresora 3D", none: "Ninguna" },
   decisionMaker: { sole: "Sí, solo yo", shared: "Sí, con un socio", no: "No" },
   decisionMakerAttends: { yes: "Sí, estará en la llamada", no: "No" },
   timeline: { under30: "En menos de 30 días", one3: "En 1 a 3 meses", exploring: "Solo estoy explorando" },
-  organicExpectation: { yes: "Sí, lo entiendo", no: "No" },
+  organicExpectation: { yes: "Sí, lo entiendo", no: "Quiero que me lo expliquen" },
 };
 
 const currencies: Record<string, number[]> = {
@@ -68,8 +71,6 @@ const currencies: Record<string, number[]> = {
   GTQ: [4000, 12000, 32000], HNL: [12000, 36000, 96000], NIO: [18000, 54000, 144000],
   PAB: [500, 1500, 4000], DOP: [30000, 90000, 240000], BOB: [3500, 10500, 28000], PYG: [3500000, 10500000, 28000000],
 };
-
-const servedMarkets = ["colombia", "usa", "united states", "estados unidos", "mexico"];
 
 function currencyForLocation(value: string) {
   const location = value.toLocaleLowerCase("es");
@@ -95,46 +96,9 @@ function formatCurrency(value: number, currency: string) {
   return new Intl.NumberFormat("es", { style: "currency", currency, maximumFractionDigits: 0 }).format(value);
 }
 
-function classify(answers: LeadAnswers) {
-  const declined = answers.profile === "other" || ["under500", "five1500"].includes(answers.treatmentValue) || answers.timeline === "exploring";
-  if (declined) return { status: "not_qualified", points: 0, priority: "none" };
-
-  const hasSpecialty = answers.specialty.length > 0;
-  const normalizedLocation = answers.cityCountry.toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const marketSupported = servedMarkets.some((market) => normalizedLocation.includes(market));
-  const manualReview =
-    !marketSupported ||
-    (answers.decisionMaker === "no" && answers.decisionMakerAttends === "no");
-
-  if (!["ten25", "twentyFive60", "over60"].includes(answers.revenue)) return { status: "not_qualified", points: 0, priority: "none" };
-
-  let points = 0;
-  if (hasSpecialty) points += 3;
-  if (["owner", "independent", "associate", "marketing"].includes(answers.profile)) points += 2;
-  if (["ten25", "twentyFive60", "over60"].includes(answers.revenue)) points += 2;
-  if (["fifteen4k", "over4k"].includes(answers.treatmentValue)) points += 2;
-  if (["one3", "four10", "over10"].includes(answers.patientGoal)) points += 1;
-  if (answers.chairs) points += 1;
-  if (answers.hasLab === "yes") points += 1;
-  points += ["cadcam", "scanner", "tomography", "printer"].filter((technology) => answers.technology.includes(technology)).length;
-  if (answers.decisionMaker === "sole") points += 2;
-  if (answers.decisionMaker === "shared") points += 1;
-
-  if (answers.timeline === "under30") points += 10;
-  if (answers.timeline === "one3") points += 3;
-
-  return { status: manualReview ? "manual_review" : "qualified", points, priority: answers.timeline === "under30" ? "high" : "normal" };
-}
 
 async function sendToCrm(payload: Record<string, unknown>) {
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...captureLeadAttribution(), ...payload }),
-  });
-  const result = await response.json() as { ok?: boolean; bookingUrl?: string; error?: string };
-  if (!response.ok || !result.ok) throw new Error(result.error || "No se pudo guardar la información. Revisa la conexión e inténtalo de nuevo.");
-  return result;
+  return postForm("/api/contact", { ...captureLeadAttribution(), ...payload });
 }
 
 function ChoiceGroup({
@@ -177,7 +141,7 @@ function ChoiceGroup({
 export function LeadForm() {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<LeadAnswers>(initialAnswers);
-  const [leadId] = useState(() => typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `edw-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+  const [leadId, setLeadId] = useState(() => typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `edw-${Date.now()}-${Math.random().toString(36).slice(2)}`);
   const [phoneCountry, setPhoneCountry] = useState<CountryCode>("CO");
   const [phoneNational, setPhoneNational] = useState("");
   const [phoneError, setPhoneError] = useState("");
@@ -187,11 +151,41 @@ export function LeadForm() {
     return valid;
   };
   const [busy, setBusy] = useState(false);
+  const busyRef = useRef(false);
+  const completedPayload = useRef<Record<string, unknown>>({});
+  const [savedContact, setSavedContact] = useState("");
+  const [draftLoaded, setDraftLoaded] = useState(false);
+  const [draftRestored, setDraftRestored] = useState(false);
+  const resultHeading = useRef<HTMLHeadingElement>(null);
+  const errorHeading = useRef<HTMLParagraphElement>(null);
   const [error, setError] = useState("");
   const [result, setResult] = useState<"qualified" | "manual_review" | "not_qualified" | "">("");
   const [bookingUrl, setBookingUrl] = useState("");
 
   const [currencyOverride, setCurrencyOverride] = useState("");
+  useEffect(() => {
+    try {
+      const draft = JSON.parse(sessionStorage.getItem("edw-contact-draft-v1") || "null");
+      if (draft && Date.now() - draft.at < 86_400_000 && Number.isInteger(draft.step) && draft.step >= 1 && draft.step <= 5 && typeof draft.leadId === "string" && Object.entries(initialAnswers).every(([key, value]) => Array.isArray(value) ? Array.isArray(draft.answers?.[key]) && draft.answers[key].every((item: unknown) => typeof item === "string") : typeof draft.answers?.[key] === "string")) {
+        // Browser-only session data must be restored after hydration.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setAnswers(draft.answers); setStep(draft.step); setLeadId(draft.leadId);
+        setPhoneCountry(draft.phoneCountry || "CO"); setPhoneNational(draft.phoneNational || "");
+        setCurrencyOverride(draft.currencyOverride || ""); setSavedContact(draft.savedContact || ""); setDraftRestored(true);
+      } else sessionStorage.removeItem("edw-contact-draft-v1");
+    } catch { /* The form also works when browser storage is unavailable. */ }
+    setDraftLoaded(true);
+  }, []);
+  useEffect(() => {
+    if (!draftLoaded) return;
+    try {
+      if (result) sessionStorage.removeItem("edw-contact-draft-v1");
+      else sessionStorage.setItem("edw-contact-draft-v1", JSON.stringify({ at: Date.now(), step, answers, leadId, phoneCountry, phoneNational, currencyOverride, savedContact }));
+    } catch { /* Storage is an optional convenience. */ }
+  }, [draftLoaded, step, answers, leadId, phoneCountry, phoneNational, currencyOverride, savedContact, result]);
+  useEffect(() => { if (result) revealFormElement(resultHeading.current); }, [result]);
+  useEffect(() => { if (error) revealFormElement(errorHeading.current?.closest("form")?.querySelector<HTMLElement>("input:invalid, select:invalid, textarea:invalid") || errorHeading.current); }, [error]);
+
   const currency = currencyOverride || currencyForLocation(answers.cityCountry);
   const treatmentThresholds = currencies[currency] ?? currencies.USD;
   const revenueThresholds = [10, 20, 50, 120].map((factor) => treatmentThresholds[0] * factor);
@@ -209,11 +203,13 @@ export function LeadForm() {
 
   async function next(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (busy) return;
+    if (busyRef.current) return;
+    if (step === 1 && !validContactName(answers.fullName)) { setError("Escribe tu nombre, sin símbolos como < o >."); return; }
     if (step === 1 && !validatePhone()) {
-      event.currentTarget.querySelector<HTMLInputElement>("[name=whatsappNational]")?.focus();
+      revealFormElement(event.currentTarget.querySelector<HTMLInputElement>("[name=whatsappNational]"));
       return;
     }
+    busyRef.current = true;
     setBusy(true);
     setError("");
     try {
@@ -224,7 +220,7 @@ export function LeadForm() {
       }
 
       const missingByStep = step === 2
-        ? !answers.profile || !answers.specialty.length || !answers.cityCountry || !answers.yearsPracticing
+        ? !answers.profile || !answers.specialty.length || !answers.cityCountry.trim() || !answers.yearsPracticing
         : step === 3
           ? !answers.chairs || !answers.treatmentValue || !answers.patientGoal || !answers.revenue
           : step === 4
@@ -237,9 +233,12 @@ export function LeadForm() {
         return;
       }
 
-      if (step === 1) {
+      const contactSignature = JSON.stringify([answers.fullName.trim(), answers.whatsapp, answers.email.trim().toLowerCase()]);
+      if (step === 1 && contactSignature !== savedContact) {
         await sendToCrm({ event_type: "lead_started", lead_id: leadId, name: answers.fullName, full_name: answers.fullName, whatsapp: answers.whatsapp, phone: answers.whatsapp, email: answers.email, source: "Elevator Dental Web" });
+        setSavedContact(contactSignature);
       }
+      if (step === 4 && answers.hasWebsite === "yes" && !normalizeWebsite(answers.website)) { setError("Escribe una dirección web válida que empiece con https:// o http://, por ejemplo https://tuclinica.com."); return; }
 
       if (step < 5) {
         setStep((current) => current + 1);
@@ -248,7 +247,7 @@ export function LeadForm() {
 
       const qualification = classify(answers);
       const finalResult = qualification.status as "qualified" | "manual_review" | "not_qualified";
-      const booking = await sendToCrm({
+      completedPayload.current = {
         event_type: "lead_completed", lead_id: leadId, lead_status: finalResult, score: qualification.points, lead_priority: qualification.priority,
         name: answers.fullName, full_name: answers.fullName, phone: answers.whatsapp, whatsapp: answers.whatsapp, email: answers.email,
         profile: labels.profile[answers.profile], specialty: answers.specialty.map((item) => labels.specialty[item]).join(", "), city_country: answers.cityCountry,
@@ -256,25 +255,27 @@ export function LeadForm() {
         treatment_value: treatmentOptions.find(([key]) => key === answers.treatmentValue)?.[1] ?? "", patients_goal: labels.patientGoal[answers.patientGoal],
         monthly_revenue: revenueOptions.find(([key]) => key === answers.revenue)?.[1] ?? "", patient_sources: answers.patientSources.map((item) => labels.patientSources[item]).join(", "),
         previous_marketing: answers.triedBefore.map((item) => labels.triedBefore[item]).join(", "), frustration: answers.frustration,
-        has_website: labels.hasWebsite[answers.hasWebsite], website: answers.website,
+        has_website: labels.hasWebsite[answers.hasWebsite], website: answers.hasWebsite === "yes" ? normalizeWebsite(answers.website) : "",
         in_house_lab: labels.hasLab[answers.hasLab], technology: answers.technology.map((item) => labels.technology[item]).join(", "),
         decision_maker: labels.decisionMaker[answers.decisionMaker], decision_maker_attends: labels.decisionMakerAttends[answers.decisionMakerAttends], timeline: labels.timeline[answers.timeline],
         organic_expectation: labels.organicExpectation[answers.organicExpectation], partner_attends: answers.decisionMaker === "shared" || answers.decisionMakerAttends === "yes" ? "Sí" : "No",
         currency_symbol: formatCurrency(treatmentThresholds[0], currency), source: "Elevator Dental Web",
-      });
+      };
+      const booking = await sendToCrm(completedPayload.current);
       setResult(finalResult);
       setBookingUrl(booking.bookingUrl ?? "");
     } catch (error) {
       setError(error instanceof Error ? error.message : "No pudimos enviar tu información. Revisa la conexión e inténtalo de nuevo.");
     } finally {
+      busyRef.current = false;
       setBusy(false);
     }
   }
 
   const statusCopy = {
     qualified: { title: "El siguiente paso es una llamada.", body: "Tu clínica puede avanzar a una conversación con el equipo de Elevator. Reserva una hora para revisar tus objetivos y los siguientes pasos." },
-    manual_review: { title: "Queremos revisar algunos detalles contigo.", body: "Recibimos tu información. El equipo de Elevator la revisará antes de recomendarte el mejor siguiente paso." },
-    not_qualified: { title: "Gracias por contarnos sobre tu clínica.", body: "Por ahora, Elevator Web quizá no sea el paso más adecuado. Guardamos tus datos para compartirte recursos que puedan servirte." },
+    manual_review: { title: "Solicitud recibida. La revisaremos contigo.", body: "El equipo revisará tus respuestas y te contactará por el email o WhatsApp que compartiste para aclarar los detalles. No necesitas compartir tu facturación para solicitar esta revisión." },
+    not_qualified: { title: "Recibimos tus respuestas. Este es tu siguiente paso.", body: answers.profile === "other" ? "Este servicio está dirigido a clínicas y consultorios dentales. Si tu caso necesita una explicación, puedes pedir una revisión personal." : answers.timeline === "exploring" ? "Nos indicaste que estás explorando. Puedes revisar tus opciones con calma y pedir una revisión personal cuando quieras aclarar si el servicio encaja contigo." : ["under500", "five1500"].includes(answers.treatmentValue) ? "Según el rango de precio de tratamiento que elegiste, necesitamos revisar si este servicio encaja con tu clínica antes de ofrecerte una llamada." : "Según el rango de facturación que elegiste, necesitamos revisar el contexto de tu clínica antes de ofrecerte una llamada." },
   };
 
   if (result) {
@@ -283,12 +284,26 @@ export function LeadForm() {
       <div className="qual-result" role="status">
         <span className="qual-result__icon"><Check /></span>
         <small>{result === "qualified" ? "PERFIL COMPLETO" : result === "manual_review" ? "REVISIÓN PERSONAL" : "GRACIAS POR TU TIEMPO"}</small>
-        <h3>{copy.title}</h3>
+        <h3 ref={resultHeading} tabIndex={-1}>{copy.title}</h3>
         <p>{copy.body}</p>
         {result === "qualified" && (answers.decisionMaker === "shared" || answers.decisionMakerAttends === "yes") && <p className="qual-result__hint">Como la decisión es compartida, te recomendamos que tu socio o la persona responsable también asista a la llamada.</p>}
         {result === "qualified" && bookingUrl && <div className="qual-booking"><iframe id="ZSMvG1HV5HndrINClSTq_1791155990786" title="Agenda tu llamada con Elevator" src={bookingUrl} allow="payment" scrolling="no" /><Script src="https://api.leadconnectorhq.com/js/form_embed.js" strategy="afterInteractive" /><a href={bookingUrl} target="_blank" rel="noreferrer">Abrir la agenda en otra pestaña <ArrowUpRight /></a></div>}
         {result === "qualified" && !bookingUrl && <p className="qual-result__hint">La agenda aún no está conectada. El equipo te compartirá el enlace para reservar tu llamada.</p>}
-        <JigglyButton type="button" className="qual-start-over" onClick={() => { setResult(""); setStep(1); setAnswers(initialAnswers); setPhoneCountry("CO"); setPhoneNational(""); setPhoneError(""); }}>Volver al inicio</JigglyButton>
+        {result === "not_qualified" && <>
+          <JigglyButton type="button" className="er-button er-button--primary" disabled={busy} aria-busy={busy} onClick={async () => {
+            if (busyRef.current) return;
+            busyRef.current = true; setBusy(true); setError("");
+            try { await sendToCrm({ ...completedPayload.current, event_type: "lead_completed", lead_id: leadId, lead_status: "manual_review", name: answers.fullName, phone: answers.whatsapp, email: answers.email, city_country: answers.cityCountry, frustration: answers.frustration, manual_review_requested: true }); setResult("manual_review"); }
+            catch (failure) { setError(failure instanceof Error ? failure.message : "Vuelve a intentarlo."); }
+            finally { busyRef.current = false; setBusy(false); }
+          }}>{busy ? "Enviando tu revisión…" : "Pedir revisión al equipo"}</JigglyButton>
+          {answers.hasWebsite === "yes" && <a href="/diagnostico-seo">Solicitar un diagnóstico gratuito de mi web →</a>}
+          <JigglyButton type="button" className="qual-back" disabled={busy} onClick={() => { setResult(""); setStep(answers.profile === "other" ? 2 : 5); setError(""); }}>Revisar mis respuestas</JigglyButton>
+        </>}
+        {result === "manual_review" && <p>Si necesitas añadir algo, escríbenos a <a href="mailto:support@elevatordental.com">support@elevatordental.com</a>.</p>}
+        <p className="qual-privacy">Usaremos tus datos para atender esta solicitud. <a href="/privacidad" target="_blank" rel="noopener noreferrer">Cómo usamos tus datos (abre otra pestaña)</a>.</p>
+        {error && <p ref={errorHeading} tabIndex={-1} className="qual-error" role="alert">{error}</p>}
+        <JigglyButton type="button" className="qual-start-over" disabled={busy} onClick={() => { setResult(""); setStep(1); setAnswers(initialAnswers); setLeadId(crypto.randomUUID()); setSavedContact(""); setCurrencyOverride(""); setDraftRestored(false); setError(""); setPhoneCountry("CO"); setPhoneNational(""); setPhoneError(""); }}>Enviar otra solicitud</JigglyButton>
       </div>
     );
   }
@@ -302,7 +317,7 @@ export function LeadForm() {
         <WhatsAppField country={phoneCountry} number={phoneNational} error={phoneError} onBlur={() => { if (phoneNational.trim()) validatePhone(); }} onChange={(country, number, international) => { setPhoneCountry(country); setPhoneNational(number); update("whatsapp", international); setPhoneError(""); setError(""); }} />
         <label className="qual-field qual-field--floating"><input autoComplete="email" type="email" name="email" maxLength={254} value={answers.email} onChange={(event) => update("email", event.currentTarget.value)} placeholder=" " required /><span>Email</span></label>
       </div>
-      <p className="qual-privacy">Al continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.</p>
+      <p className="qual-privacy">Al continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud por email o WhatsApp. <a href="/privacidad" target="_blank" rel="noopener noreferrer">Cómo usamos tus datos (abre otra pestaña)</a>.</p>
     </>;
   } else if (step === 2) {
     content = <>
@@ -316,10 +331,10 @@ export function LeadForm() {
   } else if (step === 3) {
     content = <>
       <ChoiceGroup name="chairs" legend="¿Cuántos sillones o consultorios tienes?" options={choice("chairs")} value={answers.chairs} onChange={(value) => update("chairs", value as string)} />
-      <ChoiceGroup name="treatmentValue" legend="¿Cuál es el valor promedio de un tratamiento de alto valor?" options={treatmentOptions} value={answers.treatmentValue} onChange={(value) => update("treatmentValue", value as string)} />
+      <ChoiceGroup name="treatmentValue" legend="¿Cuánto cobras, en promedio, por un tratamiento completo como implantes, alineadores o diseño de sonrisa?" options={treatmentOptions} value={answers.treatmentValue} onChange={(value) => update("treatmentValue", value as string)} />
       <p className="qual-hint">Los rangos se muestran en {currency} y nos ayudan a entender el contexto de tus tratamientos.</p>
       <label className="qual-field qual-currency"><span>Moneda de los rangos</span><select value={currency} onChange={(event) => setCurrencyOverride(event.currentTarget.value)}><option value="USD">USD · dólar estadounidense</option><option value="CRC">CRC · colón costarricense</option><option value="MXN">MXN · peso mexicano</option><option value="COP">COP · peso colombiano</option><option value="PEN">PEN · sol peruano</option><option value="CLP">CLP · peso chileno</option><option value="BRL">BRL · real brasileño</option><option value="ARS">ARS · peso argentino</option></select></label>
-      <ChoiceGroup name="patientGoal" legend="¿Cuántos pacientes nuevos de alto valor te gustaría sumar al mes?" options={choice("patientGoal")} value={answers.patientGoal} onChange={(value) => update("patientGoal", value as string)} />
+      <ChoiceGroup name="patientGoal" legend="¿Cuántos pacientes nuevos para esos tratamientos te gustaría sumar al mes?" options={choice("patientGoal")} value={answers.patientGoal} onChange={(value) => update("patientGoal", value as string)} />
       <ChoiceGroup name="revenue" legend="¿Cuál es tu facturación mensual aproximada?" options={revenueOptions} value={answers.revenue} onChange={(value) => update("revenue", value as string)} />
       <p className="qual-hint">Estos datos nos ayudan a entender la capacidad y los objetivos actuales de tu clínica.</p>
     </>;
@@ -329,7 +344,7 @@ export function LeadForm() {
       <ChoiceGroup name="triedBefore" legend="¿Qué has probado antes para conseguir pacientes? (puedes elegir varias)" options={choice("triedBefore")} value={answers.triedBefore} onChange={(value) => update("triedBefore", value as string[])} multi />
       <label className="qual-field"><span>¿Cuál es tu mayor frustración al conseguir pacientes?</span><textarea maxLength={240} rows={3} value={answers.frustration} onChange={(event) => update("frustration", event.currentTarget.value)} placeholder="Cuéntanos en una o dos frases" required /></label>
       <ChoiceGroup name="hasWebsite" legend="¿Tienes una página web hoy?" options={choice("hasWebsite")} value={answers.hasWebsite} onChange={(value) => { update("hasWebsite", value as string); if (value === "no") update("website", ""); }} />
-      {answers.hasWebsite === "yes" && <label className="qual-field"><span>¿Cuál es el enlace?</span><input type="url" maxLength={300} value={answers.website} onChange={(event) => update("website", event.currentTarget.value)} placeholder="https://tusitio.com" required /></label>}
+      {answers.hasWebsite === "yes" && <label className="qual-field"><span>¿Cuál es el enlace?</span><input name="website" inputMode="url" autoCapitalize="none" autoCorrect="off" maxLength={300} value={answers.website} onChange={(event) => update("website", event.currentTarget.value)} placeholder="https://tusitio.com" required /></label>}
     </>;
   } else {
     content = <>
@@ -340,22 +355,23 @@ export function LeadForm() {
       {answers.decisionMaker === "no" && <ChoiceGroup name="decisionMakerAttends" legend="¿La persona que decide podrá asistir a la llamada?" options={choice("decisionMakerAttends")} value={answers.decisionMakerAttends} onChange={(value) => update("decisionMakerAttends", value as string)} />}
       {answers.decisionMaker === "shared" && <p className="qual-inline-note">Invita a tu socio para que también pueda participar en la llamada.</p>}
       <ChoiceGroup name="timeline" legend="¿Cuándo quieres empezar?" options={choice("timeline")} value={answers.timeline} onChange={(value) => update("timeline", value as string)} />
-      <ChoiceGroup name="organicExpectation" legend="Una Elevator Dental Web atrae tráfico orgánico de posibles pacientes para tu clínica o consultorio. Sin embargo, toma tiempo en consolidarse y aprender a conseguir nuevo tráfico calificado. Los resultados no son inmediatos, pero es tu mejor opción para escalar en la nueva era digital sin depender de anuncios. ¿Lo entiendes?" options={choice("organicExpectation")} value={answers.organicExpectation} onChange={(value) => update("organicExpectation", value as string)} />
+      <ChoiceGroup name="organicExpectation" legend="Trabajamos para que más personas encuentren tu clínica en Google y otros buscadores. Las mejoras toman tiempo; no se garantizan posiciones ni pacientes. ¿Te queda claro o quieres que lo conversemos?" options={choice("organicExpectation")} value={answers.organicExpectation} onChange={(value) => update("organicExpectation", value as string)} />
     </>;
   }
 
   const earlyDisqualified = step === 2 && answers.profile === "other";
 
   return (
-    <form className="lead-form qual-form mstf_form" onSubmit={next} aria-busy={busy}>
-      <MultiStepFormFrame step={step} stage={stages[step - 1]} title={step === 1 ? "Empecemos por ti." : step === 2 ? "¿Quién está detrás de la clínica?" : step === 3 ? "Conozcamos el negocio." : step === 4 ? "¿Cómo consigues pacientes hoy?" : "La decisión y el momento."}>
-      <div className="qual-content">{content}</div>
-      {error && <p className="qual-error" role="alert">{error}</p>}
+    <form className="lead-form qual-form mstf_form" onInvalid={event => showInvalidField(event, setError)} onSubmit={next} aria-busy={busy}>
+      <MultiStepFormFrame enabled={draftLoaded} step={step} stage={stages[step - 1]} title={step === 1 ? "Empecemos por ti." : step === 2 ? "¿Quién está detrás de la clínica?" : step === 3 ? "Conozcamos el negocio." : step === 4 ? "¿Cómo consigues pacientes hoy?" : "La decisión y el momento."}>
+      {error && <p ref={errorHeading} tabIndex={-1} className="qual-error" role="alert">{error}</p>}
+      <div className="qual-content">{draftRestored && <p className="qual-hint" role="status">Retomamos tus respuestas guardadas en esta pestaña.</p>}{content}</div>
+      {busy && <p className="qual-hint" role="status">Guardando tus respuestas…</p>}
       <div className="qual-actions">
         {step > 1 && <JigglyButton className="qual-back" type="button" disabled={busy} onClick={() => { setError(""); setStep((current) => current - 1); }}>Volver</JigglyButton>}
         <JigglyButton className="button button--light mstf_submit" type="submit" disabled={busy} aria-busy={busy} aria-label={busy ? "Guardando tus respuestas" : undefined}>{busy ? "Guardando…" : earlyDisqualified ? "Finalizar" : step === 1 ? "Guardar y continuar" : step === 5 ? "Ver mis siguientes pasos" : "Continuar"} {!busy && <ArrowUpRight />}</JigglyButton>
       </div>
-      {earlyDisqualified ? <p className="qual-inline-note">Gracias por responder con honestidad. En este momento el servicio está dirigido a dueños y profesionales independientes de clínicas dentales.</p> : step === 1 ? <p className="form-note">Tus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.</p> : <p className="qual-hint">Tu información se comparte con el equipo de Elevator para revisar tu solicitud.</p>}
+      {earlyDisqualified ? <p className="qual-inline-note">Gracias por responder con honestidad. En este momento el servicio está dirigido a dueños y profesionales independientes de clínicas dentales.</p> : step === 1 ? <p className="form-note">Tus datos se guardan ahora para responderte aunque no termines. Conservamos un borrador en esta pestaña hasta enviarlo, cerrarla o durante un máximo de 24 horas.</p> : <p className="qual-hint">Tu información se comparte con el equipo de Elevator para revisar tu solicitud.</p>}
       </MultiStepFormFrame>
     </form>
   );

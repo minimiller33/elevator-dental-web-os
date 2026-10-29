@@ -1,0 +1,687 @@
+{
+  "persona": "breaker",
+  "round": "before",
+  "success": false,
+  "terminalReached": true,
+  "finalDisposition": "not-fit-no-clear-next-step",
+  "issues": [
+    {
+      "key": "contact-reload-loses-progress",
+      "title": "Reload midway clears every answer and restarts contact collection",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/13-reload-mid-step.png"
+      ],
+      "steps": [
+        "Complete contact and clinic steps",
+        "Fill business questions at step 3",
+        "Reload current page"
+      ],
+      "actual": "Step 1 returns with blank name, phone, email and default Colombia; no resume indication.",
+      "expected": "Restore draft or offer a clear way to resume the saved request."
+    },
+    {
+      "key": "contact-junk-name-accepted",
+      "title": "Obviously malformed full name is saved and advances",
+      "severity": "P3",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/15-junk-name-retained.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/14-malformed-name.png"
+      ],
+      "steps": [
+        "Use name 123<>!!! with valid Mexican phone and email",
+        "Double click Guardar y continuar"
+      ],
+      "actual": "Request succeeds and advances to clinic questions.",
+      "expected": "Reject a name consisting only of digits/punctuation with an actionable message."
+    },
+    {
+      "key": "contact-raw-network-error",
+      "title": "Network failure shows untranslated Failed to fetch without retry guidance",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/17-offline-contact.png"
+      ],
+      "steps": [
+        "Fill valid contact fields",
+        "Abort one local /api/contact request as disconnected",
+        "Submit"
+      ],
+      "actual": "The Spanish form shows only Failed to fetch; entered data remains and retry works via the same button.",
+      "expected": "Explain in Spanish that sending failed, retain data, and invite retry."
+    },
+    {
+      "key": "contact-result-offscreen",
+      "title": "Final submission leaves the outcome above the viewport",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/23-final-disposition.png"
+      ],
+      "steps": [
+        "Complete all 5 steps",
+        "Double click Ver mis siguientes pasos"
+      ],
+      "actual": "The final form disappears, but viewport remains near the footer with only bottom of blue panel; outcome text is above screen.",
+      "expected": "Move focus/scroll to the new result heading so the user sees confirmation and next action."
+    },
+    {
+      "key": "contact-rejection-no-next-step",
+      "title": "Final disposition promises resources with no explanation or next step",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/24-final-visible.png"
+      ],
+      "steps": [
+        "Use owner profile, 2 chairs, prefer not to disclose revenue, no lab/technology, 1–3 month timing",
+        "Complete the five-step form"
+      ],
+      "actual": "Por ahora Elevator Web quizá no sea el paso más adecuado; data saved to share resources. Only Volver al inicio; no reason or review route, resource link, or expected reply time.",
+      "expected": "Explain disposition without hidden scoring assumptions and provide a clear review/contact/resource next action."
+    },
+    {
+      "key": "contact-nonhttp-website-step-validation",
+      "title": "Website step accepts a javascript URL and advances",
+      "severity": "P2",
+      "screenshots": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/21-invalid-scheme-retained.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/20-invalid-website-scheme.png"
+      ],
+      "steps": [
+        "Step4 choose Sí for existing website",
+        "Paste javascript:alert(1)",
+        "Click Continuar"
+      ],
+      "actual": "Step5 opens; returning retains invalid scheme. Corrected to https://example.com before final submission.",
+      "expected": "Reject non-HTTP(S) website schemes at this step."
+    }
+  ],
+  "posts": [
+    {
+      "at": 1793248223831,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "bdee1137-aee1-44ee-aa02-cc986fd49e7a",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:30:23.783Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "f31a7093-d64e-494f-9c46-54a6e980f7c9",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248237147,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "e14a3fa1-e865-41e6-9171-fe4fc5ad4bbb",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:30:37.133Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "f31a7093-d64e-494f-9c46-54a6e980f7c9",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248244970,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "978c9644-5bd3-4e43-aed3-6099fcceb4b7",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:30:44.965Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "f31a7093-d64e-494f-9c46-54a6e980f7c9",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248275994,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "a992c55c-2faa-4105-a90d-941fa997b013",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:31:15.975Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+        "name": "123<>!!!",
+        "full_name": "123<>!!!",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248290740,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "72b568d9-df28-42f2-8851-ca6134a920c0",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:31:30.721Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248292337,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "3b797cb0-e4e1-4f22-814d-d6c92cc08c10",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:31:32.331Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_started",
+        "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "whatsapp": "+525512345678",
+        "phone": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "source": "Elevator Dental Web"
+      }
+    },
+    {
+      "at": 1793248351709,
+      "body": {
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": "",
+        "utm_term": "",
+        "utm_content": "",
+        "gclid": "",
+        "fbclid": "",
+        "ttclid": "",
+        "ab_hero": "",
+        "first_touch_source": "direct / none",
+        "first_touch_landing_page": "http://127.0.0.1:4330/",
+        "first_touch_date": "2026-10-29T04:30:18.406Z",
+        "last_touch_source": "direct / none",
+        "last_touch_landing_page": "http://127.0.0.1:4330/",
+        "last_touch_date": "2026-10-29T04:30:18.406Z",
+        "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+        "event_id": "7a214aae-7265-45da-935d-466675b3c453",
+        "fbp": "",
+        "fbc": "",
+        "lead_lang": "es",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "landing_page_url": "http://127.0.0.1:4330/#contacto",
+        "conversion_timestamp": "2026-10-29T04:32:31.631Z",
+        "pages_visited": "/",
+        "device": "desktop",
+        "event_type": "lead_completed",
+        "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+        "lead_status": "not_qualified",
+        "score": 0,
+        "lead_priority": "none",
+        "name": "María José de la Cruz",
+        "full_name": "María José de la Cruz",
+        "phone": "+525512345678",
+        "whatsapp": "+525512345678",
+        "email": "qa-breaker@example.com",
+        "profile": "Dueño o socio de clínica dental",
+        "specialty": "Odontología general",
+        "city_country": "Ciudad de México, México",
+        "currency": "MXN",
+        "years_practicing": "8 a 15 años",
+        "chairs": "2",
+        "treatment_value": "10.000 MXN a menos de 30.000 MXN",
+        "patients_goal": "4 a 10",
+        "monthly_revenue": "Prefiero no decir",
+        "patient_sources": "Referidos",
+        "previous_marketing": "Nada",
+        "frustration": "Necesito presentar con claridad la clínica y sus tratamientos.",
+        "has_website": "Sí",
+        "website": "https://example.com",
+        "in_house_lab": "No",
+        "technology": "Ninguna",
+        "decision_maker": "Sí, solo yo",
+        "timeline": "En 1 a 3 meses",
+        "organic_expectation": "Sí, lo entiendo",
+        "partner_attends": "No",
+        "currency_symbol": "10.000 MXN",
+        "source": "Elevator Dental Web"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "status": 500,
+      "body": "{\"ok\":false,\"error\":\"QA simulated server error\"}"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"bookingUrl\":\"\"}"
+    }
+  ],
+  "duplicateCounts": {
+    "totalPosts": 7,
+    "leadStarted": 6,
+    "leadCompleted": 1,
+    "rapidDoubleClickExtraPosts": 0,
+    "notes": "1 POST per rapid doubleclick attempt. Same lead_id reused after 500 retry, normal Volver/re-save, and aborted request retry. Reload generates new lead_id and loses draft."
+  },
+  "networkTests": [
+    {
+      "type": "server500",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\nColombia +57\nMéxico +52\nCosta Rica +506\nEstados Unidos +1\nAfganistán +93\nAlbania +355\nAlemania +49\nAndorra +376\nAngola +244\nAnguila +1\nAntigua y Barbuda +1\nArabia Saudí +966\nArgelia +213\nArgentina +54\nArmenia +374\nAruba +297\nAustralia +61\nAustria +43\nAzerbaiyán +994\nBahamas +1\nBangladés +880\nBarbados +1\nBaréin +973\nBélgica +32\nBelice +501\nBenín +229\nBermudas +1\nBielorrusia +375\nBolivia +591\nBosnia y Herzegovina +387\nBotsuana +267\nBrasil +55\nBrunéi +673\nBulgaria +359\nBurkina Faso +226\nBurundi +257\nBután +975\nCabo Verde +238\nCamboya +855\nCamerún +237\nCanadá +1\nCaribe neerlandés +599\nCatar +974\nChad +235\nChequia +420\nChile +56\nChina +86\nChipre +357\nCiudad del Vaticano +39\nComoras +269\nCongo +242\nCorea del Norte +850\nCorea del Sur +82\nCôte d’Ivoire +225\nCroacia +385\nCuba +53\nCurazao +599\nDinamarca +45\nDominica +1\nEcuador +593\nEgipto +20\nEl Salvador +503\nEmiratos Árabes Unidos +971\nEritrea +291\nEslovaquia +421\nEslovenia +386\nEspaña +34\nEstonia +372\nEsuatini +268\nEtiopía +251\nFilipinas +63\nFinlandia +358\nFiyi +679\nFrancia +33\nGabón +241\nGambia +220\nGeorgia +995\nGhana +233\nGibraltar +350\nGranada +1\nGrecia +30\nGroenlandia +299\nGuadalupe +590\nGuam +1\nGuatemala +502\nGuayana Francesa +594\nGuernesey +44\nGuinea +224\nGuinea Ecuatorial +240\nGuinea-Bisáu +245\nGuyana +592\nHaití +509\nHonduras +504\nHungría +36\nIndia +91\nIndonesia +62\nIrak +964\nIrán +98\nIrlanda +353\nIsla de la Ascensión +247\nIsla de Man +44\nIsla de Navidad +61\nIsla Norfolk +672\nIslandia +354\nIslas Aland +358\nIslas Caimán +1\nIslas Cocos +61\nIslas Cook +682\nIslas Feroe +298\nIslas Malvinas +500\nIslas Marianas del Norte +1\nIslas Marshall +692\nIslas Salomón +677\nIslas Turcas y Caicos +1\nIslas Vírgenes Británicas +1\nIslas Vírgenes de EE. UU. +1\nIsrael +972\nItalia +39\nJamaica +1\nJapón +81\nJersey +44\nJordania +962\nKazajistán +7\nKenia +254\nKirguistán +996\nKiribati +686\nKosovo +383\nKuwait +965\nLaos +856\nLesoto +266\nLetonia +371\nLíbano +961\nLiberia +231\nLibia +218\nLiechtenstein +423\nLituania +370\nLuxemburgo +352\nMacedonia del Norte +389\nMadagascar +261\nMalasia +60\nMalaui +265\nMaldivas +960\nMali +223\nMalta +356\nMarruecos +212\nMartinica +596\nMauricio +230\nMauritania +222\nMayotte +262\nMicronesia +691\nMoldavia +373\nMónaco +377\nMongolia +976\nMontenegro +382\nMontserrat +1\nMozambique +258\nMyanmar (Birmania) +95\nNamibia +264\nNauru +674\nNepal +977\nNicaragua +505\nNíger +227\nNigeria +234\nNiue +683\nNoruega +47\nNueva Caledonia +687\nNueva Zelanda +64\nOmán +968\nPaíses Bajos +31\nPakistán +92\nPalaos +680\nPanamá +507\nPapúa Nueva Guinea +675\nParaguay +595\nPerú +51\nPolinesia Francesa +689\nPolonia +48\nPortugal +351\nPuerto Rico +1\nRAE de Hong Kong (China) +852\nRAE de Macao (China) +853\nReino Unido +44\nRepública Centroafricana +236\nRepública Democrática del Congo +243\nRepública Dominicana +1\nReunión +262\nRuanda +250\nRumanía +40\nRusia +7\nSáhara Occidental +212\nSamoa +685\nSamoa Americana +1\nSan Bartolomé +590\nSan Cristóbal y Nieves +1\nSan Marino +378\nSan Martín +590\nSan Pedro y Miquelón +508\nSan Vicente y las Granadinas +1\nSanta Elena +290\nSanta Lucía +1\nSanto Tomé y Príncipe +239\nSenegal +221\nSerbia +381\nSeychelles +248\nSierra Leona +232\nSingapur +65\nSint Maarten +1\nSiria +963\nSomalia +252\nSri Lanka +94\nSudáfrica +27\nSudán +249\nSudán del Sur +211\nSuecia +46\nSuiza +41\nSurinam +597\nSvalbard y Jan Mayen +47\nTailandia +66\nTaiwán +886\nTanzania +255\nTayikistán +992\nTerritorio Británico del Océano Índico +246\nTerritorios Palestinos +970\nTimor-Leste +670\nTogo +228\nTokelau +690\nTonga +676\nTrinidad y Tobago +1\nTristán de Acuña +290\nTúnez +216\nTurkmenistán +993\nTurquía +90\nTuvalu +688\nUcrania +380\nUganda +256\nUruguay +598\nUzbekistán +998\nVanuatu +678\nVenezuela +58\nVietnam +84\nWallis y Futuna +681\nYemen +967\nYibuti +253\nZambia +260\nZimbabue +263\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nQA simulated server error\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias."
+    },
+    {
+      "type": "server500-retry",
+      "success": true,
+      "postCount": 2
+    },
+    {
+      "type": "network-abort",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\nColombia +57\nMéxico +52\nCosta Rica +506\nEstados Unidos +1\nAfganistán +93\nAlbania +355\nAlemania +49\nAndorra +376\nAngola +244\nAnguila +1\nAntigua y Barbuda +1\nArabia Saudí +966\nArgelia +213\nArgentina +54\nArmenia +374\nAruba +297\nAustralia +61\nAustria +43\nAzerbaiyán +994\nBahamas +1\nBangladés +880\nBarbados +1\nBaréin +973\nBélgica +32\nBelice +501\nBenín +229\nBermudas +1\nBielorrusia +375\nBolivia +591\nBosnia y Herzegovina +387\nBotsuana +267\nBrasil +55\nBrunéi +673\nBulgaria +359\nBurkina Faso +226\nBurundi +257\nBután +975\nCabo Verde +238\nCamboya +855\nCamerún +237\nCanadá +1\nCaribe neerlandés +599\nCatar +974\nChad +235\nChequia +420\nChile +56\nChina +86\nChipre +357\nCiudad del Vaticano +39\nComoras +269\nCongo +242\nCorea del Norte +850\nCorea del Sur +82\nCôte d’Ivoire +225\nCroacia +385\nCuba +53\nCurazao +599\nDinamarca +45\nDominica +1\nEcuador +593\nEgipto +20\nEl Salvador +503\nEmiratos Árabes Unidos +971\nEritrea +291\nEslovaquia +421\nEslovenia +386\nEspaña +34\nEstonia +372\nEsuatini +268\nEtiopía +251\nFilipinas +63\nFinlandia +358\nFiyi +679\nFrancia +33\nGabón +241\nGambia +220\nGeorgia +995\nGhana +233\nGibraltar +350\nGranada +1\nGrecia +30\nGroenlandia +299\nGuadalupe +590\nGuam +1\nGuatemala +502\nGuayana Francesa +594\nGuernesey +44\nGuinea +224\nGuinea Ecuatorial +240\nGuinea-Bisáu +245\nGuyana +592\nHaití +509\nHonduras +504\nHungría +36\nIndia +91\nIndonesia +62\nIrak +964\nIrán +98\nIrlanda +353\nIsla de la Ascensión +247\nIsla de Man +44\nIsla de Navidad +61\nIsla Norfolk +672\nIslandia +354\nIslas Aland +358\nIslas Caimán +1\nIslas Cocos +61\nIslas Cook +682\nIslas Feroe +298\nIslas Malvinas +500\nIslas Marianas del Norte +1\nIslas Marshall +692\nIslas Salomón +677\nIslas Turcas y Caicos +1\nIslas Vírgenes Británicas +1\nIslas Vírgenes de EE. UU. +1\nIsrael +972\nItalia +39\nJamaica +1\nJapón +81\nJersey +44\nJordania +962\nKazajistán +7\nKenia +254\nKirguistán +996\nKiribati +686\nKosovo +383\nKuwait +965\nLaos +856\nLesoto +266\nLetonia +371\nLíbano +961\nLiberia +231\nLibia +218\nLiechtenstein +423\nLituania +370\nLuxemburgo +352\nMacedonia del Norte +389\nMadagascar +261\nMalasia +60\nMalaui +265\nMaldivas +960\nMali +223\nMalta +356\nMarruecos +212\nMartinica +596\nMauricio +230\nMauritania +222\nMayotte +262\nMicronesia +691\nMoldavia +373\nMónaco +377\nMongolia +976\nMontenegro +382\nMontserrat +1\nMozambique +258\nMyanmar (Birmania) +95\nNamibia +264\nNauru +674\nNepal +977\nNicaragua +505\nNíger +227\nNigeria +234\nNiue +683\nNoruega +47\nNueva Caledonia +687\nNueva Zelanda +64\nOmán +968\nPaíses Bajos +31\nPakistán +92\nPalaos +680\nPanamá +507\nPapúa Nueva Guinea +675\nParaguay +595\nPerú +51\nPolinesia Francesa +689\nPolonia +48\nPortugal +351\nPuerto Rico +1\nRAE de Hong Kong (China) +852\nRAE de Macao (China) +853\nReino Unido +44\nRepública Centroafricana +236\nRepública Democrática del Congo +243\nRepública Dominicana +1\nReunión +262\nRuanda +250\nRumanía +40\nRusia +7\nSáhara Occidental +212\nSamoa +685\nSamoa Americana +1\nSan Bartolomé +590\nSan Cristóbal y Nieves +1\nSan Marino +378\nSan Martín +590\nSan Pedro y Miquelón +508\nSan Vicente y las Granadinas +1\nSanta Elena +290\nSanta Lucía +1\nSanto Tomé y Príncipe +239\nSenegal +221\nSerbia +381\nSeychelles +248\nSierra Leona +232\nSingapur +65\nSint Maarten +1\nSiria +963\nSomalia +252\nSri Lanka +94\nSudáfrica +27\nSudán +249\nSudán del Sur +211\nSuecia +46\nSuiza +41\nSurinam +597\nSvalbard y Jan Mayen +47\nTailandia +66\nTaiwán +886\nTanzania +255\nTayikistán +992\nTerritorio Británico del Océano Índico +246\nTerritorios Palestinos +970\nTimor-Leste +670\nTogo +228\nTokelau +690\nTonga +676\nTrinidad y Tobago +1\nTristán de Acuña +290\nTúnez +216\nTurkmenistán +993\nTurquía +90\nTuvalu +688\nUcrania +380\nUganda +256\nUruguay +598\nUzbekistán +998\nVanuatu +678\nVenezuela +58\nVietnam +84\nWallis y Futuna +681\nYemen +967\nYibuti +253\nZambia +260\nZimbabue +263\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nFailed to fetch\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias."
+    },
+    {
+      "type": "network-abort-retry",
+      "success": true
+    }
+  ],
+  "steps": [
+    {
+      "label": "06-network-500",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nQA simulated server error\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/06-network-500.png"
+    },
+    {
+      "label": "07-retry-step2",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "02\n/ 05\nTu clínica\n¿Quién está detrás de la clínica?\n¿Cuál describe mejor tu situación?\nElige una opción\nDueño o socio de clínica dental\nDentista con consultorio propio\nDentista asociado o empleado\nMarketing o administración de clínica\nOtro\n¿A qué te dedicas principalmente? (puedes elegir varias)\nDiseño de sonrisa\nImplantes\nRehabilitación\nOrtodoncia o alineadores\nOdontología general\nOtro\n¿En qué ciudad y país está tu clínica?\n¿Cuántos años llevas ejerciendo?\nElige una opción\nMenos de un año\n1 a 3 años\n4 a 7 años\n8 a 15 años\nMás de 15 años\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/07-retry-step2.png"
+    },
+    {
+      "label": "08-volver-retains-contact",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/08-volver-retains-contact.png"
+    },
+    {
+      "label": "09-forward-retains-step2",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "02\n/ 05\nTu clínica\n¿Quién está detrás de la clínica?\n¿Cuál describe mejor tu situación?\nElige una opción\nDueño o socio de clínica dental\nDentista con consultorio propio\nDentista asociado o empleado\nMarketing o administración de clínica\nOtro\n¿A qué te dedicas principalmente? (puedes elegir varias)\nDiseño de sonrisa\nImplantes\nRehabilitación\nOrtodoncia o alineadores\nOdontología general\nOtro\n¿En qué ciudad y país está tu clínica?\n¿Cuántos años llevas ejerciendo?\nElige una opción\nMenos de un año\n1 a 3 años\n4 a 7 años\n8 a 15 años\nMás de 15 años\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/09-forward-retains-step2.png"
+    },
+    {
+      "label": "10-browser-back-mid-step",
+      "url": "http://127.0.0.1:4330/",
+      "text": "02\n/ 05\nTu clínica\n¿Quién está detrás de la clínica?\n¿Cuál describe mejor tu situación?\nElige una opción\nDueño o socio de clínica dental\nDentista con consultorio propio\nDentista asociado o empleado\nMarketing o administración de clínica\nOtro\n¿A qué te dedicas principalmente? (puedes elegir varias)\nDiseño de sonrisa\nImplantes\nRehabilitación\nOrtodoncia o alineadores\nOdontología general\nOtro\n¿En qué ciudad y país está tu clínica?\n¿Cuántos años llevas ejerciendo?\nElige una opción\nMenos de un año\n1 a 3 años\n4 a 7 años\n8 a 15 años\nMás de 15 años\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/10-browser-back-mid-step.png"
+    },
+    {
+      "label": "11-browser-forward-mid-step",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "02\n/ 05\nTu clínica\n¿Quién está detrás de la clínica?\n¿Cuál describe mejor tu situación?\nElige una opción\nDueño o socio de clínica dental\nDentista con consultorio propio\nDentista asociado o empleado\nMarketing o administración de clínica\nOtro\n¿A qué te dedicas principalmente? (puedes elegir varias)\nDiseño de sonrisa\nImplantes\nRehabilitación\nOrtodoncia o alineadores\nOdontología general\nOtro\n¿En qué ciudad y país está tu clínica?\n¿Cuántos años llevas ejerciendo?\nElige una opción\nMenos de un año\n1 a 3 años\n4 a 7 años\n8 a 15 años\nMás de 15 años\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/11-browser-forward-mid-step.png"
+    },
+    {
+      "label": "12-step3",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "03\n/ 05\nEl negocio\nConozcamos el negocio.\n¿Cuántos sillones o consultorios tienes?\nElige una opción\n1\n2\n3 a 5\n6 o más\n¿Cuál es el valor promedio de un tratamiento de alto valor?\nElige una opción\nMenos de 10.000 MXN\n10.000 MXN a menos de 30.000 MXN\n30.000 MXN a 80.000 MXN\nMás de 80.000 MXN\n\nLos rangos se muestran en MXN y nos ayudan a entender el contexto de tus tratamientos.\n\nMoneda de los rangos\nUSD · dólar estadounidense\nCRC · colón costarricense\nMXN · peso mexicano\nCOP · peso colombiano\nPEN · sol peruano\nCLP · peso chileno\nBRL · real brasileño\nARS · peso argentino\n¿Cuántos pacientes nuevos de alto valor te gustaría sumar al mes?\nElige una opción\n1 a 3\n4 a 10\nMás de 10\n¿Cuál es tu facturación mensual aproximada?\nElige una opción\nMenos de 100.000 MXN\n100.000 MXN a menos de 200.000 MXN\n200.000 MXN a 500.000 MXN\n500.000 MXN a 1.200.000 MXN\nMás de 1.200.000 MXN\nPrefiero no decir\n\nEstos datos nos ayudan a entender la capacidad y los objetivos actuales de tu clínica.\n\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/12-step3.png"
+    },
+    {
+      "label": "13-reload-mid-step",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +57 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/13-reload-mid-step.png"
+    },
+    {
+      "label": "14-malformed-name",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "02\n/ 05\nTu clínica\n¿Quién está detrás de la clínica?\n¿Cuál describe mejor tu situación?\nElige una opción\nDueño o socio de clínica dental\nDentista con consultorio propio\nDentista asociado o empleado\nMarketing o administración de clínica\nOtro\n¿A qué te dedicas principalmente? (puedes elegir varias)\nDiseño de sonrisa\nImplantes\nRehabilitación\nOrtodoncia o alineadores\nOdontología general\nOtro\n¿En qué ciudad y país está tu clínica?\n¿Cuántos años llevas ejerciendo?\nElige una opción\nMenos de un año\n1 a 3 años\n4 a 7 años\n8 a 15 años\nMás de 15 años\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/14-malformed-name.png"
+    },
+    {
+      "label": "15-junk-name-retained",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/15-junk-name-retained.png"
+    },
+    {
+      "label": "16-short-phone",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\n\nRevisa el número: está incompleto o no corresponde al país seleccionado.\n\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/16-short-phone.png"
+    },
+    {
+      "label": "17-offline-contact",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "01\n/ 05\nContacto\nEmpecemos por ti.\n\nPrimero guardaremos tus datos de contacto para poder responderte.\n\nNombre completo\nWhatsApp\nPaís y código\n[country options]\nNúmero de WhatsApp\nEl código +52 se añade automáticamente.\nEmail\n\nAl continuar, aceptas que el equipo de Elevator use estos datos para responder a tu solicitud.\n\nFailed to fetch\n\nGuardar y continuar\n\nTus datos se guardan ahora para que podamos responderte aunque dejes el cuestionario a medias.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/17-offline-contact.png"
+    },
+    {
+      "label": "18-step4",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "04\n/ 05\nSituación actual\n¿Cómo consigues pacientes hoy?\n¿De dónde vienen hoy la mayoría de tus pacientes? (puedes elegir varias)\nReferidos\nGoogle\nRedes sociales\nAnuncios\nOtro\n¿Qué has probado antes para conseguir pacientes? (puedes elegir varias)\nAnuncios\nSEO\nRedes sociales\nAgente de IA\nWeb nueva\nNada\n¿Cuál es tu mayor frustración al conseguir pacientes?\n¿Tienes una página web hoy?\nElige una opción\nSí\nNo\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/18-step4.png"
+    },
+    {
+      "label": "19-website-field",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "04\n/ 05\nSituación actual\n¿Cómo consigues pacientes hoy?\n¿De dónde vienen hoy la mayoría de tus pacientes? (puedes elegir varias)\nReferidos\nGoogle\nRedes sociales\nAnuncios\nOtro\n¿Qué has probado antes para conseguir pacientes? (puedes elegir varias)\nAnuncios\nSEO\nRedes sociales\nAgente de IA\nWeb nueva\nNada\n¿Cuál es tu mayor frustración al conseguir pacientes?\n¿Tienes una página web hoy?\nElige una opción\nSí\nNo\n¿Cuál es el enlace?\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/19-website-field.png"
+    },
+    {
+      "label": "20-invalid-website-scheme",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "05\n/ 05\nLa decisión\nLa decisión y el momento.\nALCANCE E INVERSIÓN\nLo conversamos en la llamada\nTe explicaremos las etapas y la operación de la web para tu clínica.\n¿Tu clínica cuenta con laboratorio interno?\nElige una opción\nSí\nNo\nLo estoy planeando\n¿Con qué tecnología cuentas hoy? (puedes elegir varias)\nCAD/CAM\nEscáner intraoral\nTomógrafo 3D\nImpresora 3D\nNinguna\n¿Eres la persona que decide la inversión?\nElige una opción\nSí, solo yo\nSí, con un socio\nNo\n¿Cuándo quieres empezar?\nElige una opción\nEn menos de 30 días\nEn 1 a 3 meses\nSolo estoy explorando\nUna Elevator Dental Web atrae tráfico orgánico de posibles pacientes para tu clínica o consultorio. Sin embargo, toma tiempo en consolidarse y aprender a conseguir nuevo tráfico calificado. Los resultados no son inmediatos, pero es tu mejor opción para escalar en la nueva era digital sin depender de anuncios. ¿Lo entiendes?\nElige una opción\nSí, lo entiendo\nNo\nVolver\nVer mis siguientes pasos\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/20-invalid-website-scheme.png"
+    },
+    {
+      "label": "21-invalid-scheme-retained",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "04\n/ 05\nSituación actual\n¿Cómo consigues pacientes hoy?\n¿De dónde vienen hoy la mayoría de tus pacientes? (puedes elegir varias)\nReferidos\nGoogle\nRedes sociales\nAnuncios\nOtro\n¿Qué has probado antes para conseguir pacientes? (puedes elegir varias)\nAnuncios\nSEO\nRedes sociales\nAgente de IA\nWeb nueva\nNada\n¿Cuál es tu mayor frustración al conseguir pacientes?\n¿Tienes una página web hoy?\nElige una opción\nSí\nNo\n¿Cuál es el enlace?\nVolver\nContinuar\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/21-invalid-scheme-retained.png"
+    },
+    {
+      "label": "22-final-ready",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "05\n/ 05\nLa decisión\nLa decisión y el momento.\nALCANCE E INVERSIÓN\nLo conversamos en la llamada\nTe explicaremos las etapas y la operación de la web para tu clínica.\n¿Tu clínica cuenta con laboratorio interno?\nElige una opción\nSí\nNo\nLo estoy planeando\n¿Con qué tecnología cuentas hoy? (puedes elegir varias)\nCAD/CAM\nEscáner intraoral\nTomógrafo 3D\nImpresora 3D\nNinguna\n¿Eres la persona que decide la inversión?\nElige una opción\nSí, solo yo\nSí, con un socio\nNo\n¿Cuándo quieres empezar?\nElige una opción\nEn menos de 30 días\nEn 1 a 3 meses\nSolo estoy explorando\nUna Elevator Dental Web atrae tráfico orgánico de posibles pacientes para tu clínica o consultorio. Sin embargo, toma tiempo en consolidarse y aprender a conseguir nuevo tráfico calificado. Los resultados no son inmediatos, pero es tu mejor opción para escalar en la nueva era digital sin depender de anuncios. ¿Lo entiendes?\nElige una opción\nSí, lo entiendo\nNo\nVolver\nVer mis siguientes pasos\n\nTu información se comparte con el equipo de Elevator para revisar tu solicitud.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/22-final-ready.png"
+    },
+    {
+      "label": "23-final-disposition",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "DENTAL WEB\nEl sistema\nMembership\nAlcance\nDiagnóstico gratis\nHablemos\nQue te encuentren.\nMientras tú atiendes.\n\nConstruimos y cuidamos webs para clínicas dentales. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.\n\nSolicitar conversación\nDiagnóstico gratis\nVer en YouTube\n\nTu clínica, presente en internet\n\nTú atiendes a tus pacientes.\nElevator lleva tu clínica más lejos en internet.\n\nElevator reúne tratamientos, equipo, ubicación y contacto en tu web, y trabaja sus siguientes mejoras para que esa información sea clara también para buscadores y asistentes.\n\nMira el recorrido\nReproducir animación\nTú atiendes\nElevator en acción\nTu clínica dental\nODONTOLOGÍA · TU CIUDAD\nUna web clara\npara tu clínica.\n\nTratamientos, equipo y contacto en un solo lugar.\n\nTratamientos\nEquipo profesional\nUbicación y contacto\nTratamientos\nUbicación\nRespuestas\nTu web\nTratamientos\nUbicación\nRespuestas\nPara buscadores y asistentes\nGoogle\nChatGPT\nClaude\nGemini\nPersonas que buscan\ninformación dental\nMembership\nElevator sigue mejorando la web\n\nDental Web\nconstruye la base\nMembership\nla mejora sin que coordines cada ajuste.\nRecorrido ilustrativo de la información. Cada plataforma selecciona qué muestra a las personas.\n\nEl sistema Elevator\n\nDos servicios.\nUna misma base digital.\n\nPrimero construimos una web que explique bien tu clínica. Después, Elevator se ocupa de mantenerla y trabajar sus siguientes mejoras.\n\n01 / Crear\nElevator Dental Web\n\nUna web clara para presentar tu clínica.\n\nOrganizamos tratamientos, equipo, ubicación y contacto; además, preparamos esa información para que buscadores y asistentes puedan entenderla.\n\nVer alcance de Dental Web\nEjemplo visual de Dental Web\nTu clínica dental\nTratamientos\nEquipo\nUbicación\nContacto\nOdontología · Tu ciudad\nTu salud dental,\nen buenas manos.\n\nConoce nuestros tratamientos y da el primer paso con información clara.\n\nConoce tus opciones\nTratamientos\nEquipo profesional\nCómo llegar\n02 / Cuidar y mejorar\nElevator Membership\n\nTu web sigue avanzando sin que coordines cada ajuste.\n\nElevator se ocupa del hosting, el mantenimiento y las mejoras continuas. Tú revisas la información clínica cuando corresponde.\n\nVer alcance de Membership\nEjemplo visual de Membership\nElevator Membership\nTu web, en operación\nCada mejora se suma.\nElevator se encarga.\nWeb clara\nLa base de tu clínica\nContenido útil\nLo que las personas buscan\nSiguiente mejora\nElevator sigue trabajando\nHosting y mantenimiento\n3 créditos / mes\n\nDespués de publicar\n\nUna web que se sigue trabajando.\nEsquema ilustrativo · Sin datos de resultados\nSin Elevator\nWeb de partida\nCon Elevator\nTrabajo continuo\nInicio con Elevator\n\nLa línea ilustra trabajo sucesivo en la web. No representa fechas, visitas, pacientes ni resultados medidos.\n\nInformación para pacientes,\nbuscadores y asistentes de IA.\nUna misma información\nUna forma de imaginarlo\nAsí podría verse tu web en una búsqueda.\n\nElevator organiza tratamientos, equipo y contacto en páginas fáciles de recorrer y preparadas para buscadores.\n\nVista ilustrativa · Resultado de ejemplo\ndentista en mi ciudad\nVista previa\ntuclinica.example · Página de tratamientos\nTu clínica dental | Tratamientos y equipo\n\nConoce los tratamientos, al equipo y cómo contactar con la clínica.\n\nLogos de referencia de plataformas externas a Elevator.\nGoogle\nChatGPT\nGemini\nClaude\nBing\nPerplexity\n\nDiagnóstico gratuito\n\nAntes de cambiar tu web,\nentiende cómo está.\n\nRevisamos la página que elijas y te enviamos por email evidencia de experiencia móvil, estructura y contenido, con hasta tres prioridades claras.\n\nGratis, sin tarjeta ni cuenta. Es una revisión de una página; no mide posiciones, visitas ni respuestas de asistentes.\n\nSolicitar diagnóstico gratis\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nLa base y la operación.\nCompara el alcance.\nSolicitar conversación\n\nLa web inicial y la membresía se complementan. Definimos contigo la inversión, el alcance y las condiciones antes de comenzar.\n\nConstrucción inicial + operación mensual\nLicencia ligada a Membership\n3 créditos de solicitudes al mes\nVer la comparación completa\n+\n\nAlcance común: una marca, una ubicación y un idioma. La licencia de uso funciona mientras Membership está activa; el código no se transfiere y las solicitudes siguen el alcance acordado.\n\nCampañas, redes sociales y CRM quedan fuera del servicio. Los tiempos de publicación y el uso de créditos se acuerdan según el proyecto y los materiales disponibles. Elevator prepara la web para buscadores y asistentes; las posiciones, sus respuestas y la llegada de pacientes dependen de factores externos.\n\nPreguntas antes de dar el siguiente paso\n+\n\nElevator Dental Web\n\nMás control sobre\ncómo te encuentran.\n\nPresentamos a tu equipo, mantenemos coherentes los datos de tu clínica y tú validas las afirmaciones clínicas antes de publicarlas.\n\nPara clínicas de México, Colombia, Costa Rica y Estados Unidos, con atención en español.\nGRACIAS POR TU TIEMPO\nGracias por contarnos sobre tu clínica.\n\nPor ahora, Elevator Web quizá no sea el paso más adecuado. Guardamos tus datos para compartirte recursos que puedan servirte.\n\nVolver al inicio\nDENTAL WEB\nTu clínica.\nUna presencia\nque da confianza.\n\nDiseñamos y operamos webs para clínicas dentales. Una base clara, cuidada y preparada para seguir mejorando.\n\nElevator Dental Web\nTu web\nInformación y confianza\nMembership\nOperación continua\nCómo trabajamos\nAlcance del servicio\nEl siguiente paso\nDiagnóstico gratuito\nRevisar mi clínica\nPreguntas frecuentes\nExplorar\n© 2026 Elevator Dental OS\nLa web dental que sigue trabajando.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/23-final-disposition.png"
+    },
+    {
+      "label": "24-final-visible",
+      "url": "http://127.0.0.1:4330/#contacto",
+      "text": "DENTAL WEB\nEl sistema\nMembership\nAlcance\nDiagnóstico gratis\nHablemos\nQue te encuentren.\nMientras tú atiendes.\n\nConstruimos y cuidamos webs para clínicas dentales. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.\n\nSolicitar conversación\nDiagnóstico gratis\nVer en YouTube\n\nTu clínica, presente en internet\n\nTú atiendes a tus pacientes.\nElevator lleva tu clínica más lejos en internet.\n\nElevator reúne tratamientos, equipo, ubicación y contacto en tu web, y trabaja sus siguientes mejoras para que esa información sea clara también para buscadores y asistentes.\n\nMira el recorrido\nReproducir animación\nTú atiendes\nElevator en acción\nTu clínica dental\nODONTOLOGÍA · TU CIUDAD\nUna web clara\npara tu clínica.\n\nTratamientos, equipo y contacto en un solo lugar.\n\nTratamientos\nEquipo profesional\nUbicación y contacto\nTratamientos\nUbicación\nRespuestas\nTu web\nTratamientos\nUbicación\nRespuestas\nPara buscadores y asistentes\nGoogle\nChatGPT\nClaude\nGemini\nPersonas que buscan\ninformación dental\nMembership\nElevator sigue mejorando la web\n\nDental Web\nconstruye la base\nMembership\nla mejora sin que coordines cada ajuste.\nRecorrido ilustrativo de la información. Cada plataforma selecciona qué muestra a las personas.\n\nEl sistema Elevator\n\nDos servicios.\nUna misma base digital.\n\nPrimero construimos una web que explique bien tu clínica. Después, Elevator se ocupa de mantenerla y trabajar sus siguientes mejoras.\n\n01 / Crear\nElevator Dental Web\n\nUna web clara para presentar tu clínica.\n\nOrganizamos tratamientos, equipo, ubicación y contacto; además, preparamos esa información para que buscadores y asistentes puedan entenderla.\n\nVer alcance de Dental Web\nEjemplo visual de Dental Web\nTu clínica dental\nTratamientos\nEquipo\nUbicación\nContacto\nOdontología · Tu ciudad\nTu salud dental,\nen buenas manos.\n\nConoce nuestros tratamientos y da el primer paso con información clara.\n\nConoce tus opciones\nTratamientos\nEquipo profesional\nCómo llegar\n02 / Cuidar y mejorar\nElevator Membership\n\nTu web sigue avanzando sin que coordines cada ajuste.\n\nElevator se ocupa del hosting, el mantenimiento y las mejoras continuas. Tú revisas la información clínica cuando corresponde.\n\nVer alcance de Membership\nEjemplo visual de Membership\nElevator Membership\nTu web, en operación\nCada mejora se suma.\nElevator se encarga.\nWeb clara\nLa base de tu clínica\nContenido útil\nLo que las personas buscan\nSiguiente mejora\nElevator sigue trabajando\nHosting y mantenimiento\n3 créditos / mes\n\nDespués de publicar\n\nUna web que se sigue trabajando.\nEsquema ilustrativo · Sin datos de resultados\nSin Elevator\nWeb de partida\nCon Elevator\nTrabajo continuo\nInicio con Elevator\n\nLa línea ilustra trabajo sucesivo en la web. No representa fechas, visitas, pacientes ni resultados medidos.\n\nInformación para pacientes,\nbuscadores y asistentes de IA.\nUna misma información\nUna forma de imaginarlo\nAsí podría verse tu web en una búsqueda.\n\nElevator organiza tratamientos, equipo y contacto en páginas fáciles de recorrer y preparadas para buscadores.\n\nVista ilustrativa · Resultado de ejemplo\ndentista en mi ciudad\nVista previa\ntuclinica.example · Página de tratamientos\nTu clínica dental | Tratamientos y equipo\n\nConoce los tratamientos, al equipo y cómo contactar con la clínica.\n\nLogos de referencia de plataformas externas a Elevator.\nGoogle\nChatGPT\nGemini\nClaude\nBing\nPerplexity\n\nDiagnóstico gratuito\n\nAntes de cambiar tu web,\nentiende cómo está.\n\nRevisamos la página que elijas y te enviamos por email evidencia de experiencia móvil, estructura y contenido, con hasta tres prioridades claras.\n\nGratis, sin tarjeta ni cuenta. Es una revisión de una página; no mide posiciones, visitas ni respuestas de asistentes.\n\nSolicitar diagnóstico gratis\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nELEVATOR DENTAL\nLa base y la operación.\nCompara el alcance.\nSolicitar conversación\n\nLa web inicial y la membresía se complementan. Definimos contigo la inversión, el alcance y las condiciones antes de comenzar.\n\nConstrucción inicial + operación mensual\nLicencia ligada a Membership\n3 créditos de solicitudes al mes\nVer la comparación completa\n+\n\nAlcance común: una marca, una ubicación y un idioma. La licencia de uso funciona mientras Membership está activa; el código no se transfiere y las solicitudes siguen el alcance acordado.\n\nCampañas, redes sociales y CRM quedan fuera del servicio. Los tiempos de publicación y el uso de créditos se acuerdan según el proyecto y los materiales disponibles. Elevator prepara la web para buscadores y asistentes; las posiciones, sus respuestas y la llegada de pacientes dependen de factores externos.\n\nPreguntas antes de dar el siguiente paso\n+\n\nElevator Dental Web\n\nMás control sobre\ncómo te encuentran.\n\nPresentamos a tu equipo, mantenemos coherentes los datos de tu clínica y tú validas las afirmaciones clínicas antes de publicarlas.\n\nPara clínicas de México, Colombia, Costa Rica y Estados Unidos, con atención en español.\nGRACIAS POR TU TIEMPO\nGracias por contarnos sobre tu clínica.\n\nPor ahora, Elevator Web quizá no sea el paso más adecuado. Guardamos tus datos para compartirte recursos que puedan servirte.\n\nVolver al inicio\nDENTAL WEB\nTu clínica.\nUna presencia\nque da confianza.\n\nDiseñamos y operamos webs para clínicas dentales. Una base clara, cuidada y preparada para seguir mejorando.\n\nElevator Dental Web\nTu web\nInformación y confianza\nMembership\nOperación continua\nCómo trabajamos\nAlcance del servicio\nEl siguiente paso\nDiagnóstico gratuito\nRevisar mi clínica\nPreguntas frecuentes\nExplorar\n© 2026 Elevator Dental OS\nLa web dental que sigue trabajando.",
+      "screenshot": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/before/breaker/24-final-visible.png"
+    }
+  ],
+  "positiveFindings": [
+    "Whitespace name rejected by worker",
+    "Malformed email blocked by native browser validation",
+    "Phone letters stripped and short phone rejected with localized actionable message",
+    "International Mexican paste normalized to 5512345678 / +525512345678",
+    "Volver retains current answers",
+    "Browser Back/Forward changes anchor but retains step2 state",
+    "Server500 and network abort retain entered values and retry succeeds"
+  ],
+  "environmentLimits": [
+    "Real Chromium desktop 1440x1000, clean context",
+    "Local static QA resolver plus actual Worker; CRM/email/booking fixtures prevent commercial sends",
+    "Only /api/contact was intercepted for one 500 and one disconnected request",
+    "No privacy link present on inspected contact/landing UI",
+    "Invalid scheme tested at step advance and corrected before final; no claim about server acceptance",
+    "No source implementation inspected or edited"
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "error": "net::ERR_INTERNET_DISCONNECTED"
+    }
+  ],
+  "firstSuccess": null,
+  "firstSuccessReason": "Terminal not-fit disposition reached, but no clear next step or review route; no accepted diagnosis or booking attempted.",
+  "qualificationValues": {
+    "utm_source": "",
+    "utm_medium": "",
+    "utm_campaign": "",
+    "utm_term": "",
+    "utm_content": "",
+    "gclid": "",
+    "fbclid": "",
+    "ttclid": "",
+    "ab_hero": "",
+    "first_touch_source": "direct / none",
+    "first_touch_landing_page": "http://127.0.0.1:4330/",
+    "first_touch_date": "2026-10-29T04:30:18.406Z",
+    "last_touch_source": "direct / none",
+    "last_touch_landing_page": "http://127.0.0.1:4330/",
+    "last_touch_date": "2026-10-29T04:30:18.406Z",
+    "external_id": "22d78271-a739-4f37-93ec-9a5e00159769",
+    "event_id": "7a214aae-7265-45da-935d-466675b3c453",
+    "fbp": "",
+    "fbc": "",
+    "lead_lang": "es",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "landing_page_url": "http://127.0.0.1:4330/#contacto",
+    "conversion_timestamp": "2026-10-29T04:32:31.631Z",
+    "pages_visited": "/",
+    "device": "desktop",
+    "event_type": "lead_completed",
+    "lead_id": "d456dc8a-55e7-45f3-9217-a30f03ec12b6",
+    "lead_status": "not_qualified",
+    "score": 0,
+    "lead_priority": "none",
+    "name": "María José de la Cruz",
+    "full_name": "María José de la Cruz",
+    "phone": "+525512345678",
+    "whatsapp": "+525512345678",
+    "email": "qa-breaker@example.com",
+    "profile": "Dueño o socio de clínica dental",
+    "specialty": "Odontología general",
+    "city_country": "Ciudad de México, México",
+    "currency": "MXN",
+    "years_practicing": "8 a 15 años",
+    "chairs": "2",
+    "treatment_value": "10.000 MXN a menos de 30.000 MXN",
+    "patients_goal": "4 a 10",
+    "monthly_revenue": "Prefiero no decir",
+    "patient_sources": "Referidos",
+    "previous_marketing": "Nada",
+    "frustration": "Necesito presentar con claridad la clínica y sus tratamientos.",
+    "has_website": "Sí",
+    "website": "https://example.com",
+    "in_house_lab": "No",
+    "technology": "Ninguna",
+    "decision_maker": "Sí, solo yo",
+    "timeline": "En 1 a 3 meses",
+    "organic_expectation": "Sí, lo entiendo",
+    "partner_attends": "No",
+    "currency_symbol": "10.000 MXN",
+    "source": "Elevator Dental Web"
+  }
+}

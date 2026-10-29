@@ -1,0 +1,137 @@
+{
+  "verifiedAtUTC": "2026-10-29T05:01:57.130524+00:00",
+  "htmlSha256": "e5e14909a7aa8c28b9b2053b6bdb5a4717d17d3aeb6a59cea06aa1c342489ac3",
+  "privacyHtmlSha256": "246bd349e601cb21425630d864c6cff8ff22844f2195fb9f7d9e3572b216812f",
+  "workerSourceSha256": "15d8e2d4e0ac79fe0fa1e0e34408fbef8a5156f41589416f59bb741917409094",
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "persona": "impatient",
+      "success": true,
+      "report": "final/impatient/report.json",
+      "checks": [
+        {
+          "name": "unexpected-500-localized-and-data-retained",
+          "pass": true
+        },
+        {
+          "name": "same-qualification-answers-reach-accepted-review",
+          "pass": true,
+          "heading": {
+            "x": 724.59375,
+            "y": 104.421875,
+            "width": 459.765625,
+            "height": 24
+          }
+        }
+      ]
+    },
+    {
+      "persona": "skeptic",
+      "success": true,
+      "report": "final/skeptic/report.json",
+      "checks": [
+        {
+          "name": "unexpected-500-localized-and-data-retained",
+          "pass": true
+        },
+        {
+          "name": "same-qualification-answers-reach-accepted-review",
+          "pass": true,
+          "heading": {
+            "x": 724.59375,
+            "y": 104.421875,
+            "width": 459.765625,
+            "height": 24
+          }
+        }
+      ]
+    },
+    {
+      "persona": "mobile",
+      "success": true,
+      "report": "final/mobile/report.json",
+      "checks": [
+        {
+          "name": "unexpected-500-localized-and-data-retained",
+          "pass": true
+        },
+        {
+          "name": "same-qualification-answers-reach-accepted-review",
+          "pass": true,
+          "heading": {
+            "x": 55,
+            "y": 104.296875,
+            "width": 265,
+            "height": 48
+          }
+        }
+      ]
+    },
+    {
+      "persona": "literal",
+      "success": true,
+      "report": "final/literal/report.json",
+      "checks": [
+        {
+          "name": "unexpected-500-localized-and-data-retained",
+          "pass": true
+        },
+        {
+          "name": "same-qualification-answers-reach-accepted-review",
+          "pass": true,
+          "heading": {
+            "x": 724.59375,
+            "y": 104.421875,
+            "width": 459.765625,
+            "height": 24
+          }
+        }
+      ]
+    },
+    {
+      "persona": "breaker",
+      "success": true,
+      "report": "final/breaker/report.json",
+      "checks": [
+        {
+          "name": "pre-hydration-form-cannot-navigate-or-submit",
+          "pass": true
+        },
+        {
+          "name": "unexpected-500-localized-and-data-retained",
+          "pass": true
+        },
+        {
+          "name": "pending-draft-retained-on-reload",
+          "pass": true
+        },
+        {
+          "name": "same-qualification-answers-reach-accepted-review",
+          "pass": true,
+          "heading": {
+            "x": 724.59375,
+            "y": 104.421875,
+            "width": 459.765625,
+            "height": 24
+          }
+        },
+        {
+          "name": "explicit-new-request-uses-new-id",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Fixture CRM/email/calendar, no actual email delivery or appointments",
+    "Mobile375x812,400kbps,latency2000ms,CPU4x;local assets uncompressed"
+  ],
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker": "elevator-dental-web",
+    "versionId": "f3182f81-261c-4148-99d1-8c9d6ee01b17",
+    "url": "https://elevatordental.com"
+  }
+}

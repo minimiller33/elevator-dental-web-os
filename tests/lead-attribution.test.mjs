@@ -63,6 +63,11 @@ test('server forwards every status, preserves attribution and uses trusted reque
         vm.runInThisContext(`(function(exports, require) { ${compile('lib/phone.ts')} })`)(phoneModule.exports, phoneModule.require);
         return phoneModule.exports;
       }
+      if (path === '../lib/contact-validation') {
+        const validation = { exports: {}, URL };
+        vm.runInNewContext(compile('lib/contact-validation.ts'), validation);
+        return validation.exports;
+      }
       assert.equal(path, './seo');
       const seoModule = { exports: {}, Response, Request, URL, TextEncoder, AbortSignal };
       vm.runInNewContext(compile('worker/seo.ts'), seoModule);
@@ -100,5 +105,12 @@ test('server forwards every status, preserves attribution and uses trusted reque
     assert.equal(forwarded.frustration, 'Quiero crecer');
     assert(forwarded.qualification_summary.includes('Primer origen: ig / social'));
     assert.equal((await response.json()).bookingUrl, status === 'qualified' ? 'https://example.com/book' : '');
+  }
+  for (const invalid of [{ name: '123<>!!!' }, { website: 'javascript:alert(1)' }]) {
+    const before = forwarded;
+    const request = new Request('https://example.com/api/contact', { method: 'POST', headers: { Origin: 'https://example.com', 'Content-Type': 'application/json' }, body: JSON.stringify({ lead_id: 'invalid-test', event_type: 'lead_started', name: 'Ana Mora', email: 'qa@example.com', phone: '+50688887777', ...invalid }) });
+    const response = await context.exports.default.fetch(request, { GHL_WEBHOOK_URL: 'https://example.com/mock' });
+    assert.equal(response.status, 400);
+    assert.equal(forwarded, before, 'invalid inputs never reach the CRM');
   }
 });

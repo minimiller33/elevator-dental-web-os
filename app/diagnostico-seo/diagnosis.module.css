@@ -130,3 +130,6 @@
 @media(max-width:400px) { .spotlightIntro > h1 { font-size:34px; } }
 .spotlight :global(.edw-form) :global(.mstf_step_title) { color:#242322; font-family:var(--font-waldenburg),var(--font-inter),sans-serif; font-weight:300; }
 .spotlight :global(.edw-form) :global(.form-note),.spotlight :global(.edw-form) :global(.qual-hint) { color:#6c665f; }
+.spotlight .spotlightConsent input { flex:0 0 18px; width:18px; height:18px; min-height:18px; padding:0; accent-color:#0071e3; }
+.spotlight .spotlightConsent > span { flex:1; min-width:0; color:#6c665f; font-size:12px; }
+.spotlight .success h2 { scroll-margin-top:104px; outline:none; }

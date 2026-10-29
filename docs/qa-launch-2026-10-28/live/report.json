@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "origin": "https://elevatordental.com",
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "checks": [
+    "Landing HTTP200",
+    "Original YouTubevideo retained",
+    "Empty native validation first field belowfixedheader",
+    "Privacy pageHTTP200"
+  ],
+  "field": {
+    "x": 55,
+    "y": 104.296875,
+    "width": 265,
+    "height": 64
+  },
+  "apiWrites": 0,
+  "errors": [],
+  "limits": "Read-only production smoke; all writesblocked; five first-success journeys use local actualbuild+Worker with fixture delivery."
+}

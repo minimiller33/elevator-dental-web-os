@@ -1,0 +1,1994 @@
+{
+  "persona": "impatient",
+  "round": "after",
+  "success": true,
+  "status": "completed browser rerun",
+  "elapsedMs": 111090,
+  "history": [
+    {
+      "step": 1,
+      "command": {
+        "op": "shot",
+        "name": "01-start"
+      },
+      "atMs": 6467,
+      "durationMs": 128
+    },
+    {
+      "step": 2,
+      "command": {
+        "op": "click",
+        "role": "link",
+        "name": "Solicitar conversación"
+      },
+      "atMs": 6600,
+      "durationMs": 1026
+    },
+    {
+      "step": 3,
+      "command": {
+        "op": "fill",
+        "label": "Nombre completo",
+        "value": "Persona Impaciente"
+      },
+      "atMs": 7628,
+      "durationMs": 42
+    },
+    {
+      "step": 4,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "México +52"
+        }
+      },
+      "atMs": 7700,
+      "durationMs": 18
+    },
+    {
+      "step": 5,
+      "command": {
+        "op": "fill",
+        "label": "Número de WhatsApp",
+        "value": "5512345678"
+      },
+      "atMs": 7721,
+      "durationMs": 16
+    },
+    {
+      "step": 6,
+      "command": {
+        "op": "fill",
+        "label": "Email",
+        "value": "qa-impatient@example.com"
+      },
+      "atMs": 7742,
+      "durationMs": 8
+    },
+    {
+      "step": 7,
+      "command": {
+        "op": "click",
+        "name": "Guardar y continuar",
+        "wait": 1200
+      },
+      "atMs": 7752,
+      "durationMs": 1349
+    },
+    {
+      "step": 8,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "Dueño o socio de clínica dental"
+        }
+      },
+      "atMs": 9103,
+      "durationMs": 5
+    },
+    {
+      "step": 9,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Odontología general"
+      },
+      "atMs": 9110,
+      "durationMs": 835
+    },
+    {
+      "step": 10,
+      "command": {
+        "op": "fill",
+        "label": "¿En qué ciudad y país está tu clínica?",
+        "value": "Ciudad de México, México"
+      },
+      "atMs": 9948,
+      "durationMs": 8
+    },
+    {
+      "step": 11,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "8 a 15 años"
+        }
+      },
+      "atMs": 9961,
+      "durationMs": 6
+    },
+    {
+      "step": 12,
+      "command": {
+        "op": "click",
+        "name": "Continuar",
+        "wait": 1000
+      },
+      "atMs": 9968,
+      "durationMs": 1048
+    },
+    {
+      "step": 13,
+      "command": {
+        "op": "shot",
+        "name": "02-step3"
+      },
+      "atMs": 11020,
+      "durationMs": 302
+    },
+    {
+      "step": 14,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "2"
+        }
+      },
+      "atMs": 26234,
+      "durationMs": 35
+    },
+    {
+      "step": 15,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "30.000 MXN a 80.000 MXN"
+        }
+      },
+      "atMs": 26287,
+      "durationMs": 26
+    },
+    {
+      "step": 16,
+      "command": {
+        "op": "select",
+        "index": 3,
+        "value": {
+          "label": "4 a 10"
+        }
+      },
+      "atMs": 26320,
+      "durationMs": 8
+    },
+    {
+      "step": 17,
+      "command": {
+        "op": "select",
+        "index": 4,
+        "value": {
+          "label": "Prefiero no decir"
+        }
+      },
+      "atMs": 26330,
+      "durationMs": 15
+    },
+    {
+      "step": 18,
+      "command": {
+        "op": "click",
+        "name": "Continuar"
+      },
+      "atMs": 26348,
+      "durationMs": 893
+    },
+    {
+      "step": 19,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Referidos"
+      },
+      "atMs": 27246,
+      "durationMs": 866
+    },
+    {
+      "step": 20,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Nada"
+      },
+      "atMs": 28115,
+      "durationMs": 846
+    },
+    {
+      "step": 21,
+      "command": {
+        "op": "fill",
+        "label": "¿Cuál es tu mayor frustración al conseguir pacientes?",
+        "value": "Quiero una web clara sin dedicar tiempo a coordinar cada cambio."
+      },
+      "atMs": 28968,
+      "durationMs": 17
+    },
+    {
+      "step": 22,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "No"
+        }
+      },
+      "atMs": 28988,
+      "durationMs": 14
+    },
+    {
+      "step": 23,
+      "command": {
+        "op": "click",
+        "name": "Continuar"
+      },
+      "atMs": 29007,
+      "durationMs": 857
+    },
+    {
+      "step": 24,
+      "command": {
+        "op": "shot",
+        "name": "03-step5"
+      },
+      "atMs": 29869,
+      "durationMs": 148
+    },
+    {
+      "step": 25,
+      "command": {
+        "op": "select",
+        "index": 0,
+        "value": {
+          "label": "No"
+        }
+      },
+      "atMs": 42411,
+      "durationMs": 49
+    },
+    {
+      "step": 26,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Ninguna"
+      },
+      "atMs": 42475,
+      "durationMs": 1229
+    },
+    {
+      "step": 27,
+      "command": {
+        "op": "select",
+        "index": 1,
+        "value": {
+          "label": "Sí, solo yo"
+        }
+      },
+      "atMs": 43751,
+      "durationMs": 29
+    },
+    {
+      "step": 28,
+      "command": {
+        "op": "select",
+        "index": 2,
+        "value": {
+          "label": "En menos de 30 días"
+        }
+      },
+      "atMs": 43811,
+      "durationMs": 46
+    },
+    {
+      "step": 29,
+      "command": {
+        "op": "select",
+        "index": 3,
+        "value": {
+          "label": "Sí, lo entiendo"
+        }
+      },
+      "atMs": 43860,
+      "durationMs": 41
+    },
+    {
+      "step": 30,
+      "command": {
+        "op": "click",
+        "name": "Ver mis siguientes pasos",
+        "wait": 1500
+      },
+      "atMs": 43924,
+      "durationMs": 1832
+    },
+    {
+      "step": 31,
+      "command": {
+        "op": "probe",
+        "label": "contact-final"
+      },
+      "atMs": 45777,
+      "durationMs": 38
+    },
+    {
+      "step": 32,
+      "command": {
+        "op": "shot",
+        "name": "04-contact-final"
+      },
+      "atMs": 45823,
+      "durationMs": 357
+    },
+    {
+      "step": 33,
+      "command": {
+        "op": "text",
+        "selector": "#contacto"
+      },
+      "atMs": 46186,
+      "durationMs": 15
+    },
+    {
+      "step": 34,
+      "command": {
+        "op": "click",
+        "role": "link",
+        "name": "Solicitar diagnóstico gratis",
+        "wait": 1000
+      },
+      "atMs": 60435,
+      "durationMs": 1485
+    },
+    {
+      "step": 35,
+      "command": {
+        "op": "fill",
+        "label": "Nombre",
+        "value": "Persona"
+      },
+      "atMs": 61979,
+      "durationMs": 106
+    },
+    {
+      "step": 36,
+      "command": {
+        "op": "fill",
+        "label": "Apellido",
+        "value": "Impaciente"
+      },
+      "atMs": 62112,
+      "durationMs": 34
+    },
+    {
+      "step": 37,
+      "command": {
+        "op": "fill",
+        "label": "Email",
+        "value": "qa-impatient@example.com"
+      },
+      "atMs": 62312,
+      "durationMs": 41
+    },
+    {
+      "step": 38,
+      "command": {
+        "op": "click",
+        "name": "Continuar →"
+      },
+      "atMs": 62358,
+      "durationMs": 884
+    },
+    {
+      "step": 39,
+      "command": {
+        "op": "shot",
+        "name": "05-diagnosis-step2"
+      },
+      "atMs": 63248,
+      "durationMs": 339
+    },
+    {
+      "step": 40,
+      "command": {
+        "op": "probe",
+        "label": "diagnosis-consent-before-fill"
+      },
+      "atMs": 63617,
+      "durationMs": 51
+    },
+    {
+      "step": 41,
+      "command": {
+        "op": "fill",
+        "label": "de la clínica",
+        "value": "Clínica QA Impaciente"
+      },
+      "atMs": 78173,
+      "durationMs": 30
+    },
+    {
+      "step": 42,
+      "command": {
+        "op": "placeholder",
+        "name": "www.tuclinica.com/tratamientos",
+        "value": "https://example.com"
+      },
+      "atMs": 78233,
+      "durationMs": 13
+    },
+    {
+      "step": 43,
+      "command": {
+        "op": "fill",
+        "label": "País",
+        "value": "México"
+      },
+      "atMs": 78249,
+      "durationMs": 12
+    },
+    {
+      "step": 44,
+      "command": {
+        "op": "fill",
+        "label": "Ciudad",
+        "value": "Ciudad de México"
+      },
+      "atMs": 78265,
+      "durationMs": 10
+    },
+    {
+      "step": 45,
+      "command": {
+        "op": "click",
+        "role": "checkbox",
+        "name": "Autorizo a Elevator",
+        "exact": false
+      },
+      "atMs": 78277,
+      "durationMs": 842
+    },
+    {
+      "step": 46,
+      "command": {
+        "op": "probe",
+        "label": "diagnosis-consent-filled-marketing-false"
+      },
+      "atMs": 79122,
+      "durationMs": 7
+    },
+    {
+      "step": 47,
+      "command": {
+        "op": "shot",
+        "name": "06-diagnosis-ready"
+      },
+      "atMs": 79136,
+      "durationMs": 132
+    },
+    {
+      "step": 48,
+      "command": {
+        "op": "probe",
+        "label": "diagnosis-final"
+      },
+      "atMs": 109285,
+      "durationMs": 5
+    },
+    {
+      "step": 49,
+      "command": {
+        "op": "shot",
+        "name": "07-diagnosis-final"
+      },
+      "atMs": 109293,
+      "durationMs": 132
+    },
+    {
+      "step": 50,
+      "command": {
+        "op": "click",
+        "name": "Solicitar diagnóstico →",
+        "wait": 1500
+      },
+      "atMs": 109427,
+      "durationMs": 1555
+    },
+    {
+      "step": 51,
+      "command": {
+        "op": "probe",
+        "label": "diagnosis-final-actual-submit"
+      },
+      "atMs": 110985,
+      "durationMs": 5
+    },
+    {
+      "step": 52,
+      "command": {
+        "op": "shot",
+        "name": "08-diagnosis-confirmed"
+      },
+      "atMs": 110991,
+      "durationMs": 97
+    }
+  ],
+  "apiResponses": [
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "bookingUrl": ""
+      }
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/contact",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "bookingUrl": ""
+      }
+    },
+    {
+      "url": "http://127.0.0.1:4330/api/seo-diagnosis",
+      "status": 202,
+      "body": {
+        "ok": true,
+        "jobId": "local-qa-only"
+      }
+    }
+  ],
+  "probes": [
+    {
+      "label": "contact-final",
+      "scrollY": 5346,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "headings": [
+        {
+          "text": "Que te encuentren.\nMientras tú atiendes.",
+          "tag": "H1",
+          "rect": {
+            "top": -5178,
+            "bottom": -5047.46875,
+            "left": 170,
+            "right": 847.53125,
+            "height": 130.53125
+          }
+        },
+        {
+          "text": "Tú atiendes a tus pacientes.\nElevator lleva tu clínica más lejos en internet.",
+          "tag": "H2",
+          "rect": {
+            "top": -4170.84375,
+            "bottom": -4026.375,
+            "left": 212,
+            "right": 789.015625,
+            "height": 144.46875
+          }
+        },
+        {
+          "text": "Dos servicios.\nUna misma base digital.",
+          "tag": "H2",
+          "rect": {
+            "top": -3355.59375,
+            "bottom": -3247.59375,
+            "left": 335,
+            "right": 1105,
+            "height": 108
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": -3070,
+            "bottom": -3048.34375,
+            "left": 220,
+            "right": 399.03125,
+            "height": 21.65625
+          }
+        },
+        {
+          "text": "Tu salud dental,\nen buenas manos.",
+          "tag": "H3",
+          "rect": {
+            "top": -2670.65625,
+            "bottom": -2615.65625,
+            "left": 226,
+            "right": 439.5,
+            "height": 55
+          }
+        },
+        {
+          "text": "Elevator Membership",
+          "tag": "H3",
+          "rect": {
+            "top": -3070,
+            "bottom": -3048.34375,
+            "left": 761,
+            "right": 950.109375,
+            "height": 21.65625
+          }
+        },
+        {
+          "text": "Una web que se sigue trabajando.",
+          "tag": "H3",
+          "rect": {
+            "top": -2283.34375,
+            "bottom": -2245.078125,
+            "left": 187,
+            "right": 1253,
+            "height": 38.265625
+          }
+        },
+        {
+          "text": "Información para pacientes,\nbuscadores y asistentes de IA.",
+          "tag": "H2",
+          "rect": {
+            "top": -1851.578125,
+            "bottom": -1799.578125,
+            "left": 219,
+            "right": 479.359375,
+            "height": 52
+          }
+        },
+        {
+          "text": "Así podría verse tu web en una búsqueda.",
+          "tag": "H3",
+          "rect": {
+            "top": -1697.578125,
+            "bottom": -1563.1875,
+            "left": 236,
+            "right": 618.109375,
+            "height": 134.390625
+          }
+        },
+        {
+          "text": "Antes de cambiar tu web,\nentiende cómo está.",
+          "tag": "H2",
+          "rect": {
+            "top": -1128.96875,
+            "bottom": -1038.59375,
+            "left": 203,
+            "right": 699,
+            "height": 90.375
+          }
+        },
+        {
+          "text": "ELEVATOR DENTAL",
+          "tag": "H2",
+          "rect": {
+            "top": -953.4437866210938,
+            "bottom": -850.6165161132812,
+            "left": 511.0159606933594,
+            "right": 948.8930053710938,
+            "height": 102.8272705078125
+          }
+        },
+        {
+          "text": "La base y la operación.\nCompara el alcance.",
+          "tag": "H2",
+          "rect": {
+            "top": -734.578125,
+            "bottom": -642.578125,
+            "left": 219,
+            "right": 624.6875,
+            "height": 92
+          }
+        },
+        {
+          "text": "",
+          "tag": "H2",
+          "rect": {
+            "top": -17.578125,
+            "bottom": 24.421875,
+            "left": 393.953125,
+            "right": 1046.03125,
+            "height": 42
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 114.203125,
+            "bottom": 178.203125,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 275.984375,
+            "bottom": 339.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 340.984375,
+            "bottom": 404.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 405.984375,
+            "bottom": 469.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 470.984375,
+            "bottom": 534.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 535.984375,
+            "bottom": 599.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 600.984375,
+            "bottom": 664.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 665.984375,
+            "bottom": 729.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 730.984375,
+            "bottom": 794.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 795.984375,
+            "bottom": 859.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "",
+          "tag": "H3",
+          "rect": {
+            "top": 860.984375,
+            "bottom": 924.984375,
+            "left": 360,
+            "right": 1080,
+            "height": 64
+          }
+        },
+        {
+          "text": "Más control sobre\ncómo te encuentran.",
+          "tag": "H2",
+          "rect": {
+            "top": 71.421875,
+            "bottom": 239.890625,
+            "left": 214,
+            "right": 649.59375,
+            "height": 168.46875
+          }
+        },
+        {
+          "text": "Solicitud recibida. La revisaremos contigo.",
+          "tag": "H3",
+          "rect": {
+            "top": 104.421875,
+            "bottom": 128.421875,
+            "left": 724.59375,
+            "right": 1184.359375,
+            "height": 24
+          }
+        },
+        {
+          "text": "Tu clínica.\nUna presencia\nque da confianza.",
+          "tag": "H2",
+          "rect": {
+            "top": 1069.637451171875,
+            "bottom": 1222.262451171875,
+            "left": 170,
+            "right": 536.4375,
+            "height": 152.625
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": 866.3093872070312,
+            "bottom": 885.8093872070312,
+            "left": 728,
+            "right": 853.40625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "Membership",
+          "tag": "H3",
+          "rect": {
+            "top": 866.3093872070312,
+            "bottom": 885.8093872070312,
+            "left": 916,
+            "right": 993.890625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "El siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 866.3093872070312,
+            "bottom": 885.8093872070312,
+            "left": 1104,
+            "right": 1209.265625,
+            "height": 19.5
+          }
+        }
+      ],
+      "focus": {
+        "tag": "H3",
+        "name": "Solicitud recibida. La revisaremos contigo.",
+        "id": ""
+      },
+      "checkboxes": [],
+      "apiResponses": [
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        }
+      ]
+    },
+    {
+      "label": "diagnosis-consent-before-fill",
+      "scrollY": 187,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "headings": [
+        {
+          "text": "¿Qué tan clara es\nla web de tu clínica?",
+          "tag": "H1",
+          "rect": {
+            "top": 92,
+            "bottom": 260.46875,
+            "left": 214,
+            "right": 649.59375,
+            "height": 168.46875
+          }
+        },
+        {
+          "text": "Ahora, tu clínica.",
+          "tag": "H3",
+          "rect": {
+            "top": 104,
+            "bottom": 137.03125,
+            "left": 739.796875,
+            "right": 1179.796875,
+            "height": 33.03125
+          }
+        },
+        {
+          "text": "Rendimiento móvil",
+          "tag": "H2",
+          "rect": {
+            "top": 990.328125,
+            "bottom": 1019.4375,
+            "left": 196,
+            "right": 494.65625,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Salud de la página",
+          "tag": "H2",
+          "rect": {
+            "top": 990.328125,
+            "bottom": 1019.4375,
+            "left": 570.65625,
+            "right": 869.328125,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Claridad para buscadores e IA",
+          "tag": "H2",
+          "rect": {
+            "top": 990.328125,
+            "bottom": 1048.546875,
+            "left": 945.328125,
+            "right": 1243.984375,
+            "height": 58.21875
+          }
+        },
+        {
+          "text": "¿Qué puede decirte un diagnóstico SEO dental?",
+          "tag": "H2",
+          "rect": {
+            "top": 1304.546875,
+            "bottom": 1352.546875,
+            "left": 210,
+            "right": 1230,
+            "height": 48
+          }
+        },
+        {
+          "text": "Elige la página que más te importa",
+          "tag": "H3",
+          "rect": {
+            "top": 1492.546875,
+            "bottom": 1517.734375,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Recibe una explicación por email",
+          "tag": "H3",
+          "rect": {
+            "top": 1668.734375,
+            "bottom": 1693.921875,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Información que se puede contrastar",
+          "tag": "H3",
+          "rect": {
+            "top": 1492.546875,
+            "bottom": 1517.734375,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Entiende qué queda fuera",
+          "tag": "H3",
+          "rect": {
+            "top": 1668.734375,
+            "bottom": 1693.921875,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Decide el siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 1898.921875,
+            "bottom": 1924.109375,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Tu clínica.\nUna presencia\nque da confianza.",
+          "tag": "H2",
+          "rect": {
+            "top": 2580.278076171875,
+            "bottom": 2732.903076171875,
+            "left": 170,
+            "right": 536.4375,
+            "height": 152.625
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": 2376.559326171875,
+            "bottom": 2396.059326171875,
+            "left": 728,
+            "right": 853.40625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "Membership",
+          "tag": "H3",
+          "rect": {
+            "top": 2376.559326171875,
+            "bottom": 2396.059326171875,
+            "left": 916,
+            "right": 993.890625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "El siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 2376.559326171875,
+            "bottom": 2396.059326171875,
+            "left": 1104,
+            "right": 1209.265625,
+            "height": 19.5
+          }
+        }
+      ],
+      "focus": {
+        "tag": "H3",
+        "name": "Ahora, tu clínica.",
+        "id": ""
+      },
+      "checkboxes": [
+        {
+          "name": "consent",
+          "checked": false,
+          "rect": {
+            "top": 532.21875,
+            "bottom": 550.21875,
+            "width": 18,
+            "height": 18
+          },
+          "label": "Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. Cómo usamos tus datos (abre otra pestaña)."
+        },
+        {
+          "name": "marketingConsent",
+          "checked": false,
+          "rect": {
+            "top": 609.78125,
+            "bottom": 627.78125,
+            "width": 18,
+            "height": 18
+          },
+          "label": "También quiero recibir consejos y novedades de Elevator por email. Opcional."
+        }
+      ],
+      "apiResponses": [
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        }
+      ]
+    },
+    {
+      "label": "diagnosis-consent-filled-marketing-false",
+      "scrollY": 187,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "headings": [
+        {
+          "text": "¿Qué tan clara es\nla web de tu clínica?",
+          "tag": "H1",
+          "rect": {
+            "top": 92,
+            "bottom": 260.46875,
+            "left": 214,
+            "right": 649.59375,
+            "height": 168.46875
+          }
+        },
+        {
+          "text": "Ahora, tu clínica.",
+          "tag": "H3",
+          "rect": {
+            "top": 104,
+            "bottom": 137.03125,
+            "left": 739.796875,
+            "right": 1179.796875,
+            "height": 33.03125
+          }
+        },
+        {
+          "text": "Rendimiento móvil",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1092.03125,
+            "left": 196,
+            "right": 494.65625,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Salud de la página",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1092.03125,
+            "left": 570.65625,
+            "right": 869.328125,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Claridad para buscadores e IA",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1121.140625,
+            "left": 945.328125,
+            "right": 1243.984375,
+            "height": 58.21875
+          }
+        },
+        {
+          "text": "¿Qué puede decirte un diagnóstico SEO dental?",
+          "tag": "H2",
+          "rect": {
+            "top": 1377.140625,
+            "bottom": 1425.140625,
+            "left": 210,
+            "right": 1230,
+            "height": 48
+          }
+        },
+        {
+          "text": "Elige la página que más te importa",
+          "tag": "H3",
+          "rect": {
+            "top": 1565.140625,
+            "bottom": 1590.328125,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Recibe una explicación por email",
+          "tag": "H3",
+          "rect": {
+            "top": 1741.328125,
+            "bottom": 1766.515625,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Información que se puede contrastar",
+          "tag": "H3",
+          "rect": {
+            "top": 1565.140625,
+            "bottom": 1590.328125,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Entiende qué queda fuera",
+          "tag": "H3",
+          "rect": {
+            "top": 1741.328125,
+            "bottom": 1766.515625,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Decide el siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 1971.515625,
+            "bottom": 1996.703125,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Tu clínica.\nUna presencia\nque da confianza.",
+          "tag": "H2",
+          "rect": {
+            "top": 2652.871826171875,
+            "bottom": 2805.496826171875,
+            "left": 170,
+            "right": 536.4375,
+            "height": 152.625
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 728,
+            "right": 853.40625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "Membership",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 916,
+            "right": 993.890625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "El siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 1104,
+            "right": 1209.265625,
+            "height": 19.5
+          }
+        }
+      ],
+      "focus": {
+        "tag": "INPUT",
+        "name": "consent",
+        "id": ""
+      },
+      "checkboxes": [
+        {
+          "name": "consent",
+          "checked": true,
+          "rect": {
+            "top": 532.21875,
+            "bottom": 550.21875,
+            "width": 18,
+            "height": 18
+          },
+          "label": "Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. Cómo usamos tus datos (abre otra pestaña)."
+        },
+        {
+          "name": "marketingConsent",
+          "checked": false,
+          "rect": {
+            "top": 609.78125,
+            "bottom": 627.78125,
+            "width": 18,
+            "height": 18
+          },
+          "label": "También quiero recibir consejos y novedades de Elevator por email. Opcional."
+        }
+      ],
+      "apiResponses": [
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        }
+      ]
+    },
+    {
+      "label": "diagnosis-final",
+      "scrollY": 187,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "headings": [
+        {
+          "text": "¿Qué tan clara es\nla web de tu clínica?",
+          "tag": "H1",
+          "rect": {
+            "top": 92,
+            "bottom": 260.46875,
+            "left": 214,
+            "right": 649.59375,
+            "height": 168.46875
+          }
+        },
+        {
+          "text": "Ahora, tu clínica.",
+          "tag": "H3",
+          "rect": {
+            "top": 104,
+            "bottom": 137.03125,
+            "left": 739.796875,
+            "right": 1179.796875,
+            "height": 33.03125
+          }
+        },
+        {
+          "text": "Rendimiento móvil",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1092.03125,
+            "left": 196,
+            "right": 494.65625,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Salud de la página",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1092.03125,
+            "left": 570.65625,
+            "right": 869.328125,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Claridad para buscadores e IA",
+          "tag": "H2",
+          "rect": {
+            "top": 1062.921875,
+            "bottom": 1121.140625,
+            "left": 945.328125,
+            "right": 1243.984375,
+            "height": 58.21875
+          }
+        },
+        {
+          "text": "¿Qué puede decirte un diagnóstico SEO dental?",
+          "tag": "H2",
+          "rect": {
+            "top": 1377.140625,
+            "bottom": 1425.140625,
+            "left": 210,
+            "right": 1230,
+            "height": 48
+          }
+        },
+        {
+          "text": "Elige la página que más te importa",
+          "tag": "H3",
+          "rect": {
+            "top": 1565.140625,
+            "bottom": 1590.328125,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Recibe una explicación por email",
+          "tag": "H3",
+          "rect": {
+            "top": 1741.328125,
+            "bottom": 1766.515625,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Información que se puede contrastar",
+          "tag": "H3",
+          "rect": {
+            "top": 1565.140625,
+            "bottom": 1590.328125,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Entiende qué queda fuera",
+          "tag": "H3",
+          "rect": {
+            "top": 1741.328125,
+            "bottom": 1766.515625,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Decide el siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 1971.515625,
+            "bottom": 1996.703125,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Tu clínica.\nUna presencia\nque da confianza.",
+          "tag": "H2",
+          "rect": {
+            "top": 2652.871826171875,
+            "bottom": 2805.496826171875,
+            "left": 170,
+            "right": 536.4375,
+            "height": 152.625
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 728,
+            "right": 853.40625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "Membership",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 916,
+            "right": 993.890625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "El siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 2449.153076171875,
+            "bottom": 2468.653076171875,
+            "left": 1104,
+            "right": 1209.265625,
+            "height": 19.5
+          }
+        }
+      ],
+      "focus": {
+        "tag": "INPUT",
+        "name": "consent",
+        "id": ""
+      },
+      "checkboxes": [
+        {
+          "name": "consent",
+          "checked": true,
+          "rect": {
+            "top": 532.21875,
+            "bottom": 550.21875,
+            "width": 18,
+            "height": 18
+          },
+          "label": "Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. Cómo usamos tus datos (abre otra pestaña)."
+        },
+        {
+          "name": "marketingConsent",
+          "checked": false,
+          "rect": {
+            "top": 609.78125,
+            "bottom": 627.78125,
+            "width": 18,
+            "height": 18
+          },
+          "label": "También quiero recibir consejos y novedades de Elevator por email. Opcional."
+        }
+      ],
+      "apiResponses": [
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        }
+      ]
+    },
+    {
+      "label": "diagnosis-final-actual-submit",
+      "scrollY": 196,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "headings": [
+        {
+          "text": "¿Qué tan clara es\nla web de tu clínica?",
+          "tag": "H1",
+          "rect": {
+            "top": 83,
+            "bottom": 251.46875,
+            "left": 214,
+            "right": 649.59375,
+            "height": 168.46875
+          }
+        },
+        {
+          "text": "Tu web está en la cola.",
+          "tag": "H2",
+          "rect": {
+            "top": 104,
+            "bottom": 144.796875,
+            "left": 724.59375,
+            "right": 1195,
+            "height": 40.796875
+          }
+        },
+        {
+          "text": "Rendimiento móvil",
+          "tag": "H2",
+          "rect": {
+            "top": 882.015625,
+            "bottom": 911.125,
+            "left": 196,
+            "right": 494.65625,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Salud de la página",
+          "tag": "H2",
+          "rect": {
+            "top": 882.015625,
+            "bottom": 911.125,
+            "left": 570.65625,
+            "right": 869.328125,
+            "height": 29.109375
+          }
+        },
+        {
+          "text": "Claridad para buscadores e IA",
+          "tag": "H2",
+          "rect": {
+            "top": 882.015625,
+            "bottom": 940.234375,
+            "left": 945.328125,
+            "right": 1243.984375,
+            "height": 58.21875
+          }
+        },
+        {
+          "text": "¿Qué puede decirte un diagnóstico SEO dental?",
+          "tag": "H2",
+          "rect": {
+            "top": 1196.234375,
+            "bottom": 1244.234375,
+            "left": 210,
+            "right": 1230,
+            "height": 48
+          }
+        },
+        {
+          "text": "Elige la página que más te importa",
+          "tag": "H3",
+          "rect": {
+            "top": 1384.234375,
+            "bottom": 1409.421875,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Recibe una explicación por email",
+          "tag": "H3",
+          "rect": {
+            "top": 1560.421875,
+            "bottom": 1585.609375,
+            "left": 210,
+            "right": 688,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Información que se puede contrastar",
+          "tag": "H3",
+          "rect": {
+            "top": 1384.234375,
+            "bottom": 1409.421875,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Entiende qué queda fuera",
+          "tag": "H3",
+          "rect": {
+            "top": 1560.421875,
+            "bottom": 1585.609375,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Decide el siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 1790.609375,
+            "bottom": 1815.796875,
+            "left": 752,
+            "right": 1230,
+            "height": 25.1875
+          }
+        },
+        {
+          "text": "Tu clínica.\nUna presencia\nque da confianza.",
+          "tag": "H2",
+          "rect": {
+            "top": 2471.965576171875,
+            "bottom": 2624.590576171875,
+            "left": 170,
+            "right": 536.4375,
+            "height": 152.625
+          }
+        },
+        {
+          "text": "Elevator Dental Web",
+          "tag": "H3",
+          "rect": {
+            "top": 2268.246826171875,
+            "bottom": 2287.746826171875,
+            "left": 728,
+            "right": 853.40625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "Membership",
+          "tag": "H3",
+          "rect": {
+            "top": 2268.246826171875,
+            "bottom": 2287.746826171875,
+            "left": 916,
+            "right": 993.890625,
+            "height": 19.5
+          }
+        },
+        {
+          "text": "El siguiente paso",
+          "tag": "H3",
+          "rect": {
+            "top": 2268.246826171875,
+            "bottom": 2287.746826171875,
+            "left": 1104,
+            "right": 1209.265625,
+            "height": 19.5
+          }
+        }
+      ],
+      "focus": {
+        "tag": "H2",
+        "name": "Tu web está en la cola.",
+        "id": ""
+      },
+      "checkboxes": [],
+      "apiResponses": [
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/contact",
+          "status": 200,
+          "body": {
+            "ok": true,
+            "bookingUrl": ""
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4330/api/seo-diagnosis",
+          "status": 202,
+          "body": {
+            "ok": true,
+            "jobId": "local-qa-only"
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "http://127.0.0.1:4330/diagnostico-seo/privacidad",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/ydnkf/1x00000000000000000000AA/light/fbE/api/flexible",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/__next.__PAGE__.txt",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "result": "PASS",
+  "issues": [],
+  "unresolved": [],
+  "primarySuccess": true,
+  "recoverySuccess": true,
+  "personaDropout": {
+    "occurred": false,
+    "beforeDropoutResolved": true
+  },
+  "sameOriginalAnswers": true,
+  "answers": [
+    "Persona Impaciente,qa-impatient@example.com,Mexico+52 5512345678",
+    "Owner,general dentistry,Ciudad de México,8–15years",
+    "2chairs,30–80kMXN high-value treatment,target4–10patients,revenue Prefiero no decir",
+    "Referrals,Nada,no website",
+    "No lab,Ninguna technology,self decision,start<30days,understands organic-results"
+  ],
+  "checks": [
+    {
+      "key": "qualification-vague-rejection",
+      "result": "PASS",
+      "actual": "Same honest answers automatically reach REVISIÓN PERSONAL. Solicitud recibida. La revisaremos contigo. Clear email/WhatsApp contact and support email; explicitly says income not required.",
+      "evidence": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/impatient/04-contact-final.png",
+      "heading": {
+        "text": "Solicitud recibida. La revisaremos contigo.",
+        "tag": "H3",
+        "rect": {
+          "top": 104.421875,
+          "bottom": 128.421875,
+          "left": 724.59375,
+          "right": 1184.359375,
+          "height": 24
+        }
+      },
+      "focused": {
+        "tag": "H3",
+        "name": "Solicitud recibida. La revisaremos contigo.",
+        "id": ""
+      },
+      "headingWithinViewportAndBelow104pxHeader": true
+    },
+    {
+      "key": "diagnosis-success-offscreen",
+      "result": "PASS",
+      "actual": "Single real submit reaches accepted queue automatically; heading focused and visible without manual scroll.",
+      "evidence": "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/impatient/08-diagnosis-confirmed.png",
+      "heading": {
+        "text": "Tu web está en la cola.",
+        "tag": "H2",
+        "rect": {
+          "top": 104,
+          "bottom": 144.796875,
+          "left": 724.59375,
+          "right": 1195,
+          "height": 40.796875
+        }
+      },
+      "focused": {
+        "tag": "H2",
+        "name": "Tu web está en la cola.",
+        "id": ""
+      },
+      "headingWithinViewportAndBelow104pxHeader": true
+    },
+    {
+      "key": "diagnosis-consent-visual-check",
+      "result": "PASS",
+      "actual": "Consent and optional marketing text fully visible. Both checkboxes18x18px. Required consent true; optional marketing false.",
+      "checkboxes": [
+        {
+          "name": "consent",
+          "checked": true,
+          "rect": {
+            "top": 532.21875,
+            "bottom": 550.21875,
+            "width": 18,
+            "height": 18
+          },
+          "label": "Autorizo a Elevator a procesar mis datos y la URL de mi web para preparar y enviarme este diagnóstico. Cómo usamos tus datos (abre otra pestaña)."
+        },
+        {
+          "name": "marketingConsent",
+          "checked": false,
+          "rect": {
+            "top": 609.78125,
+            "bottom": 627.78125,
+            "width": 18,
+            "height": 18
+          },
+          "label": "También quiero recibir consejos y novedades de Elevator por email. Opcional."
+        }
+      ],
+      "evidence": [
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/impatient/05-diagnosis-step2.png",
+        "/Users/cashkade/Documents/PROGRAMACION/elevator OS/docs/qa-launch-2026-10-28/after/impatient/06-diagnosis-ready.png"
+      ]
+    }
+  ],
+  "acceptedRequests": {
+    "completedContactRequests": 1,
+    "contactPostResponses": 2,
+    "contactPostExplanation": "First save at Guardar y continuar and one final Ver mis siguientes pasos; both200ok. No repeated final submission.",
+    "diagnosisAcceptedCount": 1,
+    "diagnosisPostCount": 1
+  },
+  "recoveryProbe": {
+    "separate": true,
+    "syntheticUrl": "https://example.com",
+    "optionalMarketingConsent": false,
+    "success": true,
+    "note": "This separate diagnosis probe retains the original synthetic URL even though primary owner answers no website."
+  },
+  "environmentLimits": [
+    "Real Chromium clean context,desktop1440x1000,es-MX,local fixture Worker only.",
+    "No real CRM/email/booking writes and no production submission.",
+    "No implementation source inspection or product edits.",
+    "One automation command used old button label Enviar diagnóstico and timed out without clicking or sending a request; corrected to rendered Solicitar diagnóstico. Excluded from product findings. Screenshot07 is pre-submit state from that locator correction; screenshot08 is actual final.",
+    "Actual email delivery/report/appointment not tested.",
+    "Action durations include explicit waits and operator/tool pauses; not isolated product latency."
+  ],
+  "timings": {
+    "Ver mis siguientes pasos": 1832,
+    "Solicitar diagnóstico →": 1555
+  }
+}

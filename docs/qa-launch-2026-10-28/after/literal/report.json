@@ -1,0 +1,191 @@
+{
+  "persona": "literal Spanish-speaking first-time dentist",
+  "round": "after",
+  "pass": true,
+  "success": {
+    "primaryPersonalReview": true,
+    "separateDiagnosis": true,
+    "contactText": "Solicitud recibida. La revisaremos contigo.",
+    "contactNextStep": "Team will review and contact supplied email or WhatsApp; support email available.",
+    "diagnosisText": "Tu web está en la cola.",
+    "diagnosisNextStep": "Wait for diagnosis at qa-literal@example.com and check spam."
+  },
+  "honestPath": {
+    "sameOriginalAnswers": true,
+    "answers": "Ana Mora QA; +50688887777; qa-literal@example.com; owner; general dentistry; San José Costa Rica;8–15 years;1 chair;<250000 CRC treatment;1–3 new treatment patients; private revenue; referrals; no previous marketing; no current website; no internal lab/technology; sole decisionmaker; exploring.",
+    "understandingAnswer": "Quiero que me lo expliquen (same original need for explanation)",
+    "contactJourney": "Solicitar conversación → five steps → explicit exploring explanation → Pedir revisión al equipo → accepted without changing answers.",
+    "diagnosisJourney": "Header Diagnóstico gratis → Ana/Mora QA/email → Consultorio Ana Mora QA / https://elevatordental.com/ / Costa Rica / San José → visibly read full authorization and checked required consent only → Solicitar diagnóstico → accepted.",
+    "optionalMarketing": false
+  },
+  "checks": [
+    {
+      "key": "literal-high-value",
+      "result": "pass",
+      "screenshots": [
+        "04-step3.png"
+      ],
+      "observed": "Question now gives implants/aligners/smile-design treatment examples; patient question refers to those treatments. Lowest CRC range selected honestly."
+    },
+    {
+      "key": "literal-seo-terms",
+      "result": "pass",
+      "screenshots": [
+        "05-step4.png"
+      ],
+      "observed": "Aparecer en Google (SEO) and Asistente automático de atención (IA) explain the choices in Spanish."
+    },
+    {
+      "key": "literal-understanding-jargon",
+      "result": "pass",
+      "screenshots": [
+        "07-contact-sending.png"
+      ],
+      "observed": "Plain statement names Google/other search engines, time, no guaranteed positions/patients. Quiero que me lo expliquen is available and selected."
+    },
+    {
+      "key": "literal-step-scroll",
+      "result": "pass",
+      "screenshots": [
+        "04-step3.png",
+        "05-step4.png",
+        "06-step5.png"
+      ],
+      "observed": "Animated new-step headings visible around y110 below header without manual upward scrolling. Early transition screenshots can momentarily show clipped lower controls; settled controls are usable."
+    },
+    {
+      "key": "literal-loading-text",
+      "result": "pass",
+      "screenshots": [
+        "07-contact-sending.png"
+      ],
+      "observed": "Visible Guardando tus respuestas… names the contact busy operation. Diagnosis completed too quickly to visually assess its busy label; no spinner-only delay encountered there."
+    },
+    {
+      "key": "literal-contact-next-step",
+      "result": "pass",
+      "screenshots": [
+        "08-conditional-result.png",
+        "10-review-success.png"
+      ],
+      "observed": "Conditional screen explicitly explains exploring and offers Pedir revisión al equipo. Explicit personal-review request accepted without changing answers. Confirmation identifies email/WhatsApp follow-up and support address. Confirmation heading focused at y104.42."
+    },
+    {
+      "key": "literal-consent-invisible",
+      "result": "pass",
+      "screenshots": [
+        "11-diagnosis-step2.png",
+        "12-diagnosis-ready-visible-consent.png"
+      ],
+      "observed": "Both full consent texts visibly readable beside normal checkboxes; visual inspection completed before selecting consent. Measured18×18px. Required true, optional false. No DOM-only workaround needed."
+    },
+    {
+      "key": "literal-diagnosis-confirmation-offscreen",
+      "result": "pass",
+      "screenshots": [
+        "14-diagnosis-success.png"
+      ],
+      "observed": "Success heading automatically focused and placed at y104 (40.8px high) without manual scrolling; email/spam next step visible in viewport."
+    },
+    {
+      "key": "literal-button-wording",
+      "result": "pass",
+      "screenshots": [
+        "12-diagnosis-ready-visible-consent.png"
+      ],
+      "observed": "Solicitar diagnóstico clearly requests a diagnosis instead of implying the visitor sends one."
+    }
+  ],
+  "unresolved": [],
+  "issues": [],
+  "timings": {
+    "landingVisibleMs": 884,
+    "browserStartupExcluded": true,
+    "limits": "No precise post-submission latency measurement; reading and tooling time excluded."
+  },
+  "environment": {
+    "browser": "Real Chrome for Testing, Playwright,1440×1000,es-MX",
+    "base": "http://127.0.0.1:4330",
+    "cleanContext": true,
+    "productionSubmissions": false,
+    "sourceInspection": false,
+    "productEdits": false,
+    "backend": "Actual Worker validation with fixture CRM/email/booking via harness.",
+    "limits": "Fixture acceptance tested; real email delivery/follow-up not tested. Cloudflare visible test-only banner is the harness test key, not a production defect. Blocked YouTube telemetry and navigation-aborted prefetches produced no visible user-facing error. No browser page errors."
+  },
+  "errors": [],
+  "failed": [
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/youtubei/v1/log_event",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "url": "http://127.0.0.1:4330/diagnostico-seo/privacidad",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/diagnostico-seo/privacidad/__next.diagnostico-seo.privacidad.__PAGE__.txt",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/jv2ef/1x00000000000000000000AA/light/fbE/api/flexible",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:4330/__next.__PAGE__.txt",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}
