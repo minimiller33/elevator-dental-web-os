@@ -289,7 +289,7 @@
 .bkm_section .bkm_error a { color: #0066cc; text-decoration: underline; }
 /* Render the final contained card before hydration, without a black full-stage
    placeholder. Geometry stays measurable; GSAP takes over the same rectangle. */
-.bkm_section .bkm_media:not(.is-ready) .bkm_frame {
+.bkm_section:not(.bkm_section--fixed) .bkm_media:not(.is-ready) .bkm_frame {
   left: var(--bkm-l0);
   top: var(--bkm-top);
   width: var(--bkm-w0);
@@ -297,11 +297,68 @@
   transform: scale(1.08);
   transform-origin: center;
 }
-.bkm_section .bkm_media:not(.is-ready) .bkm_play {
+.bkm_section:not(.bkm_section--fixed) .bkm_media:not(.is-ready) .bkm_play {
   left: calc(var(--bkm-l0) + var(--bkm-pill-inset));
   top: calc(var(--bkm-top) + var(--bkm-h0) - var(--bkm-pill-inset) - var(--bkm-pill-height));
 }
 .bkm_section[data-started="true"] .bkm_media { background: #101010; }
 @media (prefers-reduced-motion: reduce) {
   .bkm_section *, .bkm_section *::before { transition: none !important; }
+}
+
+/* Reference-size player: poster and video share one normal-flow 16:9 card. */
+.bkm_section.bkm_section--fixed { height: auto; padding: 16px 40px 32px; }
+.bkm_section.bkm_section--fixed .bkm_stage {
+  position: relative;
+  top: auto;
+  height: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.bkm_section.bkm_section--fixed .bkm_media {
+  --bkm-w0: 100cqw;
+  --bkm-h0: calc(100cqw * .5625);
+  --bkm-l0: 0px;
+  --bkm-top: 0px;
+  position: relative;
+  inset: auto;
+  order: 1;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  clip-path: none;
+  border-radius: var(--bkm-radius);
+}
+.bkm_section.bkm_section--fixed .bkm_slot { display: none; }
+.bkm_section.bkm_section--fixed .bkm_frame {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.08);
+  transform-origin: center;
+}
+.bkm_section.bkm_section--fixed .bkm_video {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity .45s ease;
+}
+.bkm_section.bkm_section--fixed[data-started="true"] .bkm_video { opacity: 1; visibility: visible; }
+.bkm_section.bkm_section--fixed .bkm_play {
+  left: var(--bkm-pill-inset);
+  top: auto;
+  bottom: var(--bkm-pill-inset);
+}
+.bkm_section.bkm_section--fixed .bkm_copy {
+  position: relative;
+  order: 2;
+  top: auto;
+  left: auto;
+  width: 100%;
+  margin-top: 24px;
+}
+@media (max-width: 899px) {
+  .bkm_section.bkm_section--fixed { padding: 8px 12px 24px; }
+  .bkm_section.bkm_section--fixed .bkm_copy { display: contents; }
 }

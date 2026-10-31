@@ -62,6 +62,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
   id = 'presentacion',
   title = 'Así funciona Elevator Dental Web',
   direction = 'grow',
+  expandOnScroll = true,
   growDistance = 100,
   holdDistance = 50,
   ease = 'power3.out',
@@ -95,6 +96,20 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
     contract: () => apiRef.current?.contract(),
   }), []);
 
+  function toggleFixedPlay(event) {
+    event.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    if (!video.paused) { video.pause(); return; }
+    if (video.error) video.load();
+    setError(false);
+    setLoading(true);
+    video.play().catch((reason) => {
+      setLoading(false);
+      if (reason.name !== 'AbortError') setError(true);
+    });
+  }
+
   useGSAP(
     (context, contextSafe) => {
       const container = containerRef.current;
@@ -106,6 +121,27 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
       const video = videoRef.current;
       const playBtn = playBtnRef.current;
       if (!container || !stage || !media || !slot || !frame) return;
+
+      // The landing keeps the reference card's size through scroll/playback.
+      // Retain native controls and the poster fade without a pinned runway.
+      if (!expandOnScroll) {
+        const pause = () => { if (!video.paused) video.pause(); };
+        const onVisibility = () => { if (document.hidden) pause(); };
+        const observer = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) pause();
+        });
+        observer.observe(media);
+        document.addEventListener('visibilitychange', onVisibility);
+        media.classList.add('is-ready');
+        apiRef.current = { refresh() {}, expand() {}, contract() {} };
+        return () => {
+          observer.disconnect();
+          document.removeEventListener('visibilitychange', onVisibility);
+          media.classList.remove('is-ready');
+          apiRef.current = null;
+          pause();
+        };
+      }
 
       const dir = direction === 'shrink' ? 'shrink' : 'grow';
       const growVh = growDistance;
@@ -420,7 +456,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
     },
     {
       scope: containerRef,
-      dependencies: [direction, growDistance, holdDistance, ease],
+      dependencies: [direction, growDistance, holdDistance, ease, expandOnScroll],
       revertOnUpdate: true,
     }
   );
@@ -430,7 +466,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
       ref={containerRef}
       id={id}
       aria-label={title}
-      className={`bkm_section ${className}`.trim()}
+      className={`bkm_section ${expandOnScroll ? '' : 'bkm_section--fixed'} ${className}`.trim()}
       data-anm-breakout-media
       data-playing={playing ? 'true' : 'false'}
       data-started={started ? 'true' : 'false'}
@@ -460,7 +496,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
           </div>
         </div>
 
-        <figure ref={mediaRef} className="bkm_media" data-anm-bkm-media>
+        <figure ref={mediaRef} className="bkm_media" data-anm-bkm-media onClick={expandOnScroll ? undefined : toggleFixedPlay}>
           <span ref={slotRef} className="bkm_slot" data-anm-bkm-slot aria-hidden="true" />
           <div ref={frameRef} className="bkm_frame" data-anm-bkm-frame>
             {/* Static export: keep the supplied player’s local, compressed poster. */}
@@ -481,6 +517,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
             aria-label={title}
             onClick={(event) => event.stopPropagation()}
             onPlay={() => setPlaying(true)}
+            onPlaying={() => { setLoading(false); if (!expandOnScroll) setStarted(true); }}
             onPause={() => { setPlaying(false); setLoading(false); }}
             onEnded={() => setPlaying(false)}
             onWaiting={() => setLoading(true)}
@@ -489,7 +526,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
           >
             Tu navegador no puede reproducir este video. <a href={videoSrc}>Abrir video</a>
           </video>
-          <button ref={playBtnRef} className="bkm_play" type="button" aria-busy={loading} data-anm-bkm-play>
+          <button ref={playBtnRef} className="bkm_play" type="button" aria-busy={loading} data-anm-bkm-play onClick={expandOnScroll ? undefined : toggleFixedPlay}>
             <span className="bkm_play_dot" aria-hidden="true" />
             <span className="bkm_play_label" data-anm-bkm-play-label>
               {error ? 'Reintentar video' : loading ? 'Cargando video…' : playing ? PAUSE_LABEL : playLabel}

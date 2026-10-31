@@ -79,6 +79,7 @@ export function DentalReferenceLanding() {
     <SimpleMenu />
     <section className="er-hero" aria-labelledby="er-title"><div className="er-hero__heading"><h1 id="er-title">Que te encuentren.<br /><span>Mientras tú atiendes.</span></h1></div><p>Construimos y cuidamos webs para <strong>clínicas dentales</strong>. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.</p><div className="er-hero__actions"><JigglyButton className="er-button er-button--primary" href="#contacto">Solicitar conversación</JigglyButton><JigglyButton className="er-button er-button--white" href="/diagnostico-seo">Diagnóstico gratis</JigglyButton></div></section>
     <BreakoutMedia
+      expandOnScroll={false}
       title={brandVideo.title}
       posterSrc={brandVideo.posterSrc}
       videoSrc={brandVideo.src}
