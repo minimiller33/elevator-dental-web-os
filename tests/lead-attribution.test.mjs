@@ -68,6 +68,16 @@ test('server forwards every status, preserves attribution and uses trusted reque
         vm.runInNewContext(compile('lib/contact-validation.ts'), validation);
         return validation.exports;
       }
+      if (path === '../lib/brand-video') {
+        const video = { exports: {} };
+        vm.runInNewContext(compile('lib/brand-video.ts'), video);
+        return video.exports;
+      }
+      if (path === './video') {
+        const videoModule = { exports: {}, Response, Request, Headers, ReadableStream };
+        vm.runInNewContext(compile('worker/video.ts'), videoModule);
+        return videoModule.exports;
+      }
       assert.equal(path, './seo');
       const seoModule = { exports: {}, Response, Request, URL, TextEncoder, AbortSignal };
       vm.runInNewContext(compile('worker/seo.ts'), seoModule);

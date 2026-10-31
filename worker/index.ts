@@ -1,3 +1,5 @@
+import { brandVideo } from "../lib/brand-video";
+import { serveVideo } from "./video";
 import { handleSeo } from "./seo";
 import { normalizeWebsite, validContactName } from "../lib/contact-validation";
 import { normalizeWhatsApp } from "../lib/phone";
@@ -86,6 +88,8 @@ const worker = {
     if (["/api/seo-diagnosis", "/api/seo-config", "/api/seo-report"].includes(url.pathname)) {
       return handleSeo(request, env);
     }
+
+    if (url.pathname === "/video/elevator-v41.mp4") return serveVideo(request, env.ASSETS, brandVideo.byteLength);
 
     if (url.pathname !== "/api/contact") {
       return env.ASSETS.fetch(request);
