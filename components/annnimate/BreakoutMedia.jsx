@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
   CustomEase.create('annnimateInOut', 'M0,0 C0.7,0 0.16,1 1,1');
 }
 
-const DEFAULT_TITLE_LINES = ['Así funciona', 'Elevator.'];
+const DEFAULT_TITLE_LINES = ['Así funciona Elevator.'];
 const DEFAULT_TEXT = 'Tu web trabaja mientras tú atiendes. Conoce cómo construimos tu presencia digital y la mejoramos contigo.';
 const DEFAULT_META_ITEMS = [
   { label: 'Para', value: 'Clínicas dentales' },
@@ -33,9 +33,6 @@ const SCROLL_DUR = 1.2;
 const VIDEO_FADE = 0.45;
 const PAUSE_LABEL = 'Pausar video';
 const RESIZE_DEBOUNCE = 150;
-// The copy fades out once the film's left edge has covered this share of
-// its width, and back in when it uncovers it again.
-const COPY_COVER = 0.5;
 const COPY_FADE = 0.4;
 const COPY_EASE = 'power2.out';
 
@@ -168,20 +165,19 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
         }
         const vh = window.innerHeight;
         const stageH = stage.offsetHeight;
-        stickTop = stageH > vh ? vh - stageH : (vh - stageH) / 2;
+        stickTop = Math.min(72, vh - stageH);
         runway = vh * (growVh / 100) * MOBILE_GROW_SHARE;
         stage.style.top = stickTop + 'px';
-        container.style.height = Math.max(vh, stageH) + runway + 'px';
+        container.style.height = stageH + runway + 'px';
       }
 
-      // The film's left edge sits at x0 * (1 - p), so "covers COPY_COVER of the
-      // copy" is one progress value, worked out from the layout. On mobile the
-      // copy sits beside the film's path, never under it, so it never fades.
+      // The copy now sits below the larger film. Fade it when the growing
+      // bottom edge reaches the copy, keeping the same reversible animation.
       function copyFadePoint() {
         if (!copy || isMobile) return Infinity;
-        const edge = copy.offsetLeft + copy.offsetWidth * COPY_COVER;
-        const x0 = slot.offsetLeft;
-        return x0 > edge ? 1 - edge / x0 : 0;
+        const bottom = slot.offsetTop + slot.offsetHeight;
+        const travel = media.clientHeight - bottom;
+        return travel > 0 ? Math.max(0, Math.min(1, (copy.offsetTop + copy.offsetHeight * .3 - bottom) / travel)) : Infinity;
       }
 
       // Binary, not scrubbed: crossing the threshold fades the copy out,
@@ -440,7 +436,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
       data-started={started ? 'true' : 'false'}
       data-error={error ? 'true' : 'false'}
     >
-      <noscript><style>{`.bkm_section{height:auto!important}.bkm_stage{position:relative;height:auto;min-height:500px}.bkm_play{display:none}.bkm_video{opacity:1;visibility:visible}.bkm_frame{display:none}.bkm_media{left:var(--bkm-l0);top:calc((100% - var(--bkm-h0))/2);width:var(--bkm-w0);height:var(--bkm-h0)}@media(max-width:899px){.bkm_media{left:auto;top:auto;width:calc(100% + 2*var(--bkm-margin));height:auto}}`}</style></noscript>
+      <noscript><style>{`.bkm_section{height:auto!important}.bkm_section .bkm_stage{position:relative}.bkm_section .bkm_play,.bkm_section .bkm_frame{display:none}.bkm_section .bkm_video{left:var(--bkm-l0);top:var(--bkm-top);width:var(--bkm-w0);height:var(--bkm-h0);opacity:1;visibility:visible;pointer-events:auto;background:#f5f3f1}`}</style></noscript>
       <div ref={stageRef} className="bkm_stage" data-anm-bkm-stage>
         <div ref={copyRef} className="bkm_copy" data-anm-bkm-copy>
           <h2 className="bkm_title">
@@ -469,7 +465,7 @@ const BreakoutMedia = forwardRef(function BreakoutMedia({
           <div ref={frameRef} className="bkm_frame" data-anm-bkm-frame>
             {/* Static export: keep the supplied player’s local, compressed poster. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="bkm_poster" src={posterSrc} srcSet={posterSrcSet} sizes="100vw" alt={alt} />
+            <img className="bkm_poster" src={posterSrc} srcSet={posterSrcSet} sizes="100vw" alt={alt} width={1920} height={1080} loading="eager" fetchPriority="high" />
           </div>
           <video
             ref={videoRef}
