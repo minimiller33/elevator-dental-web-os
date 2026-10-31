@@ -1,0 +1,398 @@
+.obp_section {
+  --obp-bg: var(--er-page, #fdfcfc);
+  --obp-fg: rgba(16, 16, 16, 0.92);
+  --obp-soft: rgba(16, 16, 16, 0.72);
+  --obp-faint: rgba(16, 16, 16, 0.65);
+  --obp-line: rgba(16, 16, 16, 0.1);
+  --obp-m: 40px;
+  --obp-g: 20px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh + var(--obp-runway, 360) * 1vh);
+  height: calc(100svh + var(--obp-runway, 360) * 1svh);
+  background: var(--obp-bg);
+  color: var(--obp-fg);
+  font-family: var(--font-inter), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.obp_section .obp_stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.obp_section .obp_inner {
+
+  --obp-ring: min(44cqw, 100svh - 220px, 760px);
+  position: absolute;
+  inset: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--obp-g);
+  align-items: center;
+  padding: 48px var(--obp-m);
+}
+
+.obp_section .obp_copy {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: var(--obp-ring);
+  min-height: 0;
+}
+
+.obp_section .obp_title {
+  margin: 0;
+  font-size: clamp(44px, 4.4cqw, 68px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.obp_section .obp_intro {
+  max-width: 340px;
+  margin: 20px 0 0;
+  font-size: 15px;
+  font-weight: 380;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--obp-soft);
+}
+
+.obp_section .obp_detail {
+  max-width: 380px;
+}
+
+.obp_section .obp_count {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.obp_section .obp_count_roll {
+  display: inline-flex;
+  font-size: 84px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.obp_section .obp_count_digit {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: clip;
+}
+
+.obp_section .obp_count_digit::before {
+  content: "0";
+  visibility: hidden;
+}
+
+.obp_section .obp_count_reel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.obp_section .obp_count_reel span {
+  display: block;
+  height: 1em;
+}
+
+.obp_section .obp_count_total {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--obp-faint);
+}
+
+.obp_section .obp_text {
+  display: grid;
+  align-items: end;
+}
+
+.obp_section .obp_text_item {
+  grid-area: 1 / 1;
+}
+
+.obp_section .obp_text_name {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.obp_section .obp_text_meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--obp-faint);
+}
+
+.obp_section .obp_text_desc {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 380;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--obp-soft);
+}
+
+.obp_section .obp_visual {
+  grid-column: 6 / -1;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.obp_section .obp_ring {
+  position: relative;
+  width: var(--obp-ring);
+  aspect-ratio: 1;
+}
+
+.obp_section .obp_ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.obp_section .obp_track,
+.obp_section .obp_trail {
+  fill: none;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.obp_section .obp_track {
+  stroke: var(--obp-line);
+}
+
+.obp_section .obp_trail {
+  stroke: var(--obp-fg);
+  stroke-dasharray: 0 1;
+}
+
+.obp_section .obp_mark {
+  fill: var(--obp-fg);
+}
+
+.obp_section .obp_slot {
+  position: absolute;
+  inset: 15%;
+}
+
+.obp_section .obp_orb {
+  --obp-c1: #1a44ff;
+  --obp-c2: #142a9c;
+  --obp-c3: #f7f9ff;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.obp_section .obp_orb::before {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--obp-c1) 0%, transparent 62%);
+  filter: blur(30px);
+  opacity: 0.3;
+}
+
+.obp_section .obp_ball {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--obp-c1);
+}
+
+.obp_section .obp_swirl {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--obp-turn, 0rad));
+}
+
+.obp_section .obp_blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(28px);
+}
+
+.obp_section .obp_blob_1 { width: 78%; height: 70%; left: -8%; top: 34%; background: var(--obp-c2); }
+.obp_section .obp_blob_2 { width: 62%; height: 58%; left: 40%; top: -6%; background: var(--obp-c3); }
+.obp_section .obp_blob_3 { width: 40%; height: 40%; left: 52%; top: 52%; background: var(--obp-c1); }
+
+.obp_section .obp_orb.is-gl::before,
+.obp_section .obp_orb.is-gl .obp_ball {
+  display: none;
+}
+
+.obp_section .obp_orb.is-gl {
+  cursor: pointer;
+}
+
+.obp_section .obp_canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.obp_section .obp_labels {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+.obp_section .obp_label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border: 0;
+  background: none;
+  font: inherit;
+  white-space: nowrap;
+  color: var(--obp-fg);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.obp_section .obp_label_num {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.obp_section .obp_label_name {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.obp_section .obp_label:focus-visible {
+  outline: 1px solid rgba(16, 16, 16, 0.3);
+  outline-offset: 2px;
+}
+
+.obp_section .obp_list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  list-style: none;
+}
+
+@container (max-width: 899px) {
+  .obp_section .obp_inner {
+    --obp-m: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 36px var(--obp-m) 32px;
+  }
+
+  .obp_section .obp_copy {
+    display: contents;
+  }
+
+  .obp_section .obp_head {
+    order: 0;
+  }
+
+  .obp_section .obp_visual {
+    order: 1;
+    flex: 1 1 0;
+    container-type: size;
+  }
+
+  .obp_section .obp_detail {
+    order: 2;
+    max-width: 460px;
+  }
+
+  .obp_section .obp_title {
+    font-size: clamp(34px, 8cqw, 48px);
+  }
+
+  .obp_section .obp_intro {
+    margin-top: 12px;
+  }
+
+  .obp_section .obp_ring {
+    width: min(100cqw, 100cqh);
+  }
+
+  .obp_section .obp_labels {
+    display: none;
+  }
+
+  .obp_section .obp_count {
+    margin-bottom: 16px;
+  }
+
+  .obp_section .obp_count_roll {
+    font-size: 56px;
+  }
+}
+
+/* Elevator typography and clearance for the existing fixed menu. */
+.obp_section .obp_title {
+  font-family: var(--er-display, var(--font-waldenburg)), var(--font-inter), Arial, sans-serif;
+  font-weight: 300;
+}
+.obp_section .obp_text_item:not(:first-child) { visibility: hidden; }
+.obp_section .obp_text_name { flex-wrap: wrap; gap: 5px 10px; }
+@container (max-width: 899px) {
+  .obp_section .obp_inner { padding-top: 96px; }
+}
+
+/* Keep the orb and the complete step readable on short phone screens. */
+@media (max-width: 899px) and (max-height: 680px) {
+  .obp_section .obp_inner { padding: 84px 20px 20px; gap: 12px; }
+  .obp_section .obp_title { font-size: 28px; }
+  .obp_section .obp_intro { font-size: 13px; line-height: 1.4; margin-top: 8px; }
+  .obp_section .obp_count { margin-bottom: 8px; }
+  .obp_section .obp_count_roll { font-size: 40px; }
+  .obp_section .obp_text_name { font-size: 14px; }
+  .obp_section .obp_text_meta { font-size: 12px; }
+  .obp_section .obp_text_desc { font-size: 13px; line-height: 1.45; }
+}

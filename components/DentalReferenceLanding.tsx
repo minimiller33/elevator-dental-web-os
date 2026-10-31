@@ -13,6 +13,7 @@ import "@/app/landing-clarity.css";
 import "@/app/contact-spotlight.css";
 import "@/app/landing-cro-v2.css";
 import "@/app/landing-video.css";
+import OrbProcess from "@/components/annnimate/OrbProcess";
 import { brandVideo } from "@/lib/brand-video";
 
 const platforms = [
@@ -93,6 +94,8 @@ export function DentalReferenceLanding() {
     <div className="er-showcase-wrap"><ElevatorStoryWidget /></div>
 
     <section className="er-foundation er-frame" id="sistema" aria-labelledby="er-foundation-title"><div className="er-foundation__heading"><p className="er-label">El sistema Elevator</p><h2 id="er-foundation-title">Dos servicios.<br /><span>Una misma base digital.</span></h2><p>Primero construimos una web que explique bien tu clínica. Después, Elevator se ocupa de mantenerla y trabajar sus siguientes mejoras.</p></div><div className="er-foundation__cards"><article className="er-foundation__card" id="web"><div className="er-foundation__card-copy"><span className="er-foundation__number">01 / Crear</span><h3>Elevator Dental Web</h3><p className="er-foundation__benefit">Una web clara para presentar tu clínica.</p><p className="er-foundation__detail">Organizamos tratamientos, equipo, ubicación y contacto; además, preparamos esa información para que buscadores y asistentes puedan entenderla.</p><a href="#inversion">Ver alcance de Dental Web <ArrowUpRight size={16} /></a></div><div className="er-foundation__preview"><span className="er-foundation__preview-label">Ejemplo visual de Dental Web</span><ClinicPreview compact /></div></article><article className="er-foundation__card" id="membership"><div className="er-foundation__card-copy"><span className="er-foundation__number">02 / Cuidar y mejorar</span><h3>Elevator Membership</h3><p className="er-foundation__benefit">Tu web sigue avanzando sin que coordines cada ajuste.</p><p className="er-foundation__detail">Elevator se ocupa del hosting, el mantenimiento y las mejoras continuas. Tú revisas la información clínica cuando corresponde.</p><a href="#inversion">Ver alcance de Membership <ArrowUpRight size={16} /></a></div><div className="er-foundation__preview er-foundation__preview--care"><span className="er-foundation__preview-label">Ejemplo visual de Membership</span><CarePreview /></div></article></div><ConceptualProgress /></section>
+
+    <div id="como-trabajamos"><OrbProcess colorDeep="#002b61" colorPrimary="#0071e3" colorMid="#409cff" colorAccent="#7bc6ff" colorLight="#cce8ff" colorHighlight="#f7fbff" /></div>
 
     <section className="er-platforms er-frame" aria-labelledby="er-platforms-title"><header><h2 id="er-platforms-title">Información para pacientes,<br />buscadores y asistentes de IA.</h2><a href="#claridad">Una misma información <ArrowUpRight size={15} /></a></header><IllustrativeSearchResult /><div className="er-platforms__context">Logos de referencia de plataformas externas a Elevator.</div><div className="er-platforms__grid">{platforms.map(({ name, logo }) => <div key={name}><Image src={logo} alt="" width={30} height={30} /><span>{name}</span></div>)}</div></section>
 
