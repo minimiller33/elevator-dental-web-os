@@ -1,4 +1,4 @@
-.ed-internal { padding-top:64px; min-height:100dvh; background:#fdfcfc; color:#242322; color-scheme:light; font-family:var(--font-inter),Arial,sans-serif; font-size:16px; line-height:1.6; }
+.ed-internal { min-height:100dvh; background:#fdfcfc; color:#242322; color-scheme:light; font-family:var(--font-inter),Arial,sans-serif; font-size:16px; line-height:1.6; }
 .ed-internal * { box-sizing:border-box; }
 .ed-internal :is(h1,h2) { font-family:var(--font-waldenburg),var(--font-inter),sans-serif; font-weight:300; letter-spacing:-.04em; }
 .ed-internal :is(input,select,textarea,button) { font-family:inherit; }

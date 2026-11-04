@@ -10,7 +10,7 @@
   "main": "worker/index.ts",
   "assets": {
     "binding": "ASSETS",
-    "run_worker_first": ["/video/elevator-v41.mp4"],
+    "run_worker_first": ["/video/elevator-v41.mp4", "/api/optin", "/api/optin-config"],
     "directory": "./out",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"

@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends chromium ca-cer
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 COPY --chown=node:node *.mjs ./
+COPY --chown=node:node optin-catalog.json ./
+COPY --chown=node:node optin-fields.json ./
 RUN mkdir /app/data && chown node:node /app/data
 USER node
 ENV PORT=3100 DATA_DIR=/app/data CHROME_PATH=/usr/bin/chromium

@@ -78,6 +78,11 @@ test('server forwards every status, preserves attribution and uses trusted reque
         vm.runInNewContext(compile('worker/video.ts'), videoModule);
         return videoModule.exports;
       }
+      if (path === './optins') {
+        const optinModule = { exports: {}, Response, Request, URL, TextEncoder, AbortSignal };
+        vm.runInNewContext(compile('worker/optins.ts'), optinModule);
+        return optinModule.exports;
+      }
       assert.equal(path, './seo');
       const seoModule = { exports: {}, Response, Request, URL, TextEncoder, AbortSignal };
       vm.runInNewContext(compile('worker/seo.ts'), seoModule);

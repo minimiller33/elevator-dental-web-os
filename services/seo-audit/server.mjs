@@ -4,6 +4,7 @@ import { timingSafeEqual } from 'node:crypto';
 import { validateLead } from './core.mjs';
 import { Store } from './store.mjs';
 import { processJob } from './runner.mjs';
+import { OptinStore, validateOptin, processOptin, optinConfigured } from './optins.mjs';
 
 const env = process.env;
 for (const key of ['SEO_SERVICE_TOKEN', 'PUBLIC_SITE_URL']) {
@@ -20,6 +21,7 @@ if (!Number.isInteger(dailyLimit) || dailyLimit < 1 || dailyLimit > 1000) throw 
 const dataDir = env.DATA_DIR || './data';
 mkdirSync(dataDir, { recursive: true, mode: 0o700 });
 const store = new Store(`${dataDir}/seo.sqlite`);
+const optins = new OptinStore(`${dataDir}/optins.sqlite`);
 
 function reply(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' });
@@ -34,6 +36,20 @@ const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   if (req.method === 'GET' && url.pathname === '/health') return reply(res, 200, { ok: true });
   if (!authorized(req)) return reply(res, 401, { ok: false });
+  if (req.method === 'GET' && url.pathname === '/optins/health') return reply(res, 200, { ready: optinConfigured(env) });
+  if (req.method === 'POST' && url.pathname === '/optins') {
+    if (!optinConfigured(env)) return reply(res, 503, { ok: false });
+    if (!req.headers['content-type']?.includes('application/json')) return reply(res, 415, { ok: false });
+    try {
+      const chunks = []; let size = 0;
+      for await (const chunk of req) { size += chunk.length; if (size > 8192) return reply(res, 413, { ok: false }); chunks.push(chunk); }
+      const lead = validateOptin(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+      const ip = req.headers['x-elevator-client-ip'];
+      if (typeof ip !== 'string' || !ip) return reply(res, 400, { ok: false });
+      optins.enqueue(lead, ip, env);
+      return reply(res, 202, { ok: true });
+    } catch (error) { return reply(res, error.message === 'rate_limit' ? 429 : error.message === 'delivery_unavailable' ? 503 : 400, { ok: false }); }
+  }
   if (req.method === 'GET' && url.pathname === '/reports') {
     const token = url.searchParams.get('token') || '';
     if (!/^[a-f0-9]{64}$/.test(token)) return reply(res, 404, { ok: false });
@@ -73,4 +89,12 @@ const timer = setInterval(async () => {
   catch { console.error('SEO queue unavailable'); }
   finally { busy = false; }
 }, 2000);
-for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => { clearInterval(timer); server.close(); });
+let optinBusy = false;
+const optinTimer = setInterval(async () => {
+  if (optinBusy) return;
+  optinBusy = true;
+  try { optins.prune(); const job = optins.next(); if (job) await processOptin(optins, job, env); }
+  catch { console.error('Opt-in queue unavailable'); }
+  finally { optinBusy = false; }
+}, 2000);
+for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => { clearInterval(timer); clearInterval(optinTimer); server.close(); });

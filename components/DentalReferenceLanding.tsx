@@ -4,7 +4,6 @@ import { ArrowUpRight, Search, Wrench, ListChecks, Plus } from "lucide-react";
 import MorphingTooltip from "@/components/annnimate/MorphingTooltip";
 import DockFooter from "@/components/annnimate/DockFooter";
 import EchoHeadline from "@/components/annnimate/EchoHeadline";
-import SimpleMenu from "@/components/annnimate/SimpleMenu";
 import { LeadForm } from "@/components/LeadForm";
 import { DentalQuestionsSection } from "@/components/DentalArcSections";
 import { ElevatorStoryWidget } from "@/components/ElevatorStoryWidget";
@@ -78,7 +77,6 @@ function ConceptualProgress() {
 
 export function DentalReferenceLanding() {
   return <main className="edw-site edw-ref" id="inicio">
-    <SimpleMenu />
     <section className="er-hero" aria-labelledby="er-title"><div className="er-hero__heading"><h1 id="er-title"><small className="er-hero__service">Diseño web y SEO para dentistas</small>Que te encuentren.<br /><span>Mientras tú atiendes.</span></h1></div><p>Construimos y cuidamos webs para <strong>clínicas dentales</strong>. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.</p><div className="er-hero__actions"><JigglyButton className="er-button er-button--primary" href="#contacto">Solicitar conversación</JigglyButton><JigglyButton className="er-button er-button--white" href="/diagnostico-seo">Diagnóstico gratis</JigglyButton></div></section>
     <BreakoutMedia
       expandOnScroll={false}

@@ -1,6 +1,7 @@
 import { brandVideo } from "../lib/brand-video";
 import { serveVideo } from "./video";
 import { handleSeo } from "./seo";
+import { handleOptin } from "./optins";
 import { normalizeWebsite, validContactName } from "../lib/contact-validation";
 import { normalizeWhatsApp } from "../lib/phone";
 
@@ -84,6 +85,8 @@ function validOrigin(request: Request) {
 const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (["/api/optin", "/api/optin-config"].includes(url.pathname)) return handleOptin(request, env);
 
     if (["/api/seo-diagnosis", "/api/seo-config", "/api/seo-report"].includes(url.pathname)) {
       return handleSeo(request, env);
