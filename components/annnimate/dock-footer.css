@@ -1,13 +1,13 @@
 /* Annnimate DockFooter geometry, adapted to Elevator's warm light surfaces. */
 :is(.edw-site.edw-ref,.ed-internal) .df_section {
   --df-fg: #242322; --df-soft: #5e5b56; --df-dim: #7b7770; --df-line: rgba(69,65,59,.14);
-  position: relative; width: 100%; min-height: 760px; min-height: min(900px,100svh); display: flex; padding:0; background: #f5f3f1; color: var(--df-fg); overflow: clip; margin-top: 70px;
+  position: relative; width: 100%; min-height: 0; display: flex; padding:0; background: #f5f3f1; color: var(--df-fg); overflow: clip; margin-top: 70px;
 }
 .df_section *, .df_section *::before, .df_section *::after { box-sizing: border-box; }
 .df_bg { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
 .df_bg_img { position:absolute; inset:0; background: url('/visual/eleven/silver-cloud.webp') center/cover; filter:blur(24px) saturate(.25); transform:scale(1.08); opacity:.18; }
 .df_bg_scrim { position:absolute; inset:0; background:linear-gradient(180deg,rgba(245,243,241,.85),rgba(253,252,252,.3) 55%,rgba(245,243,241,.86)); }
-.df_inner { position:relative; z-index:1; width:100%; max-width:1180px; margin:0 auto; display:flex; flex-direction:column; padding:88px 40px 0; }
+.df_inner { position:relative; z-index:1; width:100%; max-width:1180px; margin:0 auto; display:flex; flex-direction:column; padding:64px 40px 0; }
 .df_grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:16px; align-items:start; }
 .df_brand { grid-column:1/6; }
 .df_brand_mark { margin-bottom:28px; }
@@ -25,7 +25,7 @@
 :is(.edw-ref,.ed-internal) .df_col_link:hover { color:#0071e3; }
 .df_reveal_mask { overflow-y:clip; overflow-x:visible; padding-bottom:.14em; margin-bottom:-.14em; }
 .df_reveal_inner { display:inline-block; }
-.df_stage { flex:1; min-height:420px; position:relative; }
+.df_stage { flex:none; min-height:110px; position:relative; }
 .df_dock { position:absolute; left:50%; bottom:34px; transform:translateX(-50%); width:182px; height:54px; border-radius:999px; background:rgba(255,255,255,.62); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.9); box-shadow:inset 0 1px 0 #fff,0 12px 40px rgba(62,62,67,.08); overflow:hidden; transform-origin:center bottom; }
 .df_dock_pill { position:absolute; inset:auto 0 0; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:6px; height:52px; white-space:nowrap; transition:opacity .15s; }
 .df_dock_label { padding-left:10px; font-size:13px; font-weight:500; color:var(--df-soft); }
@@ -50,11 +50,11 @@
 .df_section .df_panel_foot { width:100%; margin-top:18px; padding:14px 0 8px; border:0; border-top:1px solid var(--df-line); background:transparent; display:flex; justify-content:space-between; align-items:center; color:var(--df-soft); font:inherit; font-size:13px; cursor:pointer; }
 .df_legal { border-top:1px solid var(--df-line); padding:18px 0 22px; display:flex; justify-content:space-between; gap:16px; align-items:baseline; font-size:13px; color:var(--df-dim); }
 @media(max-width:760px) {
-  :is(.edw-site.edw-ref,.ed-internal) .df_section { min-height:100svh; margin-top:40px; }
+  :is(.edw-site.edw-ref,.ed-internal) .df_section { min-height:0; margin-top:40px; }
   .df_inner { padding:64px 20px 0; }
   .df_brand { grid-column:1/13; }
   .df_cols { grid-column:1/13; margin-top:36px; grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:30px; }
-  .df_stage { min-height:420px; }
+  .df_stage { min-height:110px; }
   :is(.edw-ref,.ed-internal) .df_nav_link { font-size:28px; }
   .df_legal { flex-direction:column; gap:8px; }
 }
@@ -71,3 +71,6 @@
 .df_brand_logo .brand-mark--original:not(.brand-mark--compact) { width:auto; height:auto; flex:0 1 auto; }
 .df_brand_logo .brand-mark--original .brand-mark__logo { width:190px; height:auto; }
 .df_brand_logo .brand-mark--original .brand-mark__product { color:#5e5b56; font-size:9px; letter-spacing:.3em; margin-top:6px; }
+
+/* The expanded navigation may rise over the compact footer. */
+:is(.edw-site.edw-ref,.ed-internal) .df_section:has(.df_dock[data-open="true"]) { overflow:visible; z-index:2; }
