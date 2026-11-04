@@ -1,0 +1,219 @@
+[
+  {
+    "kw": "WEB",
+    "id": "web",
+    "img": "web.jpg",
+    "slug": "/guia-5-segundos",
+    "name": "Los 5 segundos",
+    "format": "PDF · 16 hojas",
+    "eyebrow": "Guía gratis para clínicas dentales",
+    "h": "¿Tu web convence a un paciente nuevo en 5 segundos?",
+    "sub": "Revisa tu página como la ve un paciente desde su celular y encuentra lo que lo hace irse sin escribirte.",
+    "para": [
+      "Tienes página web y no sabes si te trae pacientes o los espanta.",
+      "Casi nadie te escribe o te agenda desde tu web.",
+      "Tu página se hizo hace años y nadie la ha revisado."
+    ],
+    "ayuda": [
+      "Ves tu web con los ojos de un paciente que nunca te ha visitado.",
+      "Detectas los errores más comunes: no se entiende qué haces, no hay botón para agendar, fotos de catálogo, datos viejos.",
+      "Sabes qué cambiar primero sin tener que rehacer toda la página."
+    ],
+    "cta": "Quiero la guía gratis",
+    "thanks": "Listo. Tu guía «Los 5 segundos» ya va a tu correo. También puedes abrirla aquí abajo.",
+    "image": "/recursos/web.jpg",
+    "downloads": [
+      {
+        "label": "Abrir la guía",
+        "url": "/recursos/web.pdf"
+      }
+    ]
+  },
+  {
+    "kw": "MAPA",
+    "id": "mapa",
+    "img": "mapa.jpg",
+    "slug": "/guia-google-maps",
+    "name": "Cómo aparecer en Google Maps",
+    "format": "PDF · 23 hojas",
+    "eyebrow": "Guía fácil para clínicas dentales",
+    "h": "Haz que tu clínica aparezca en Google Maps",
+    "sub": "Paso a paso para crear, verificar y llenar tu ficha de Google. Explicado sin palabras técnicas.",
+    "para": [
+      "Te buscas en Google Maps y no sales, o sales con datos incompletos.",
+      "No sabes si tu clínica ya tiene una ficha de Google ni quién la controla.",
+      "Tienes pocas reseñas o nadie las contesta."
+    ],
+    "ayuda": [
+      "Creas o recuperas tu ficha y la verificas.",
+      "Llenas lo que un paciente revisa: nombre, categoría, horarios, servicios y fotos.",
+      "Sabes cómo pedir reseñas y cómo contestarlas todas."
+    ],
+    "cta": "Quiero la guía gratis",
+    "thanks": "Listo. Tu guía para Google Maps ya va a tu correo. También puedes abrirla aquí abajo.",
+    "image": "/recursos/mapa.jpg",
+    "downloads": [
+      {
+        "label": "Abrir la guía",
+        "url": "/recursos/mapa.pdf"
+      }
+    ]
+  },
+  {
+    "kw": "CHAT",
+    "id": "chat",
+    "img": "chat.jpg",
+    "slug": "/mensajes-whatsapp",
+    "name": "Mensajes de WhatsApp para tu recepción",
+    "format": "PDF · 11 hojas",
+    "eyebrow": "Kit gratis para tu recepción",
+    "h": "Los mensajes de WhatsApp que tu recepción necesita para dar seguimiento",
+    "sub": "Textos listos para copiar y pegar: planes de tratamiento, pacientes que dudan y reseñas en Google.",
+    "para": [
+      "Das planes de tratamiento y muchos pacientes no regresan.",
+      "Tu recepción no sabe qué escribir cuando el paciente duda o no contesta.",
+      "Pides reseñas a veces, sin un mensaje fijo."
+    ],
+    "ayuda": [
+      "Sabes qué mandar y cuándo: a las 48 horas, la llamada entre el día 7 y 10, y cuando el plan vence.",
+      "Tienes respuestas para cuando el paciente duda, dice que no o no contesta.",
+      "Tu recepción pide reseñas y contesta todas, buenas o malas."
+    ],
+    "cta": "Quiero el kit gratis",
+    "thanks": "Listo. Tu kit de mensajes ya va a tu correo. También puedes abrirlo aquí abajo.",
+    "image": "/recursos/chat.jpg",
+    "downloads": [
+      {
+        "label": "Abrir el kit de mensajes",
+        "url": "/recursos/chat.pdf"
+      }
+    ]
+  },
+  {
+    "kw": "AMIGO",
+    "id": "amigo",
+    "img": "amigo.jpg",
+    "slug": "/sistema-recomendaciones",
+    "name": "El sistema de recomendaciones",
+    "format": "PDF · 15 hojas",
+    "eyebrow": "Guía gratis para clínicas dentales",
+    "h": "Que tus pacientes te recomienden sin que se sienta forzado",
+    "sub": "Un sistema de 6 pasos para pedir recomendaciones, premiarlas y llevar el registro de quién te recomendó.",
+    "para": [
+      "Un mes tienes la agenda llena y el siguiente está vacía.",
+      "Tus pacientes están contentos pero casi nunca te recomiendan.",
+      "No sabes quién te mandó a cada paciente nuevo."
+    ],
+    "ayuda": [
+      "Sabes en qué momento pedir la recomendación y qué decir.",
+      "Defines un premio sencillo para el paciente que te recomienda.",
+      "Usas tus 2 tarjetas y tu QR de reseñas, y anotas quién recomendó a quién."
+    ],
+    "cta": "Quiero la guía gratis",
+    "thanks": "Listo. Tu guía del sistema de recomendaciones ya va a tu correo. También puedes abrirla aquí abajo.",
+    "image": "/recursos/amigo.jpg",
+    "downloads": [
+      {
+        "label": "Abrir la guía",
+        "url": "/recursos/amigo.pdf"
+      }
+    ]
+  },
+  {
+    "kw": "CAJA",
+    "id": "caja",
+    "img": "caja.jpg",
+    "wide": true,
+    "slug": "/hoja-caja",
+    "name": "Caja, mensajes y seguimiento",
+    "format": "Google Sheets · 6 pestañas",
+    "eyebrow": "Hoja gratis para tu clínica",
+    "h": "Tu caja, tus planes y tus pacientes en una sola hoja",
+    "sub": "Una hoja de Google lista para usar: anotas lo del día y el panel te muestra cómo va tu clínica.",
+    "para": [
+      "Llevas la caja en libreta, en el celular o de memoria.",
+      "No sabes cuántos planes de tratamiento se aceptaron este mes.",
+      "Quieres un control sencillo sin pagar otro programa."
+    ],
+    "ayuda": [
+      "Registras la caja diaria y el panel suma por ti.",
+      "Das seguimiento a planes de tratamiento y recomendados en la misma hoja.",
+      "Tienes los mensajes de seguimiento a la mano, y una pestaña que explica cómo usarla."
+    ],
+    "cta": "Quiero la hoja gratis",
+    "thanks": "Listo. Toca el botón para crear tu propia copia de la hoja. También te la mandamos a tu correo.",
+    "dl": "Hacer mi copia de la hoja",
+    "image": "/recursos/caja.jpg",
+    "downloads": [
+      {
+        "label": "Hacer mi copia de la hoja",
+        "url": "https://docs.google.com/spreadsheets/d/1APrKzCBtUOI5ZL9zmdu9SHRs9qnmIq-586i5Hk9lBpk/copy"
+      }
+    ]
+  },
+  {
+    "kw": "IA",
+    "id": "ia",
+    "img": "ia.jpg",
+    "slug": "/guia-ia",
+    "name": "La IA en tu clínica",
+    "format": "PDF · 18 hojas + prompt en texto",
+    "eyebrow": "Guía gratis para clínicas dentales",
+    "h": "Usa ChatGPT en tu clínica sin que invente cosas",
+    "sub": "El paso que casi nadie hace (darle contexto), 6 prompts listos para tu clínica y lo que nunca debes hacer con la IA.",
+    "para": [
+      "Ya probaste ChatGPT y te dio respuestas genéricas o con errores.",
+      "Quieres ahorrar tiempo en reseñas, posts y mensajes a pacientes.",
+      "No sabes qué datos sí puedes darle y cuáles no."
+    ],
+    "ayuda": [
+      "Armas la ficha de contexto de tu clínica con un prompt que te entrevista.",
+      "Usas 6 prompts listos: reseñas, explicar tratamientos, posts, teléfono, cuidados y pacientes que no han vuelto.",
+      "Evitas los errores graves: datos de pacientes, diagnósticos y respuestas inventadas."
+    ],
+    "cta": "Quiero la guía gratis",
+    "thanks": "Listo. Tu guía de IA y el prompt entrevistador ya van a tu correo. También puedes abrirlos aquí abajo.",
+    "dl": "Abrir la guía · Copiar el prompt",
+    "image": "/recursos/ia.jpg",
+    "downloads": [
+      {
+        "label": "Abrir la guía",
+        "url": "/recursos/ia.pdf"
+      },
+      {
+        "label": "Abrir el prompt entrevistador",
+        "url": "/recursos/prompt-entrevistador.txt"
+      }
+    ]
+  },
+  {
+    "kw": "FOTO",
+    "id": "foto",
+    "img": "foto.jpg",
+    "slug": "/banco-de-fotos",
+    "name": "Tu banco de fotos y videos",
+    "format": "PDF · 16 hojas",
+    "eyebrow": "Guía gratis para clínicas dentales",
+    "h": "Graba una vez y usa tus fotos y videos por meses",
+    "sub": "Qué grabar en tu clínica, cómo hacerlo con tu celular y cómo guardarlo en carpetas para usarlo en Google, promociones y reels.",
+    "para": [
+      "Cada vez que quieres publicar tienes que sacar fotos nuevas.",
+      "Tus fotos están regadas en el celular de varias personas.",
+      "Tu ficha de Google tiene pocas fotos o fotos viejas."
+    ],
+    "ayuda": [
+      "Sigues una lista de 10 fotos y 10 clips cortos que sí sirven.",
+      "Cuidas luz, ángulo y orden con tu celular, sin equipo caro.",
+      "Guardas todo en 8 carpetas en Drive, Dropbox o iCloud, y lo actualizas cada 3 meses."
+    ],
+    "cta": "Quiero la guía gratis",
+    "thanks": "Listo. Tu guía del banco de fotos ya va a tu correo. También puedes abrirla aquí abajo.",
+    "image": "/recursos/foto.jpg",
+    "downloads": [
+      {
+        "label": "Abrir la guía",
+        "url": "/recursos/foto.pdf"
+      }
+    ]
+  }
+]

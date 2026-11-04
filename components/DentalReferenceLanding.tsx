@@ -4,7 +4,6 @@ import { ArrowUpRight, Search, Wrench, ListChecks, Plus } from "lucide-react";
 import MorphingTooltip from "@/components/annnimate/MorphingTooltip";
 import DockFooter from "@/components/annnimate/DockFooter";
 import EchoHeadline from "@/components/annnimate/EchoHeadline";
-import SimpleMenu from "@/components/annnimate/SimpleMenu";
 import { LeadForm } from "@/components/LeadForm";
 import { DentalQuestionsSection } from "@/components/DentalArcSections";
 import { ElevatorStoryWidget } from "@/components/ElevatorStoryWidget";
@@ -12,8 +11,11 @@ import "@/app/dental-reference.css";
 import "@/app/landing-clarity.css";
 import "@/app/contact-spotlight.css";
 import "@/app/landing-cro-v2.css";
-import "@/app/landing-video.css";
+import BreakoutMedia from "@/components/annnimate/BreakoutMedia";
+import OrbProcess from "@/components/annnimate/OrbProcess";
 import { brandVideo } from "@/lib/brand-video";
+import { services } from "@/lib/services";
+import "@/app/services-links.css";
 
 const platforms = [
   { name: "Google", logo: "/logos/platforms/google.svg" }, { name: "ChatGPT", logo: "/logos/platforms/chatgpt.svg" },
@@ -75,30 +77,28 @@ function ConceptualProgress() {
 
 export function DentalReferenceLanding() {
   return <main className="edw-site edw-ref" id="inicio">
-    <SimpleMenu />
-    <section className="er-hero" aria-labelledby="er-title"><div className="er-hero__heading"><h1 id="er-title">Que te encuentren.<br /><span>Mientras tú atiendes.</span></h1></div><p>Construimos y cuidamos webs para <strong>clínicas dentales</strong>. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.</p><div className="er-hero__actions"><JigglyButton className="er-button er-button--primary" href="#contacto">Solicitar conversación</JigglyButton><JigglyButton className="er-button er-button--white" href="/diagnostico-seo">Diagnóstico gratis</JigglyButton></div></section>
-    <section className="er-vsl" aria-label="Video de presentación de Elevator Dental Web">
-      <iframe
-        src={`${brandVideo.embedUrl}?playsinline=1&rel=0`}
-        title={brandVideo.title}
-        width={1920}
-        height={1080}
-        loading="lazy"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      />
-      <a className="er-vsl__link" href={brandVideo.watchUrl} target="_blank" rel="noopener noreferrer">Ver en YouTube <ArrowUpRight size={13} aria-hidden="true" /></a>
-    </section>
+    <section className="er-hero" aria-labelledby="er-title"><div className="er-hero__heading"><h1 id="er-title"><small className="er-hero__service">Diseño web y SEO para dentistas</small>Que te encuentren.<br /><span>Mientras tú atiendes.</span></h1></div><p>Construimos y cuidamos webs para <strong>clínicas dentales</strong>. Mostramos tus tratamientos, equipo, ubicación y contacto con claridad, y, con Membership, Elevator se encarga de seguir mejorándola.</p><div className="er-hero__actions"><JigglyButton className="er-button er-button--primary" href="#contacto">Solicitar conversación</JigglyButton><JigglyButton className="er-button er-button--white" href="/diagnostico-seo">Diagnóstico gratis</JigglyButton></div></section>
+    <BreakoutMedia
+      expandOnScroll={false}
+      title={brandVideo.title}
+      posterSrc={brandVideo.posterSrc}
+      videoSrc={brandVideo.src}
+      runtime={brandVideo.runtime}
+    />
+
     <div className="er-showcase-wrap"><ElevatorStoryWidget /></div>
 
     <section className="er-foundation er-frame" id="sistema" aria-labelledby="er-foundation-title"><div className="er-foundation__heading"><p className="er-label">El sistema Elevator</p><h2 id="er-foundation-title">Dos servicios.<br /><span>Una misma base digital.</span></h2><p>Primero construimos una web que explique bien tu clínica. Después, Elevator se ocupa de mantenerla y trabajar sus siguientes mejoras.</p></div><div className="er-foundation__cards"><article className="er-foundation__card" id="web"><div className="er-foundation__card-copy"><span className="er-foundation__number">01 / Crear</span><h3>Elevator Dental Web</h3><p className="er-foundation__benefit">Una web clara para presentar tu clínica.</p><p className="er-foundation__detail">Organizamos tratamientos, equipo, ubicación y contacto; además, preparamos esa información para que buscadores y asistentes puedan entenderla.</p><a href="#inversion">Ver alcance de Dental Web <ArrowUpRight size={16} /></a></div><div className="er-foundation__preview"><span className="er-foundation__preview-label">Ejemplo visual de Dental Web</span><ClinicPreview compact /></div></article><article className="er-foundation__card" id="membership"><div className="er-foundation__card-copy"><span className="er-foundation__number">02 / Cuidar y mejorar</span><h3>Elevator Membership</h3><p className="er-foundation__benefit">Tu web sigue avanzando sin que coordines cada ajuste.</p><p className="er-foundation__detail">Elevator se ocupa del hosting, el mantenimiento y las mejoras continuas. Tú revisas la información clínica cuando corresponde.</p><a href="#inversion">Ver alcance de Membership <ArrowUpRight size={16} /></a></div><div className="er-foundation__preview er-foundation__preview--care"><span className="er-foundation__preview-label">Ejemplo visual de Membership</span><CarePreview /></div></article></div><ConceptualProgress /></section>
+
+    <div id="como-trabajamos"><OrbProcess colorDeep="#002b61" colorPrimary="#0071e3" colorMid="#409cff" colorAccent="#7bc6ff" colorLight="#cce8ff" colorHighlight="#f7fbff" /></div>
 
     <section className="er-platforms er-frame" aria-labelledby="er-platforms-title"><header><h2 id="er-platforms-title">Información para pacientes,<br />buscadores y asistentes de IA.</h2><a href="#claridad">Una misma información <ArrowUpRight size={15} /></a></header><IllustrativeSearchResult /><div className="er-platforms__context">Logos de referencia de plataformas externas a Elevator.</div><div className="er-platforms__grid">{platforms.map(({ name, logo }) => <div key={name}><Image src={logo} alt="" width={30} height={30} /><span>{name}</span></div>)}</div></section>
 
     <section className="er-diagnosis er-frame" id="diagnostico" aria-labelledby="er-diagnosis-title"><div className="er-diagnosis__content"><div><p className="er-label">Diagnóstico gratuito</p><h2 id="er-diagnosis-title">Antes de cambiar tu web,<br />entiende cómo está.</h2></div><div className="er-diagnosis__details"><p>Revisamos la página que elijas y te enviamos por email evidencia de experiencia móvil, estructura y contenido, con hasta tres prioridades claras.</p><p className="er-diagnosis__note">Gratis, sin tarjeta ni cuenta. Es una revisión de una página; no mide posiciones, visitas ni respuestas de asistentes.</p><JigglyButton className="er-button er-button--primary" href="/diagnostico-seo">Solicitar diagnóstico gratis</JigglyButton></div></div></section>
 
     <EchoHeadline />
+
+    <section className="er-service-links er-frame" id="servicios" aria-labelledby="services-title"><div><p className="er-label">QUÉ HACEMOS</p><h2 id="services-title">Una presencia digital<br />para tu clínica.</h2><p>Conoce cómo construimos, preparamos y cuidamos tu web.</p></div><div className="er-service-links__list">{services.map(service => <a href={`/servicios/${service.slug}`} key={service.slug}><span>{service.label}</span><ArrowUpRight size={18} aria-hidden="true" /></a>)}</div></section>
 
     <section className="er-scope er-frame" id="inversion" aria-labelledby="er-scope-title"><div className="er-row-heading"><h2 id="er-scope-title">La base y la operación.<br />Compara el alcance.</h2><JigglyButton className="er-button er-button--primary er-button--small" href="#contacto">Solicitar conversación</JigglyButton></div><p>La web inicial y la membresía se complementan. Definimos contigo la inversión, el alcance y las condiciones antes de comenzar.</p><div className="er-scope__essentials"><span>Construcción inicial + operación mensual</span><span>Licencia ligada a Membership</span><span>3 créditos de solicitudes al mes</span></div><details className="er-detail"><summary>Ver la comparación completa <span>+</span></summary><div className="er-scope__table" role="region" aria-label="Comparación de Elevator Dental Web y Membership" tabIndex={0}><table><caption>Qué corresponde a la construcción inicial y qué incluye la operación mensual</caption><thead><tr><th>Qué necesitas</th><th>Elevator Dental Web<small>Construcción inicial</small></th><th>Elevator Membership<small>Operación mensual</small></th></tr></thead><tbody>{scope.map(([label, web, membership]) => <tr key={label}><th scope="row">{label}</th><td>{web}</td><td>{membership}</td></tr>)}</tbody></table></div></details><div className="er-scope__terms"><p><strong>Alcance común:</strong> una marca, una ubicación y un idioma. La licencia de uso funciona mientras Membership está activa; el código no se transfiere y las solicitudes siguen el alcance acordado.</p><p>Campañas, redes sociales y CRM quedan fuera del servicio. Los tiempos de publicación y el uso de créditos se acuerdan según el proyecto y los materiales disponibles. Elevator prepara la web para buscadores y asistentes; las posiciones, sus respuestas y la llegada de pacientes dependen de factores externos.</p></div></section>
     <div className="er-faq er-frame" id="preguntas"><details className="er-faq-disclosure"><summary>Preguntas antes de dar el siguiente paso <span>+</span></summary><DentalQuestionsSection /></details></div>

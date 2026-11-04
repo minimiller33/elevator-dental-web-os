@@ -1,0 +1,10 @@
+{
+  "perfil": "contact.edw_optin_perfil",
+  "lead_magnet": "contact.edw_optin_recurso",
+  "landing_page": "contact.edw_optin_landing_page",
+  "utm_source": "contact.edw_optin_utm_source",
+  "utm_medium": "contact.edw_optin_utm_medium",
+  "utm_campaign": "contact.edw_optin_utm_campaign",
+  "consent_at": "contact.edw_optin_consent_at",
+  "consent_version": "contact.edw_optin_consent_version"
+}

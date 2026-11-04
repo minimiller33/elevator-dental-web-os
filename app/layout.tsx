@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import type { Metadata, Viewport } from "next";
 import { Suspense, type ReactNode } from "react";
 import { LeadAttributionTracker } from "@/components/LeadAttributionTracker";
+import { ResourceNavbar } from "@/components/optins/ResourceNavbar";
 import { GeistSans } from "geist/font/sans";
 import "@/components/arc/foundation.css";
 import "./globals.css";
@@ -53,7 +54,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="es" className={`${GeistSans.variable} ${geistMono.variable} ${inter.variable} ${waldenburg.variable}`}>
-      <body><Suspense fallback={null}><LeadAttributionTracker /></Suspense>{children}</body>
+      <body><Suspense fallback={null}><LeadAttributionTracker /></Suspense><ResourceNavbar />{children}</body>
     </html>
   );
 }

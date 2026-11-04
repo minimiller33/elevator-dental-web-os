@@ -1,0 +1,10 @@
+.edw-ref .er-hero h1 .er-hero__service { display:block;margin:0 0 14px;color:#1269ca;font-family:var(--font-inter),sans-serif;font-size:14px;font-weight:600;letter-spacing:0;line-height:1.4; }
+.edw-ref .er-service-links { display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:80px;padding-bottom:80px; }
+.edw-ref .er-service-links h2 { font-size:clamp(36px,4vw,50px);line-height:1.05;margin:16px 0; }
+.edw-ref .er-service-links p:not(.er-label) { color:#6b6b6b;max-width:360px;line-height:1.6; }
+.edw-ref .er-service-links__list { border-top:1px solid #dedede; }
+.edw-ref .er-service-links__list a { display:flex;justify-content:space-between;align-items:center;gap:16px;padding:21px 4px;border-bottom:1px solid #dedede;color:#242322;text-decoration:none;transition:color .2s ease,padding .2s ease; }
+.edw-ref .er-service-links__list a svg { color:#0071e3; }
+.edw-ref .er-service-links__list a:hover { color:#0071e3;padding-left:10px; }
+@media(max-width:767px){.edw-ref .er-service-links{grid-template-columns:1fr;gap:26px;padding-top:55px;padding-bottom:55px}.edw-ref .er-hero h1 .er-hero__service{font-size:12px;margin-bottom:10px}}
+@media(prefers-reduced-motion:reduce){.edw-ref .er-service-links__list a{transition:none}}

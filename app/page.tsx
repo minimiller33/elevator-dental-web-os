@@ -26,7 +26,6 @@ const structuredData = {
       thumbnailUrl: [brandVideo.thumbnailUrl],
       uploadDate: brandVideo.uploadDate,
       duration: brandVideo.duration,
-      embedUrl: brandVideo.embedUrl,
       contentUrl: brandVideo.contentUrl,
       inLanguage: "es-MX",
       publisher: { "@id": "https://elevatordental.com/#organization" },
